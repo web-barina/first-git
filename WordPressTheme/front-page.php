@@ -97,11 +97,12 @@
                             </div>
                         </div>
                     </li>
-                    <?php endwhile;
-                        wp_reset_postdata(); // サブループ終了後、メインクエリにリセットする
-                        endif;
-                    ?>
+                    <?php endwhile;?>
                 </ul>
+                <?php else : ?>
+                <p class="campaign-card__no-message">ただいま準備中です。もう少しお待ちください。</p>
+                <?php wp_reset_postdata();?>
+                <?php endif;?>
             </div>
             <div class="topCampaign__btn-wrapper">
                 <a href="<?php echo esc_url(home_url("campaign")); ?>" class="btn">View more
@@ -209,6 +210,8 @@
                 </li>
                 <?php endwhile; ?>
             </ul>
+            <?php else : ?>
+            <p class="blog-card__no-message">ただいま準備中です。少々お待ちください。</p>
             <?php wp_reset_postdata(); ?>
             <?php endif; ?>
         </div>
@@ -271,6 +274,8 @@
                 </li>
                 <?php endwhile; ?>
             </ul>
+            <?php else : ?>
+            <p class="voice-card__no-message">ただいま準備中です。少々お待ちください。</p>
             <?php wp_reset_postdata(); ?>
             <?php endif; ?>
             <div class="top-voice__btn-wrapper">

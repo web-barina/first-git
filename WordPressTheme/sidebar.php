@@ -30,7 +30,10 @@
                             <h3 class="popular-card__title"><?php the_title(); ?></h3>
                         </div>
                     </div>
-                </a><?php endwhile; ?>
+                </a>
+                <?php endwhile; ?>
+                <?php else : ?>
+                <p class="popular-card__no-message">ただいま準備中です。<br>少々お待ちください。</p>
                 <?php
                     endif;
                     wp_reset_postdata();
@@ -103,11 +106,12 @@
                             </div>
                         </div>
                     </li>
-                    <?php endwhile;
-                        wp_reset_postdata(); // サブループ終了後、メインクエリにリセットする
-                        endif;
-                    ?>
+                    <?php endwhile;?>
                 </ul>
+                <?php else : ?>
+                <p class="campaign-card__no-message">ただいま準備中です。もう少しお待ちください。</p>
+                <?php wp_reset_postdata();?>
+                <?php endif;?>
                 <div class="sidebar__btn-wrapper">
                     <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="btn">View more
                         <span></span>

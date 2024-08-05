@@ -67,14 +67,16 @@
                 </li>
                 <?php endwhile; ?>
             </ul>
+            <?php else : ?>
+            <p class="campaign-card__no-message">ただいま準備中です。もう少しお待ちください。</p>
             <?php endif; ?>
         </div>
-    </div>
-    <div class="campaign__pager-wrapper pager-wrapper">
-        <div class="campaign__pager pager">
-            <ul class="pager__number-wrapper">
-                <?php wp_pagenavi(); ?>
-            </ul>
+        <div class="campaign__pager-wrapper pager-wrapper">
+            <div class="campaign__pager pager">
+                <ul class="pager__number-wrapper">
+                    <?php wp_pagenavi(); ?>
+                </ul>
+            </div>
         </div>
     </div>
 </section>

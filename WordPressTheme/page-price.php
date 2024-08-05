@@ -3,6 +3,23 @@
 <section class="price price-wrapper">
     <div class="price__inner inner">
         <div class="price__menu-wrapper menus">
+            <?php
+                $license_prices = SCF::get('license_price');
+                $has_content = false;
+
+                if (!empty($license_prices)) {
+                    foreach ($license_prices as $license_price) {
+                        $license_menu = $license_price['license_menu'];
+                        $license_yen = $license_price['license_yen'];
+                        if (!empty($license_menu) || !empty($license_yen)) {
+                            $has_content = true;
+                            break;
+                        }
+                    }
+                }
+
+                if ($has_content) :
+            ?>
             <div class="menus__item menu" id="license-price">
                 <div class="menu__title-wrapper">
                     <h2 class="menu__title">ライセンス取得</h2>
@@ -13,11 +30,9 @@
                 <table class="menu__lists" aria-label="ライセンス講習">
                     <tbody>
                         <?php
-                            $license_prices = SCF::get('license_price');
-                            if (!empty($license_prices)) :
-                                foreach ($license_prices as $license_price) :
-                                    $license_menu = $license_price['license_menu'];
-                                    $license_yen = $license_price['license_yen'];
+                            foreach ($license_prices as $license_price) :
+                                $license_menu = $license_price['license_menu'];
+                                $license_yen = $license_price['license_yen'];
                         ?>
                         <tr>
                             <td class="menu__name">
@@ -28,11 +43,13 @@
                         </tr>
                         <?php
                             endforeach;
-                            endif;
                         ?>
                     </tbody>
                 </table>
             </div>
+            <?php
+                endif;
+            ?>
             <div class="menus__item menu" id="trial-price">
                 <div class="menu__title-wrapper">
                     <h2 class="menu__title">体験ダイビング</h2>
@@ -72,7 +89,7 @@
                         alt="クジラのアイコンイラスト" />
                 </div>
                 <table class="menu__lists" aria-label="ファンダイビング">
-                    
+
                     <tbody>
                         <?php
                             $fun_prices = SCF::get('fun_price');

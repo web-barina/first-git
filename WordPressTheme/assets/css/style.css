@@ -736,6 +736,11 @@ a {
 	margin-top: 5rem;
 }
 
+.blog-card__no-message {
+	margin-top: 3.125rem;
+	text-align: center;
+}
+
 .blog-cards {
 	grid-gap: 2.5rem;
 	display: grid;
@@ -1080,6 +1085,11 @@ a {
 
 .campaign-card__btn-wrapper {
 	display: none;
+}
+
+.campaign-card__no-message {
+	margin-top: 3.125rem;
+	text-align: center;
 }
 
 .contact-faq {
@@ -1651,6 +1661,11 @@ input[type=checkbox]:checked:before {
 .faq__answer p {
 	line-height: 1.45;
 	margin: 0 1rem;
+}
+
+.faq__no-content {
+	margin-top: 3.125rem;
+	text-align: center;
 }
 
 .footer__inner {
@@ -2632,6 +2647,10 @@ a.previouspostslink {
 	margin-top: 0.25rem;
 }
 
+.popular-card__no-message {
+	margin-top: 1.5rem;
+}
+
 .popular-cards {
 	display: flex;
 	flex-direction: column;
@@ -3427,6 +3446,11 @@ select {
 	width: fit-content;
 }
 
+.voice-card__no-message {
+	margin-top: 3.125rem;
+	text-align: center;
+}
+
 .voice-cards {
 	grid-gap: 3.0625rem;
 	display: grid;
@@ -3991,6 +4015,12 @@ html {
 	margin-top: 4.8125rem;
 }
 
+.blog-card__no-message {
+	background-color: #fff;
+	margin-top: 6.25rem;
+	padding: 1rem;
+}
+
 .blog-cards {
 	-moz-column-gap: 2.5rem;
 	column-gap: 2.5rem;
@@ -4150,6 +4180,10 @@ html {
 	display: block;
 	margin-top: 1rem;
 	padding-bottom: 2.5rem;
+}
+
+.campaign-card__no-message {
+	margin-top: 6.25rem;
 }
 
 .contact-faq {
@@ -4354,6 +4388,10 @@ input[type=checkbox] {
 
 .faq__answer p {
 	margin: 0 2.5rem;
+}
+
+.faq__no-content {
+	margin-top: 0;
 }
 
 .footer__inner {
@@ -4720,6 +4758,10 @@ input[type=checkbox] {
 	grid-template-columns: repeat(9, 1fr);
 }
 
+.popular-card__no-message {
+	margin-top: 3rem;
+}
+
 .price__inner.inner {
 	max-width: 46.25rem;
 	width: 100%;
@@ -5084,6 +5126,10 @@ select {
 
 .voice-card__category {
 	padding: 0.25rem 0.875rem;
+}
+
+.voice-card__no-message {
+	margin-top: 6.25rem;
 }
 
 .voice-cards {

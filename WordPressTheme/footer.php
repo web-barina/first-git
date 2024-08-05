@@ -1,4 +1,5 @@
 <?php if (!is_404() && !is_page_template('page-contact.php') && !is_page('contact/thanks')) : ?>
+
 <!--contact-->
 <section class="contact contact-wrapper contact-wrapper--layout">
     <div class="contact__inner inner">
@@ -123,6 +124,21 @@
                             <a href="<?php echo esc_url(home_url('price')); ?>">料金一覧</a>
                         </div>
                         <div class="site-map__sub">
+                            <?php
+                            $license_prices = SCF::get('license_price');
+                            $has_license_content = false;
+
+                            if (!empty($license_prices)) {
+                                foreach ($license_prices as $license_price) {
+                                    $license_menu = $license_price['license_menu'];
+                                    $license_yen = $license_price['license_yen'];
+                                    if (!empty($license_menu) || !empty($license_yen)) {
+                                        $has_license_content = true;
+                                        break;
+                                    }
+                                }
+                            }
+                        ?>
                             <ul class="site-map__sub-titles">
                                 <li class="site-map__sub-title">
                                     <a href="<?php echo esc_url(home_url('price#license-price')); ?>">ライセンス講習</a>

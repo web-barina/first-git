@@ -1,4 +1,4 @@
-<!--わたしたちについて-->
+<!-- わたしたちについて -->
 <?php get_header(); ?>
 <section class="about-us about-us-wrapper">
     <div class="about-us__inner inner">
@@ -21,6 +21,12 @@
         </div>
     </div>
 </section>
+
+<?php
+$gallery_photos = SCF::get('gallery_photos'); // 繰り返しフィールドのスラッグを指定
+
+if (!empty($gallery_photos)) :
+?>
 <section class="gallery gallery-wrapper">
     <div class="gallery__inner inner">
         <div class="gallery__section-titles section-titles">
@@ -29,9 +35,6 @@
         </div>
         <div class="gallery__photos-wrapper photos">
             <?php
-            $gallery_photos = SCF::get('gallery_photos'); // 繰り返しフィールドのスラッグを指定
-
-            if (!empty($gallery_photos)) :
                 foreach ($gallery_photos as $index => $photo) :
                     $image_id = $photo['gallery_img']; // 画像フィールドのスラッグを指定
                     $image_url = wp_get_attachment_image_url($image_id, 'full');
@@ -45,11 +48,9 @@
             </div>
             <?php
                 endforeach;
-            endif;
             ?>
         </div>
         <!-- モーダル本体 -->
-        <?php if (!empty($gallery_photos)) : ?>
         <?php foreach ($gallery_photos as $index => $photo) : ?>
         <div class="gallery__modal modal" id="cont-modal<?php echo $index + 1; ?>" style="display: none;">
             <div class="modal__body">
@@ -61,11 +62,8 @@
             </div>
         </div>
         <?php endforeach; ?>
-        <?php endif; ?>
     </div>
 </section>
-
-
-
+<?php endif; ?>
 
 <?php get_footer(); ?>

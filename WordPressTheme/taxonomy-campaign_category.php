@@ -66,6 +66,8 @@
                 </li>
                 <?php endwhile; ?>
             </ul>
+            <?php else : ?>
+            <p class="campaign-card__no-message">ただいま準備中です。もう少しお待ちください。</p>
             <?php endif; ?>
         </div>
     </div>

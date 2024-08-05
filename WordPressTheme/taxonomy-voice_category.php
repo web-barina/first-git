@@ -49,6 +49,8 @@
                 </li>
                 <?php endwhile; ?>
             </ul>
+            <?php else : ?>
+            <p class="voice-card__no-message">ただいま準備中です。もう少しお待ちください。</p>
             <?php endif; ?>
             <div class="voice__pager-wrapper">
                 <div class="voice__pager pager">
