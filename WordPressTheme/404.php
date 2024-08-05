@@ -2,7 +2,7 @@
 <?php get_header(); ?>
 <main>
     <section class="no-page__main">
-        <div class="nopage__inner inner">
+        <div class="no-page__inner inner">
             <div class="no-page__title-wrapper">
                 <h1 class="no-page__title">404</h1>
             </div>

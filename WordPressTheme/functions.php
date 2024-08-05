@@ -55,9 +55,7 @@ function enqueue_custom_scripts() {
         true // フッターにスクリプトを配置
     );
 }
-
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
-
 
 /*******
  *ブログ*
@@ -78,8 +76,6 @@ function my_setup() {//サムネイル表示
     );
 }
 add_action( 'after_setup_theme', 'my_setup' );
-
-
 
 /**************************
  *サイドバーのブログ人気記事*
@@ -113,7 +109,6 @@ function remove_post_views_column($columns) {// 閲覧数を非公開にする�
 }
 add_filter('manage_posts_columns', 'remove_post_views_column');
 
-
 /***************************
  *サイドバー、アーカイブリンク*
  ***************************/
@@ -132,7 +127,6 @@ add_filter('query_vars', 'custom_query_vars');
 /*************
  *キャンペーン*
  *************/
-
 function filter_campaigns_by_custom_field($query) {
     if (!is_admin() && $query->is_main_query() && is_post_type_archive('campaign')) {
         $query->set('posts_per_page', 4);// 投稿4件表示
@@ -143,7 +137,6 @@ add_action('pre_get_posts', 'filter_campaigns_by_custom_field');
 /***********
  *お客様の声*
  ***********/
-
 function filter_voice_posts_by_category($query) {
     if (!is_admin() && $query->is_main_query() && (is_post_type_archive('voice'))) {
         $query->set('posts_per_page', 6); // 投稿6件表示
@@ -151,12 +144,9 @@ function filter_voice_posts_by_category($query) {
 }
 add_action('pre_get_posts', 'filter_voice_posts_by_category');
 
-
-
 /**************
  *お問い合わせ*
  **************/
-
 //セレクトボックス
 function cf7_campaign_category_select_box() {
     // カスタムタクソノミーの用語を取得
@@ -168,19 +158,15 @@ function cf7_campaign_category_select_box() {
     // selectボックスのHTMLを生成
     $output = '<select name="campaign_category">';
     $output .= '<option value="">選択してください</option>'; // 初期選択肢
-
     foreach ($terms as $term) {
         $output .= sprintf('<option value="%s">%s</option>', esc_attr($term->slug), esc_html($term->name));
     }
-
     $output .= '</select>';
-
     return $output;
 }
 
 // セレクトボックスにショートコードを登録
 add_shortcode('cf7_campaign_category_select', 'cf7_campaign_category_select_box');
-
 function cf7_form_content_shortcode($form) {
     return do_shortcode($form);
 }
@@ -204,7 +190,6 @@ location = 'https://barina-blog-str.conohawing.com/codeups/thanks';
 </script>
 EOD;
 }
-
 
 /*****************
  *管理画面並び替え*

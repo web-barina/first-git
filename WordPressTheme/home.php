@@ -22,7 +22,7 @@
                                     </figure>
                                 </div>
                                 <div class="blog-card__body">
-                                    <time datetime="<?php the_time() ?>"
+                                    <time datetime="<?php the_time("c") ?>"
                                         class="blog-card__time"><?php the_time("Y.m.d") ?></time>
                                     <h2 class="blog-card__title"><?php the_title() ?></h2>
                                     <p class="blog-card__text">

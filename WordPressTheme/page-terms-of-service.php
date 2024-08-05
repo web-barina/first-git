@@ -2,31 +2,19 @@
 <?php get_header(); ?>
 <!--terms-->
 <section class="terms">
+    <?php if (have_posts()) : ?>
     <div class="terms__inner inner">
+        <?php while (have_posts()) : the_post(); ?>
         <div class="terms__title">
-            <?php
-$page_slug = 'terms-of-service'; // 固定ページのスラッグを指定
-$page = get_page_by_path($page_slug);
-
-if ($page) {
-    // タイトルを出力
-    echo '<h1>' . esc_html($page->post_title) . '</h1>';
-}
-?>
+            <h2>
+                <?php the_title() ?>
+            </h2>
         </div>
-
         <div class="terms__text">
-            <?php
-$page_slug = 'terms-of-service'; // 固定ページのスラッグを指定
-$page = get_page_by_path($page_slug);
-
-if ($page) {
-    // 内容を出力
-    echo apply_filters('the_content', $page->post_content);
-}
-?>
-
+            <?php the_content() ?>
         </div>
+        <?php endwhile; ?>
     </div>
+    <?php endif; ?>
 </section>
 <?php get_footer(); ?>

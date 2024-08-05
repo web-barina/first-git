@@ -9,9 +9,6 @@
                     'posts_per_page' => 3, // 表示する記事数
                     'meta_key' => 'post_views_count', // 人気記事の基準となるカスタムフィールド
                     'orderby' => 'meta_value_num', // ソート基準
-                    'order' => 'DESC', // 降順
-                    'post_type' => 'post', // ポストタイプ
-                    'post_status' => 'publish' // 公開ステータス
                     );
 
                     $popular_query = new WP_Query($popular_args);
@@ -29,7 +26,7 @@
                         </figure>
                         <div class="popular-card__text">
                             <time class="popular-card__time"
-                                datetime="<?php the_time() ?>"><?php the_time("Y.m.d") ?></time>
+                                datetime="<?php the_time("c") ?>"><?php the_time("Y.m.d") ?></time>
                             <h3 class="popular-card__title"><?php the_title(); ?></h3>
                         </div>
                     </div>
@@ -46,12 +43,8 @@
                     $args = array(
                     'post_type' => 'voice',
                     'posts_per_page' => 1,
-                    'orderby' => 'date',
-                    'order' => 'DESC'
                     );
-
                     $latest_voice = new WP_Query($args);
-
                     if ($latest_voice->have_posts()) :
                     while ($latest_voice->have_posts()) : $latest_voice->the_post(); 
                 ?>
@@ -63,7 +56,7 @@
                     <h3 class="review__title"><?php the_field("customer_title"); ?></h3>
                 </div>
                 <?php endwhile;
-                    wp_reset_postdata(); // サブループ終了後、メインクエリにリセットする
+                    wp_reset_postdata(); 
                     endif;
                 ?>
                 <div class="sidebar__btn-wrapper">
@@ -79,8 +72,6 @@
                     $campaign_args = array(
                     'post_type' => 'campaign',
                     'posts_per_page' => 2,
-                    'orderby' => 'date',
-                    'order' => 'DESC'
                     );
 
                     $latest_campaigns = new WP_Query($campaign_args);
@@ -137,28 +128,28 @@
                             'after'           => '</a></div>',
                             'show_post_count' => false,
                             'echo'            => 0,
-                            'order'           => 'DESC'
                         ));
-
                         // 年ごとにアーカイブをグループ化
                         preg_match_all('/<div class="archive-months__item archive-month"><a href="#">(.*?)<\/a><\/div>/', $archives, $matches);
-                        foreach ($matches[1] as $archive) {
+                        foreach ($matches[1] as $archive) :
                             preg_match('/(\d{4})年(\d{1,2})月/', $archive, $date);
                             $years[$date[1]][] = $date[2];
-                        }
-
-                        // 年ごとに表示
-                        foreach ($years as $year => $months) {
-                            echo '<div class="sidebar__archive-year archive-year">' . $year . '</div>';
-                            echo '<div class="archive-year__item archive-months" style="display: none;">';
-                            foreach ($months as $month) {
-                                $month_padded = str_pad($month, 2, '0', STR_PAD_LEFT);
-                                $url = get_month_link($year, $month_padded);
-                                echo '<div class="archive-months__item archive-month"><a href="' . esc_url($url) . '">' . $month . '月</a></div>';
-                            }
-                            echo '</div>';
-                        }
+                        endforeach;
                     ?>
+                    <?php foreach ($years as $year => $months): ?>
+                    <div class="sidebar__archive-year archive-year"><?php echo $year; ?></div>
+                    <div class="archive-year__item archive-months" style="display: none;">
+                        <?php foreach ($months as $month): ?>
+                        <?php
+                            $month_padded = str_pad($month, 2, '0', STR_PAD_LEFT);
+                            $url = get_month_link($year, $month_padded);
+                            ?>
+                        <div class="archive-months__item archive-month">
+                            <a href="<?php echo esc_url($url); ?>"><?php echo $month; ?>月</a>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
             </section>
         </aside>

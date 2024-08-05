@@ -28,13 +28,13 @@
                         <div class="campaign-card__category">
                             <?php
                                 $terms = get_the_terms($post->ID, 'campaign_category');
-                                if ($terms && !is_wp_error($terms)) {
-                                $term_list = array();
-                                    foreach ($terms as $term) {
-                                     $term_list[] = $term->name;
-                                    }
+                                if ($terms && !is_wp_error($terms)):
+                                    $term_list = array();
+                                    foreach ($terms as $term):
+                                        $term_list[] = $term->name;
+                                    endforeach;
                                     echo implode(', ', $term_list);
-                                }
+                                endif;
                             ?>
                         </div>
                         <div class="campaign-card__title-wrapper">

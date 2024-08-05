@@ -29,13 +29,13 @@
                         <div class="campaign-card__category">
                             <?php
                                 $terms = get_the_terms($post->ID, 'campaign_category');
-                                if ($terms && !is_wp_error($terms)) {
-                                $term_list = array();
-                                    foreach ($terms as $term) {
-                                     $term_list[] = $term->name;
-                                    }
+                                if ($terms && !is_wp_error($terms)):
+                                    $term_list = array();
+                                    foreach ($terms as $term):
+                                        $term_list[] = $term->name;
+                                    endforeach;
                                     echo implode(', ', $term_list);
-                                }
+                                endif;
                             ?>
                         </div>
                         <div class="campaign-card__title-wrapper">
@@ -59,7 +59,7 @@
                         <p class="campaign-card__date"><?php the_field("campaign_period"); ?></p>
                         <p class="campaign-card__reserve">ご予約・お問い合わせはコチラ</p>
                         <div class="campaign-card__btn-wrapper">
-                            <a href="<?php echo get_permalink(get_page_by_path('contact')); ?>" class="btn">Contact us
+                            <a href="<?php echo esc_url(home_url('contact')); ?>" class="btn">Contact us
                                 <span></span>
                             </a>
                         </div>

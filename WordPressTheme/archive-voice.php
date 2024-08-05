@@ -6,11 +6,11 @@
             <a href="<?php echo get_post_type_archive_link('voice'); ?>"
                 class="tabs__item tab <?php echo !is_tax('voice_category') ? 'js-active' : ''; ?>">ALL</a>
             <?php
-            $terms = get_terms(array(
-                'taxonomy' => 'voice_category',
-                'hide_empty' => false,
-            ));
-            foreach ($terms as $term) :
+                $terms = get_terms(array(
+                    'taxonomy' => 'voice_category',
+                    'hide_empty' => false,
+                ));
+                foreach ($terms as $term) :
             ?>
             <a href="<?php echo get_term_link($term); ?>"
                 class="tabs__item tab <?php echo is_tax('voice_category', $term->slug) ? 'js-active' : ''; ?>">
@@ -28,14 +28,14 @@
                                 <div class="voice-card__customer-age"><?php the_field("customer_info"); ?></div>
                                 <div class="voice-card__category">
                                     <?php
-                                    $terms = get_the_terms(get_the_ID(), 'voice_category');
-                                    if ($terms && !is_wp_error($terms)) {
-                                        $term_list = array();
-                                        foreach ($terms as $term) {
-                                            $term_list[] = esc_html($term->name);
-                                        }
-                                        echo implode(', ', $term_list);
-                                    }
+                                        $terms = get_the_terms(get_the_ID(), 'voice_category');
+                                        if ($terms && !is_wp_error($terms)):
+                                            $term_list = array();
+                                            foreach ($terms as $term):
+                                                $term_list[] = esc_html($term->name);
+                                            endforeach;
+                                            echo implode(', ', $term_list);
+                                        endif;
                                     ?>
                                 </div>
                             </div>
