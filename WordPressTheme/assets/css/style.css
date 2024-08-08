@@ -1025,8 +1025,11 @@ a {
 }
 
 .campaign-card__contents {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	margin-bottom: 1rem;
-	margin-top: auto;
+	margin-top: 0;
 	text-align: center;
 }
 
@@ -1073,6 +1076,13 @@ a {
 
 .campaign-card__detail {
 	display: none;
+}
+
+.campaign-card__bottom-wrapper {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin-top: auto;
 }
 
 .campaign-card__date {
@@ -4108,7 +4118,6 @@ html {
 .campaign-card__contents {
 	line-height: 1.5;
 	margin-bottom: 0rem;
-	margin-top: auto;
 }
 
 .campaign-card__text {
@@ -4156,6 +4165,7 @@ html {
 
 .campaign-card__detail {
 	display: block;
+	height: auto;
 	margin-top: 0.75rem;
 	padding: 0 1.5625rem;
 	text-align: left;

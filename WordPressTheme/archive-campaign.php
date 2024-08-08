@@ -26,12 +26,18 @@
             <ul class="campaign__cards">
                 <?php while (have_posts()) : the_post(); ?>
                 <li class="campaign__cards-item campaign-card" id="license-campaign">
-                    <figure class="campaign-card__img">
-                        <img src="<?php the_field("campaign_img"); ?>" alt="<?php the_field("campaign_title"); ?>">
-                    </figure>
-                    <div class="campaign-card__body  campaign-card__body--lower">
-                        <div class="campaign-card__category">
-                            <?php
+                    <div class="campaign-card__upper">
+                        <figure class="campaign-card__img">
+                            <?php if (get_field("campaign_img")) : ?>
+                            <img src="<?php the_field("campaign_img"); ?>" alt="<?php the_field("campaign_title"); ?>">
+                            <?php else : ?>
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
+                                alt="no-image" />
+                            <?php endif; ?>
+                        </figure>
+                        <div class="campaign-card__body  campaign-card__body--lower">
+                            <div class="campaign-card__category">
+                                <?php
                                 $terms = get_the_terms($post->ID, 'campaign_category');
                                 if ($terms && !is_wp_error($terms)):
                                     $term_list = array();
@@ -41,25 +47,28 @@
                                     echo implode(', ', $term_list);
                                 endif;
                             ?>
+                            </div>
+                            <div class="campaign-card__title-wrapper">
+                                <h3 class="campaign-card__title campaign-card__title--lower">
+                                    <?php the_field("campaign_title"); ?></h3>
+                            </div>
                         </div>
-                        <div class="campaign-card__title-wrapper">
-                            <h3 class="campaign-card__title campaign-card__title--lower">
-                                <?php the_field("campaign_title"); ?></h3>
+                        <div class="campaign-card__contents">
+                            <p class="campaign-card__text campaign-card__text--lower">
+                                <?php the_field("campaign_text"); ?>
+                            </p>
+                            <div class="campaign-card__price-wrapper">
+                                <p class="campaign-card__pre-price">
+                                    &yen;<?php the_field("campaign_pre-price"); ?>
+                                </p>
+                                <p class="campaign-card__after-price">
+                                    &yen;<?php the_field("campaign_after-price"); ?></p>
+                            </div>
+                            <p class="campaign-card__detail"><?php the_field("campaign_content"); ?>
+                            </p>
                         </div>
                     </div>
-                    <div class="campaign-card__contents">
-                        <p class="campaign-card__text campaign-card__text--lower">
-                            <?php the_field("campaign_text"); ?>
-                        </p>
-                        <div class="campaign-card__price-wrapper">
-                            <p class="campaign-card__pre-price">
-                                &yen;<?php the_field("campaign_pre-price"); ?>
-                            </p>
-                            <p class="campaign-card__after-price">
-                                &yen;<?php the_field("campaign_after-price"); ?></p>
-                        </div>
-                        <p class="campaign-card__detail"><?php the_field("campaign_content"); ?>
-                        </p>
+                    <div class="campaign-card__bottom-wrapper">
                         <p class="campaign-card__date"><?php the_field("campaign_period"); ?></p>
                         <p class="campaign-card__reserve">ご予約・お問い合わせはコチラ</p>
                         <div class="campaign-card__btn-wrapper">

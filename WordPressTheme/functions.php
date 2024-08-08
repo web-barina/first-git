@@ -193,26 +193,38 @@ location = 'https://barina-blog-str.conohawing.com/codeups/thanks';
 EOD;
 }
 
-/*****************
- *管理画面並び替え*
- *****************/
-function sort_side_menu($menu_order) {
-    return array(
-        "index.php", // ダッシュボード
-        "edit.php", // 投稿
-        "edit.php?post_type=page", // 固定ページ
-        "separator1", // 区切り線1
-        "upload.php", // メディア
-        "edit-comments.php", // コメント
-        "separator2", // 区切り線2
-        "themes.php", // 外観
-        "users.php", // ユーザー
-        "tools.php", // ツール
-        "options-general.php", // 設定
-        "plugins.php", // プラグイン
-        "separator-last" // 区切り線（最後）
-    );
+/*************
+ *管理画面編集*
+ *************/
+// ダッシュボードにオリジナルウィジェットを追加する
+add_action('wp_dashboard_setup', 'my_dashboard_widgets');
+function my_dashboard_widgets() {
+        wp_add_dashboard_widget('my_theme_options_widget', 'こちらから編集してください', 'my_dashboard_widget_function');
 }
-add_filter('custom_menu_order', '__return_true');
-add_filter('menu_order', 'sort_side_menu');
+// ダッシュボードのオリジナルウィジェット内に情報を掲載する
+function my_dashboard_widget_function() {
+        // 管理画面に表示される内容を以下に書く
+echo '<ul class="custom_widget">
+            <li><a href="post-new.php"><div class="dashicons dashicons-edit"></div><p>新しくブログを書く</p></a></li>
+            <li><a href="edit.php"><div class="dashicons dashicons-list-view"></div><p>過去のブログ一覧</p></a></li>
+            <li><a href="edit.php?post_type=page"><div class="dashicons dashicons-clipboard"></div><p>各ページ編集</p></a></li>
+          </ul>';
+}
+// ダッシュボードにスタイルシートを読み込む
+function custom_admin_enqueue(){
+     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/my-widgets.css' );
+}
+add_action( 'admin_enqueue_scripts', 'custom_admin_enqueue' );
+
+//管理画面のメインナビから不要なものを削除
+function remove_menus () {
+remove_menu_page ('edit-comments.php'); // コメント
+remove_menu_page ('users.php'); // ユーザー
+remove_menu_page ('tools.php'); // ツール
+remove_menu_page ('themes.php');// 外観
+remove_menu_page ('plugins.php');// プラグイン
+remove_menu_page ('options-general.php');// 設定
+}
+add_action('admin_menu', 'remove_menus');
+
 ?>

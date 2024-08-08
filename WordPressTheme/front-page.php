@@ -65,8 +65,12 @@
                     ?>
                     <li class="topCampaign__card campaign-card swiper-slide">
                         <figure class="campaign-card__img">
-                            <img src="<?php the_field('campaign_img'); ?>"
-                                alt="<?php the_field('campaign_title'); ?>" />
+                            <?php if (get_field("campaign_img")) : ?>
+                            <img src="<?php the_field("campaign_img"); ?>" alt="<?php the_field("campaign_title"); ?>">
+                            <?php else : ?>
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
+                                alt="no-image" />
+                            <?php endif; ?>
                         </figure>
                         <div class="campaign-card__body">
                             <div class="campaign-card__category">
@@ -261,8 +265,17 @@
                                 <h3 class="voice-card__title"><?php the_field("customer_title"); ?></h3>
                             </div>
                         </div>
-                        <figure class="voice-card__img js-color-box"><img src="<?php the_field("customer_img"); ?>"
+                        <figure class="voice-card__img js-color-box">
+                            <?php 
+                                $customer_img = get_field("customer_img");
+                                if ($customer_img) : 
+                            ?>
+                            <img src="<?php echo esc_url($customer_img); ?>"
                                 alt="<?php the_field("customer_title"); ?>" />
+                            <?php else : ?>
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
+                                alt="no-image" />
+                            <?php endif; ?>
                         </figure>
                     </div>
                     <p class="voice-card__text">
