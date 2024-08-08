@@ -109,6 +109,7 @@ function remove_post_views_column($columns) {// 閲覧数を非公開にする�
 }
 add_filter('manage_posts_columns', 'remove_post_views_column');
 
+
 /***************************
  *サイドバー、アーカイブリンク*
  ***************************/
@@ -143,6 +144,7 @@ function filter_voice_posts_by_category($query) {
     }
 }
 add_action('pre_get_posts', 'filter_voice_posts_by_category');
+
 
 /**************
  *お問い合わせ*

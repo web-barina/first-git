@@ -2,15 +2,19 @@
 <?php get_header(); ?>
 <section class="campaign campaign-wrapper">
     <div class="campaign__inner inner">
+        <?php
+            global $no_campaigns;
+            $no_campaigns = !have_posts();
+        ?>
         <div class="campaign__tabs tabs">
             <a href="<?php echo get_post_type_archive_link('campaign'); ?>"
                 class="tabs__item tab <?php echo !is_tax('campaign_category') ? 'js-active' : ''; ?>">ALL</a>
             <?php
-            $terms = get_terms(array(
-                'taxonomy' => 'campaign_category',
-                'hide_empty' => false,
-            ));
-            foreach ($terms as $term) :
+                $terms = get_terms(array(
+                    'taxonomy' => 'campaign_category',
+                    'hide_empty' => false,
+                ));
+                foreach ($terms as $term) :
             ?>
             <a href="<?php echo get_term_link($term); ?>"
                 class="tabs__item tab <?php echo is_tax('campaign_category', $term->slug) ? 'js-active' : ''; ?>">
@@ -49,10 +53,10 @@
                         </p>
                         <div class="campaign-card__price-wrapper">
                             <p class="campaign-card__pre-price">
-                                <?php the_field("campaign_pre-price"); ?>
+                                &yen;<?php the_field("campaign_pre-price"); ?>
                             </p>
                             <p class="campaign-card__after-price">
-                                <?php the_field("campaign_after-price"); ?></p>
+                                &yen;<?php the_field("campaign_after-price"); ?></p>
                         </div>
                         <p class="campaign-card__detail"><?php the_field("campaign_content"); ?>
                         </p>

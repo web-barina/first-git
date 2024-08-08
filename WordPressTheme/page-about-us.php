@@ -21,11 +21,10 @@
         </div>
     </div>
 </section>
-
 <?php
-$gallery_photos = SCF::get('gallery_photos'); // 繰り返しフィールドのスラッグを指定
-
-if (!empty($gallery_photos)) :
+// SCFで設定された繰り返しフィールドを取得
+$gallery_photos = SCF::get('gallery_photos',get_the_ID());
+ if(get_post_meta($post->ID, 'gallery_img', true)): 
 ?>
 <section class="gallery gallery-wrapper">
     <div class="gallery__inner inner">
@@ -65,5 +64,4 @@ if (!empty($gallery_photos)) :
     </div>
 </section>
 <?php endif; ?>
-
 <?php get_footer(); ?>
