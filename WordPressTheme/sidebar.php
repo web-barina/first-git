@@ -53,7 +53,15 @@
                 ?>
                 <div class="sidebar__review-card review">
                     <div class="review__img">
-                        <img src="<?php the_field("customer_img"); ?>" alt="<?php the_field("customer_title"); ?>" />
+                        <?php 
+                                $customer_img = get_field("customer_img");
+                                if ($customer_img) : 
+                            ?>
+                        <img src="<?php echo esc_url($customer_img); ?>" alt="<?php the_field("customer_title"); ?>" />
+                        <?php else : ?>
+                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
+                            alt="no-image" />
+                        <?php endif; ?>
                     </div>
                     <p class="review__info"><?php the_field("customer_info"); ?></p>
                     <h3 class="review__title"><?php the_field("customer_title"); ?></h3>
@@ -85,9 +93,13 @@
                         while ($latest_campaigns->have_posts()) : $latest_campaigns->the_post();
                     ?>
                     <li class="campaign-cards__item campaign-card">
-                        <figure class="campaign-card__img campaign-card__img--side">
-                            <img src="<?php the_field('campaign_img'); ?>"
-                                alt="<?php the_field('campaign_title'); ?>" />
+                        <figure class="campaign-card__img">
+                            <?php if (get_field("campaign_img")) : ?>
+                            <img src="<?php the_field("campaign_img"); ?>" alt="<?php the_field("campaign_title"); ?>">
+                            <?php else : ?>
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
+                                alt="no-image" />
+                            <?php endif; ?>
                         </figure>
                         <div class="campaign-card__body campaign-card__body--side">
                             <div class="campaign-card__title-wrapper">
