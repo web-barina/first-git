@@ -207,24 +207,19 @@ function my_dashboard_widget_function() {
 echo '<ul class="custom_widget">
             <li><a href="post-new.php"><div class="dashicons dashicons-edit"></div><p>新しくブログを書く</p></a></li>
             <li><a href="edit.php"><div class="dashicons dashicons-list-view"></div><p>過去のブログ一覧</p></a></li>
-            <li><a href="edit.php?post_type=page"><div class="dashicons dashicons-clipboard"></div><p>各ページ編集</p></a></li>
-          </ul>';
+            <li><a href="edit.php?post_type=campaign"><div class="dashicons dashicons-megaphone"></div><p>キャンペーン</p></a></li>
+            <li><a href="post.php?post=12&action=edit"><div class="dashicons dashicons-format-image"></div><p>私たちについて</p></a></li>
+            <li><a href="edit.php?post_type=voice"><div class="dashicons dashicons-format-chat"></div><p>お客様の声</p></a></li>
+            <li><a href="post.php?post=17&action=edit"><div class="dashicons dashicons-money-alt"></div><p>料金一覧</p></a></li>
+            <li><a href="post.php?post=19&action=edit"><div class="dashicons dashicons-format-status"></div><p>よくある質問</p></a></li>
+            <li><a href="post.php?post=30&action=edit"><div class="dashicons dashicons-edit"></div><p>プライバシーポリシー</p></a></li>
+            <li><a href="post.php?post=32&action=edit"><div class="dashicons dashicons-edit"></div><p>利用規約</p></a></li>
+            </ul>';
 }
 // ダッシュボードにスタイルシートを読み込む
 function custom_admin_enqueue(){
-     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/my-widgets.css' );
+     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/assets/css/style.css' );
 }
 add_action( 'admin_enqueue_scripts', 'custom_admin_enqueue' );
-
-//管理画面のメインナビから不要なものを削除
-function remove_menus () {
-remove_menu_page ('edit-comments.php'); // コメント
-remove_menu_page ('users.php'); // ユーザー
-remove_menu_page ('tools.php'); // ツール
-remove_menu_page ('themes.php');// 外観
-remove_menu_page ('plugins.php');// プラグイン
-remove_menu_page ('options-general.php');// 設定
-}
-add_action('admin_menu', 'remove_menus');
 
 ?>

@@ -1598,6 +1598,21 @@ input[type=checkbox]:checked:before {
 	text-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 
+ul.custom_widget a {
+	display: flex;
+	gap: 1rem;
+}
+
+ul.custom_widget {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.dashicons {
+	color: #408f95;
+}
+
 .faq-wrapper {
 	display: flex;
 	flex-direction: column;

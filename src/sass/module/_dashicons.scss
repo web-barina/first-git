@@ -1,0 +1,16 @@
+@use "global" as *;
+
+ul.custom_widget a {
+    display: flex;
+    gap: rem(16);
+}
+
+ul.custom_widget {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+}
+
+.dashicons {
+    color: $green;
+}

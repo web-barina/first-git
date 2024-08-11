@@ -58,9 +58,11 @@
                                 <?php the_field("campaign_text"); ?>
                             </p>
                             <div class="campaign-card__price-wrapper">
+                                <?php if (get_field("campaign_pre-price")) : ?>
                                 <p class="campaign-card__pre-price">
                                     &yen;<?php the_field("campaign_pre-price"); ?>
                                 </p>
+                                <?php endif; ?>
                                 <p class="campaign-card__after-price">
                                     &yen;<?php the_field("campaign_after-price"); ?></p>
                             </div>
