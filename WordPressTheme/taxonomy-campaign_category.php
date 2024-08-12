@@ -71,7 +71,25 @@
                         </div>
                     </div>
                     <div class="campaign-card__bottom-wrapper">
-                        <p class="campaign-card__date"><?php the_field("campaign_period"); ?></p>
+                        <p class="campaign-card__date">
+                            <?php $campaign_period = get_field('campaign_period');
+                                if ($campaign_period) {
+                                    $campaign_period_start = $campaign_period['campaign_period_start'];
+                                    if ($campaign_period_start) {
+                                        echo esc_html($campaign_period_start);
+                                    }
+                                } 
+                            ?>
+                            -
+                            <?php $campaign_period = get_field('campaign_period');
+                                if ($campaign_period) {
+                                    $campaign_after_period = $campaign_period['campaign_period_end'];
+                                    if ($campaign_after_period) {
+                                        echo esc_html($campaign_after_period);
+                                    }
+                                } 
+                            ?>
+                        </p>
                         <p class="campaign-card__reserve">ご予約・お問い合わせはコチラ</p>
                         <div class="campaign-card__btn-wrapper">
                             <a href="<?php echo esc_url(home_url('contact')); ?>" class="btn">Contact us

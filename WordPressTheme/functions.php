@@ -218,7 +218,7 @@ echo '<ul class="custom_widget">
 }
 // ダッシュボードにスタイルシートを読み込む
 function custom_admin_enqueue(){
-     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/assets/css/style.css' );
+     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/maycss/style.css' );
 }
 add_action( 'admin_enqueue_scripts', 'custom_admin_enqueue' );
 

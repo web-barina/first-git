@@ -3,34 +3,42 @@
     <!--first-view-->
     <div class="topFVswiper swiper" id="js-topFVswiper">
         <div class="topFVswiper__wrapper swiper-wrapper">
-            <?php 
-        $top_image1 = get_field('top_image1');
-        if( $top_image1 ): ?>
             <picture class="topFVswiper__slide swiper-slide">
-                <img src="<?php echo esc_url( $top_image1 ); ?>" alt="海の中を泳ぐウミガメ" />
+                <?php
+                    $top_img = get_field('top_img'); // グループフィールド 'top_img' を取得
+                    if ($top_img && !empty($top_img['top_image1'])) { // 'top_image1' が存在するか確認
+                        $top_image1_url = $top_img['top_image1']['url']; // 画像のURLを取得
+                        echo '<img src="' . esc_url($top_image1_url) . '" alt="' . esc_attr($top_img['top_image1']['alt']) . '">'; // 画像を表示
+                    }
+                ?>
             </picture>
-            <?php endif; ?>
-            <?php 
-        $top_image2 = get_field('top_image2');
-        if( $top_image2 ): ?>
             <picture class="topFVswiper__slide swiper-slide">
-                <img src="<?php echo esc_url( $top_image2 ); ?>" alt="海の中でウミガメとダイビングを楽しむ二人組" />
+                <?php
+                    $top_img = get_field('top_img'); // グループフィールド 'top_img' を取得
+                    if ($top_img && !empty($top_img['top_image2'])) { // 'top_image1' が存在するか確認
+                        $top_image2_url = $top_img['top_image2']['url']; // 画像のURLを取得
+                        echo '<img src="' . esc_url($top_image2_url) . '" alt="' . esc_attr($top_img['top_image2']['alt']) . '">'; // 画像を表示
+                    }
+                ?>
             </picture>
-            <?php endif; ?>
-            <?php 
-                $top_image3 = get_field('top_image3');
-                if( $top_image3 ): ?>
             <picture class="topFVswiper__slide swiper-slide">
-                <img src="<?php echo esc_url( $top_image3 ); ?>" alt="日光がさす青空と海" />
+                <?php
+                    $top_img = get_field('top_img'); // グループフィールド 'top_img' を取得
+                    if ($top_img && !empty($top_img['top_image3'])) { // 'top_image1' が存在するか確認
+                        $top_image3_url = $top_img['top_image3']['url']; // 画像のURLを取得
+                        echo '<img src="' . esc_url($top_image3_url) . '" alt="' . esc_attr($top_img['top_image3']['alt']) . '">'; // 画像を表示
+                    }
+                ?>
             </picture>
-            <?php endif; ?>
-            <?php 
-        $top_image4 = get_field('top_image4');
-        if( $top_image4 ): ?>
             <picture class="topFVswiper__slide swiper-slide">
-                <img src="<?php echo esc_url( $top_image4 ); ?>" alt="青空と砂浜" />
+                <?php
+                    $top_img = get_field('top_img'); // グループフィールド 'top_img' を取得
+                    if ($top_img && !empty($top_img['top_image4'])) { // 'top_image1' が存在するか確認
+                        $top_image4_url = $top_img['top_image4']['url']; // 画像のURLを取得
+                        echo '<img src="' . esc_url($top_image4_url) . '" alt="' . esc_attr($top_img['top_image4']['alt']) . '">'; // 画像を表示
+                    }
+                ?>
             </picture>
-            <?php endif; ?>
         </div>
     </div>
     <div class="topFVswiper__texts">
@@ -250,7 +258,24 @@
                     <div class="voice-card__info">
                         <div class="voice-card__customer-data-wrapper">
                             <div class="voice-card__customer-data">
-                                <div class="voice-card__customer-age"><?php the_field("customer_info"); ?></div>
+                                <div class="voice-card__customer-age">
+                                    <?php $customer_info = get_field('customer_info');
+                                        if ($customer_info) {
+                                            $customer_age = $customer_info['customer_age'];
+                                            if ($customer_age) {
+                                                echo esc_html($customer_age);
+                                            }
+                                        } 
+                                    ?>
+                                    <?php $customer_info = get_field('customer_info');
+                                        if ($customer_info) {
+                                            $customer_kinds = $customer_info['customer_kinds'];
+                                            if ($customer_kinds) {
+                                                echo esc_html($customer_kinds);
+                                            }
+                                        } 
+                                    ?>
+                                </div>
                                 <div class="voice-card__category">
                                     <?php 
                                         $terms = get_the_terms(get_the_ID(), 'voice_category'); 

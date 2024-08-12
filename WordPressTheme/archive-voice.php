@@ -25,7 +25,24 @@
                     <div class="voice-card__info">
                         <div class="voice-card__customer-data-wrapper">
                             <div class="voice-card__customer-data">
-                                <div class="voice-card__customer-age"><?php the_field("customer_info"); ?></div>
+                                <div class="voice-card__customer-age">
+                                    <?php $customer_info = get_field('customer_info');
+                                        if ($customer_info) {
+                                            $customer_age = $customer_info['customer_age'];
+                                            if ($customer_age) {
+                                                echo esc_html($customer_age);
+                                            }
+                                        } 
+                                    ?>
+                                    <?php $customer_info = get_field('customer_info');
+                                        if ($customer_info) {
+                                            $customer_kinds = $customer_info['customer_kinds'];
+                                            if ($customer_kinds) {
+                                                echo esc_html($customer_kinds);
+                                            }
+                                        } 
+                                    ?>
+                                </div>
                                 <div class="voice-card__category">
                                     <?php
                                         $terms = get_the_terms(get_the_ID(), 'voice_category');
