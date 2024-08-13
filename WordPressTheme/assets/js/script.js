@@ -42,8 +42,8 @@ jQuery(function ($) {
     speed: 1500,
     autoplay: {
       delay: 3000,
-      disableOnInteraction: false,
-    },
+      disableOnInteraction: false
+    }
   });
 
   /******************
@@ -54,18 +54,18 @@ jQuery(function ($) {
     loop: true,
     speed: 1000,
     autoplay: {
-      delay: 3000,
+      delay: 3000
     },
     spaceBetween: 24,
     breakpoints: {
       768: {
-        spaceBetween: 40,
-      },
+        spaceBetween: 40
+      }
     },
     navigation: {
       nextEl: ".topCampaign__next",
-      prevEl: ".topCampaign__prev",
-    },
+      prevEl: ".topCampaign__prev"
+    }
   });
 
   /**************
@@ -82,27 +82,18 @@ jQuery(function ($) {
     color.css("width", "0%");
     color.on("inview", function () {
       if (counter == 0) {
-        $(this)
-          .delay(200)
-          .animate(
-            {
-              width: "100%",
-            },
-            speed,
-            function () {
-              image.css("opacity", "1");
-              $(this).css({
-                left: "0",
-                right: "auto",
-              });
-              $(this).animate(
-                {
-                  width: "0%",
-                },
-                speed
-              );
-            }
-          );
+        $(this).delay(200).animate({
+          width: "100%"
+        }, speed, function () {
+          image.css("opacity", "1");
+          $(this).css({
+            left: "0",
+            right: "auto"
+          });
+          $(this).animate({
+            width: "0%"
+          }, speed);
+        });
         counter = 1;
       }
     });
@@ -145,12 +136,9 @@ jQuery(function ($) {
   });
   // #scroll-topをクリックした際の設定
   $("#js-scroll-top").click(function () {
-    $("body,html").animate(
-      {
-        scrollTop: 0, //ページトップまでスクロール
-      },
-      500
-    ); //ページトップスクロールの速さ。
+    $("body,html").animate({
+      scrollTop: 0 //ページトップまでスクロール
+    }, 500); //ページトップスクロールの速さ。
     return false; //リンク自体の無効化
   });
 
@@ -207,22 +195,20 @@ jQuery(function ($) {
   /******************
    *AboutUs モーダル*
    *****************/
-  $(document).ready(
-    $(function () {
-      $(".photo").on("click", function () {
-        var modal_id = $(this).attr("id");
-        $(".modal#cont-" + modal_id).fadeIn(200);
-        $(".modal#cont-" + modal_id).addClass("active");
-        $("html, body").css("overflow-y", "hidden");
-      });
-      $(".modal").on("click", function () {
-        if ($(this).hasClass("active")) {
-          $(this).fadeOut();
-          $("html, body").css("overflow-y", "auto");
-        }
-      });
-    })
-  );
+  $(document).ready($(function () {
+    $(".photo").on("click", function () {
+      var modal_id = $(this).attr("id");
+      $(".modal#cont-" + modal_id).fadeIn(200);
+      $(".modal#cont-" + modal_id).addClass("active");
+      $("html, body").css("overflow-y", "hidden");
+    });
+    $(".modal").on("click", function () {
+      if ($(this).hasClass("active")) {
+        $(this).fadeOut();
+        $("html, body").css("overflow-y", "auto");
+      }
+    });
+  }));
 
   /*****************
    *infoタブメニュー*
@@ -307,7 +293,7 @@ jQuery(function ($) {
       // Cookieに今日の日付をセットし、1日の有効期限を設定
       $.cookie("accessdate", today, {
         expires: 1,
-        path: "/",
+        path: "/"
       });
     } else {
       $(".js-loading").css("display", "none");
