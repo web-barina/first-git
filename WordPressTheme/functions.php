@@ -207,8 +207,9 @@ function my_dashboard_widget_function() {
 echo '<ul class="custom_widget">
             <li><a href="post-new.php"><div class="dashicons dashicons-edit"></div><p>新しくブログを書く</p></a></li>
             <li><a href="edit.php"><div class="dashicons dashicons-list-view"></div><p>過去のブログ一覧</p></a></li>
+            <li><a href="post.php?post=47&action=edit"><div class="dashicons dashicons-format-image"></div><p>トップ上部の画像編集</p></a></li>
             <li><a href="edit.php?post_type=campaign"><div class="dashicons dashicons-megaphone"></div><p>キャンペーン</p></a></li>
-            <li><a href="post.php?post=12&action=edit"><div class="dashicons dashicons-format-image"></div><p>私たちについて</p></a></li>
+            <li><a href="post.php?post=12&action=edit"><div class="dashicons dashicons-format-image"></div><p>私たちについてのギャラリー</p></a></li>
             <li><a href="edit.php?post_type=voice"><div class="dashicons dashicons-format-chat"></div><p>お客様の声</p></a></li>
             <li><a href="post.php?post=17&action=edit"><div class="dashicons dashicons-money-alt"></div><p>料金一覧</p></a></li>
             <li><a href="post.php?post=19&action=edit"><div class="dashicons dashicons-format-status"></div><p>よくある質問</p></a></li>
@@ -218,8 +219,38 @@ echo '<ul class="custom_widget">
 }
 // ダッシュボードにスタイルシートを読み込む
 function custom_admin_enqueue(){
-     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/maycss/style.css' );
+     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/assets/css/style.css' );
 }
 add_action( 'admin_enqueue_scripts', 'custom_admin_enqueue' );
+
+// サムネイル列を追加
+function add_post_thumbnail_column($columns) {
+    $columns['thumbnail'] = __('Thumbnail');
+    return $columns;
+}
+add_filter('manage_posts_columns', 'add_post_thumbnail_column');
+
+// サムネイル列の内容を表示
+function display_post_thumbnail_column($column, $post_id) {
+    if ('thumbnail' === $column) {
+        if (has_post_thumbnail($post_id)) {
+            echo get_the_post_thumbnail($post_id, array(150, 150));
+        } else {
+            echo '<img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
+alt="no-image" />';
+}
+}
+}
+add_action('manage_posts_custom_column', 'display_post_thumbnail_column', 10, 2);
+
+// サムネイル列のスタイルを調整
+function adjust_thumbnail_column_width() {
+echo '<style type="text/css">
+.column-thumbnail {
+    width: 150px;
+}
+</style>';
+}
+add_action('admin_head', 'adjust_thumbnail_column_width');
 
 ?>

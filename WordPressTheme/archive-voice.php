@@ -57,23 +57,19 @@
                                 </div>
                             </div>
                             <div class="voice-card__title-wrapper">
-                                <h3 class="voice-card__title"><?php the_field("customer_title"); ?></h3>
+                                <h3 class="voice-card__title"><?php the_title() ?></h3>
                             </div>
                         </div>
                         <figure class="voice-card__img js-color-box">
-                            <?php 
-                                $customer_img = get_field("customer_img");
-                                if ($customer_img) : 
-                            ?>
-                            <img src="<?php echo esc_url($customer_img); ?>"
-                                alt="<?php the_field("customer_title"); ?>" />
+                            <?php if (has_post_thumbnail()) : ?>
+                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
                             <?php else : ?>
                             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
                                 alt="no-image" />
                             <?php endif; ?>
                         </figure>
                     </div>
-                    <p class="voice-card__text"><?php the_field("customer_comment"); ?></p>
+                    <p class="voice-card__text"> <?php the_content( ) ?></p>
                 </li>
                 <?php endwhile; ?>
             </ul>

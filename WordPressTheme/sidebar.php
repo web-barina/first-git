@@ -52,19 +52,33 @@
                     while ($latest_voice->have_posts()) : $latest_voice->the_post(); 
                 ?>
                 <div class="sidebar__review-card review">
-                    <div class="review__img">
-                        <?php 
-                                $customer_img = get_field("customer_img");
-                                if ($customer_img) : 
-                            ?>
-                        <img src="<?php echo esc_url($customer_img); ?>" alt="<?php the_field("customer_title"); ?>" />
+                    <figure class="review__img">
+                        <?php if (has_post_thumbnail()) : ?>
+                        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
                         <?php else : ?>
                         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
                             alt="no-image" />
                         <?php endif; ?>
-                    </div>
-                    <p class="review__info"><?php the_field("customer_info"); ?></p>
-                    <h3 class="review__title"><?php the_field("customer_title"); ?></h3>
+                    </figure>
+                    <p class="review__info">
+                        <?php $customer_info = get_field('customer_info');
+                                        if ($customer_info) {
+                                            $customer_age = $customer_info['customer_age'];
+                                            if ($customer_age) {
+                                                echo esc_html($customer_age);
+                                            }
+                                        } 
+                                    ?>
+                        <?php $customer_info = get_field('customer_info');
+                                        if ($customer_info) {
+                                            $customer_kinds = $customer_info['customer_kinds'];
+                                            if ($customer_kinds) {
+                                                echo esc_html($customer_kinds);
+                                            }
+                                        } 
+                                    ?>
+                    </p>
+                    <h3 class="review__title"><?php the_title() ?></h3>
                 </div>
                 <?php endwhile;
                     wp_reset_postdata(); 
@@ -94,8 +108,8 @@
                     ?>
                     <li class="campaign-cards__item campaign-card">
                         <figure class="campaign-card__img">
-                            <?php if (get_field("campaign_img")) : ?>
-                            <img src="<?php the_field("campaign_img"); ?>" alt="<?php the_field("campaign_title"); ?>">
+                            <?php if (has_post_thumbnail()) : ?>
+                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
                             <?php else : ?>
                             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
                                 alt="no-image" />
@@ -104,17 +118,25 @@
                         <div class="campaign-card__body campaign-card__body--side">
                             <div class="campaign-card__title-wrapper">
                                 <h3 class="campaign-card__title campaign-card__title--side">
-                                    <?php the_field('campaign_title'); ?></h3>
+                                    <?php the_title() ?>
+                                </h3>
                             </div>
                         </div>
                         <div class="campaign-card__contents">
                             <p class="campaign-card__text campaign-card__text--side">
                                 <?php the_field('campaign_text'); ?></p>
                             <div class="campaign-card__price-wrapper campaign-card__price-wrapper--side">
+                                <?php
+                                    $campaign_price = get_field('campaign_price');
+                                ?>
+                                <?php if (!empty($campaign_price['campaign_pre-price'])) : ?>
                                 <p class="campaign-card__pre-price campaign-card__pre-price--side">
-                                    <?php the_field('campaign_pre-price'); ?></p>
+                                    &yen;<?php echo esc_html($campaign_price['campaign_pre-price']); ?>
+                                </p>
+                                <?php endif; ?>
                                 <p class="campaign-card__after-price campaign-card__after-price--side">
-                                    <?php the_field('campaign_after-price'); ?></p>
+                                    &yen;<?php echo esc_html($campaign_price['campaign_after-price']); ?>
+                                </p>
                             </div>
                         </div>
                     </li>

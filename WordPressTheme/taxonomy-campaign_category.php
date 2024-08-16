@@ -28,8 +28,8 @@
                 <li class="campaign__cards-item campaign-card" id="license-campaign">
                     <div class="campaign-card__upper">
                         <figure class="campaign-card__img">
-                            <?php if (get_field("campaign_img")) : ?>
-                            <img src="<?php the_field("campaign_img"); ?>" alt="<?php the_field("campaign_title"); ?>">
+                            <?php if (has_post_thumbnail()) : ?>
+                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
                             <?php else : ?>
                             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
                                 alt="no-image" />
@@ -38,19 +38,19 @@
                         <div class="campaign-card__body  campaign-card__body--lower">
                             <div class="campaign-card__category">
                                 <?php
-                                $terms = get_the_terms($post->ID, 'campaign_category');
-                                if ($terms && !is_wp_error($terms)):
-                                    $term_list = array();
-                                    foreach ($terms as $term):
-                                        $term_list[] = $term->name;
-                                    endforeach;
-                                    echo implode(', ', $term_list);
-                                endif;
-                            ?>
+                                    $terms = get_the_terms($post->ID, 'campaign_category');
+                                    if ($terms && !is_wp_error($terms)):
+                                        $term_list = array();
+                                        foreach ($terms as $term):
+                                            $term_list[] = $term->name;
+                                        endforeach;
+                                        echo implode(', ', $term_list);
+                                    endif;
+                                ?>
                             </div>
                             <div class="campaign-card__title-wrapper">
                                 <h3 class="campaign-card__title campaign-card__title--lower">
-                                    <?php the_field("campaign_title"); ?></h3>
+                                    <?php the_title() ?></h3>
                             </div>
                         </div>
                         <div class="campaign-card__contents">
@@ -58,36 +58,40 @@
                                 <?php the_field("campaign_text"); ?>
                             </p>
                             <div class="campaign-card__price-wrapper">
-                                <?php if (get_field("campaign_pre-price")) : ?>
+                                <?php
+                                    $campaign_price = get_field('campaign_price');
+                                ?>
+                                <?php if (!empty($campaign_price['campaign_pre-price'])) : ?>
                                 <p class="campaign-card__pre-price">
-                                    &yen;<?php the_field("campaign_pre-price"); ?>
+                                    &yen;<?php echo esc_html($campaign_price['campaign_pre-price']); ?>
                                 </p>
                                 <?php endif; ?>
                                 <p class="campaign-card__after-price">
-                                    &yen;<?php the_field("campaign_after-price"); ?></p>
+                                    &yen;<?php echo esc_html($campaign_price['campaign_after-price']); ?>
+                                </p>
                             </div>
-                            <p class="campaign-card__detail"><?php the_field("campaign_content"); ?>
-                            </p>
+                            <div class="campaign-card__detail">
+                                <?php the_content( ) ?>
+                            </div>
                         </div>
                     </div>
                     <div class="campaign-card__bottom-wrapper">
                         <p class="campaign-card__date">
-                            <?php $campaign_period = get_field('campaign_period');
+                            <?php 
+                                $campaign_period = get_field('campaign_period');
                                 if ($campaign_period) {
                                     $campaign_period_start = $campaign_period['campaign_period_start'];
+                                    $campaign_period_end = $campaign_period['campaign_period_end'];                                    
                                     if ($campaign_period_start) {
                                         echo esc_html($campaign_period_start);
+                                    }                                    
+                                    if ($campaign_period_start && $campaign_period_end) {
+                                        echo ' - ';
+                                    }                                    
+                                    if ($campaign_period_end) {
+                                        echo esc_html($campaign_period_end);
                                     }
-                                } 
-                            ?>
-                            -
-                            <?php $campaign_period = get_field('campaign_period');
-                                if ($campaign_period) {
-                                    $campaign_after_period = $campaign_period['campaign_period_end'];
-                                    if ($campaign_after_period) {
-                                        echo esc_html($campaign_after_period);
-                                    }
-                                } 
+                                }
                             ?>
                         </p>
                         <p class="campaign-card__reserve">ご予約・お問い合わせはコチラ</p>

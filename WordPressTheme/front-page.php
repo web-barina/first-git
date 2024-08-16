@@ -5,39 +5,36 @@
         <div class="topFVswiper__wrapper swiper-wrapper">
             <picture class="topFVswiper__slide swiper-slide">
                 <?php
-                    $top_img = get_field('top_img'); // グループフィールド 'top_img' を取得
-                    if ($top_img && !empty($top_img['top_image1'])) { // 'top_image1' が存在するか確認
-                        $top_image1_url = $top_img['top_image1']['url']; // 画像のURLを取得
-                        echo '<img src="' . esc_url($top_image1_url) . '" alt="' . esc_attr($top_img['top_image1']['alt']) . '">'; // 画像を表示
-                    }
-                ?>
+            $top_img = get_field('top_image'); 
+            if ($top_img && !empty($top_img['top_image1'])) {
+                $top_image1_url = esc_url($top_img['top_image1']); 
+                echo '<img src="' . $top_image1_url . '" alt="">'; 
+            }
+        ?>
             </picture>
             <picture class="topFVswiper__slide swiper-slide">
                 <?php
-                    $top_img = get_field('top_img'); // グループフィールド 'top_img' を取得
-                    if ($top_img && !empty($top_img['top_image2'])) { // 'top_image1' が存在するか確認
-                        $top_image2_url = $top_img['top_image2']['url']; // 画像のURLを取得
-                        echo '<img src="' . esc_url($top_image2_url) . '" alt="' . esc_attr($top_img['top_image2']['alt']) . '">'; // 画像を表示
-                    }
-                ?>
+            if ($top_img && !empty($top_img['top_image2'])) {
+                $top_image2_url = esc_url($top_img['top_image2']); 
+                echo '<img src="' . $top_image2_url . '" alt="">'; 
+            }
+        ?>
             </picture>
             <picture class="topFVswiper__slide swiper-slide">
                 <?php
-                    $top_img = get_field('top_img'); // グループフィールド 'top_img' を取得
-                    if ($top_img && !empty($top_img['top_image3'])) { // 'top_image1' が存在するか確認
-                        $top_image3_url = $top_img['top_image3']['url']; // 画像のURLを取得
-                        echo '<img src="' . esc_url($top_image3_url) . '" alt="' . esc_attr($top_img['top_image3']['alt']) . '">'; // 画像を表示
-                    }
-                ?>
+            if ($top_img && !empty($top_img['top_image3'])) {
+                $top_image3_url = esc_url($top_img['top_image3']); 
+                echo '<img src="' . $top_image3_url . '" alt="">'; 
+            }
+        ?>
             </picture>
             <picture class="topFVswiper__slide swiper-slide">
                 <?php
-                    $top_img = get_field('top_img'); // グループフィールド 'top_img' を取得
-                    if ($top_img && !empty($top_img['top_image4'])) { // 'top_image1' が存在するか確認
-                        $top_image4_url = $top_img['top_image4']['url']; // 画像のURLを取得
-                        echo '<img src="' . esc_url($top_image4_url) . '" alt="' . esc_attr($top_img['top_image4']['alt']) . '">'; // 画像を表示
-                    }
-                ?>
+            if ($top_img && !empty($top_img['top_image4'])) {
+                $top_image4_url = esc_url($top_img['top_image4']); 
+                echo '<img src="' . $top_image4_url . '" alt="">'; 
+            }
+        ?>
             </picture>
         </div>
     </div>
@@ -73,8 +70,8 @@
                     ?>
                     <li class="topCampaign__card campaign-card swiper-slide">
                         <figure class="campaign-card__img">
-                            <?php if (get_field("campaign_img")) : ?>
-                            <img src="<?php the_field("campaign_img"); ?>" alt="<?php the_field("campaign_title"); ?>">
+                            <?php if (has_post_thumbnail()) : ?>
+                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
                             <?php else : ?>
                             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
                                 alt="no-image" />
@@ -95,20 +92,25 @@
                             </div>
                             <div class="campaign-card__title-wrapper">
                                 <h3 class="campaign-card__title">
-                                    <?php the_field('campaign_title'); ?></h3>
+                                    <?php the_title(); ?>
+                                </h3>
                             </div>
                         </div>
                         <div class="campaign-card__contents">
                             <p class="campaign-card__text">
                                 <?php the_field('campaign_text'); ?></p>
                             <div class="campaign-card__price-wrapper">
-                                <?php if (get_field("campaign_pre-price")) : ?>
+                                <?php
+                                    $campaign_price = get_field('campaign_price');
+                                ?>
+                                <?php if (!empty($campaign_price['campaign_pre-price'])) : ?>
                                 <p class="campaign-card__pre-price">
-                                    &yen;<?php the_field("campaign_pre-price"); ?>
+                                    &yen;<?php echo esc_html($campaign_price['campaign_pre-price']); ?>
                                 </p>
                                 <?php endif; ?>
                                 <p class="campaign-card__after-price">
-                                    &yen;<?php the_field('campaign_after-price'); ?></p>
+                                    &yen;<?php echo esc_html($campaign_price['campaign_after-price']); ?>
+                                </p>
                             </div>
                         </div>
                     </li>
@@ -277,41 +279,32 @@
                                     ?>
                                 </div>
                                 <div class="voice-card__category">
-                                    <?php 
-                                        $terms = get_the_terms(get_the_ID(), 'voice_category'); 
-                                        if ($terms && !is_wp_error($terms)) : 
-                                            $term_list = array(); 
-                                            foreach ($terms as $term) : 
-                                                $term_list[] = esc_html($term->name); 
-                                            endforeach; 
-                                            echo implode(', ', $term_list); 
-                                        endif; 
+                                    <?php
+                                        $terms = get_the_terms(get_the_ID(), 'voice_category');
+                                        if ($terms && !is_wp_error($terms)):
+                                            $term_list = array();
+                                            foreach ($terms as $term):
+                                                $term_list[] = esc_html($term->name);
+                                            endforeach;
+                                            echo implode(', ', $term_list);
+                                        endif;
                                     ?>
                                 </div>
                             </div>
                             <div class="voice-card__title-wrapper">
-                                <h3 class="voice-card__title"><?php the_field("customer_title"); ?></h3>
+                                <h3 class="voice-card__title"><?php the_title() ?></h3>
                             </div>
                         </div>
                         <figure class="voice-card__img js-color-box">
-                            <?php 
-                                $customer_img = get_field("customer_img");
-                                if ($customer_img) : 
-                            ?>
-                            <img src="<?php echo esc_url($customer_img); ?>"
-                                alt="<?php the_field("customer_title"); ?>" />
+                            <?php if (has_post_thumbnail()) : ?>
+                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
                             <?php else : ?>
                             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
                                 alt="no-image" />
                             <?php endif; ?>
                         </figure>
                     </div>
-                    <p class="voice-card__text">
-                        <?php
-                        $customer_comment = get_field("customer_comment");
-                        echo wp_trim_words($customer_comment, 100, '...');
-                    ?>
-                    </p>
+                    <p class="voice-card__text"> <?php the_content( ) ?></p>
                 </li>
                 <?php endwhile; ?>
             </ul>

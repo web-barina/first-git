@@ -1598,21 +1598,6 @@ input[type=checkbox]:checked:before {
 	text-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 
-ul.custom_widget a {
-	display: flex;
-	gap: 1rem;
-}
-
-ul.custom_widget {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
-}
-
-.dashicons {
-	color: #408f95;
-}
-
 .faq-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -2017,6 +2002,10 @@ input.wpcf7-form-control.wpcf7-submit:before {
 	right: -0.25rem;
 	top: 0.25rem;
 	z-index: -1;
+}
+
+input[type=checkbox]:checked::before {
+	margin: 0;
 }
 
 .js-color-box {
@@ -3500,6 +3489,81 @@ select {
 
 .voice__pager-wrapper {
 	margin-top: 5.25rem;
+}
+
+ul.custom_widget a {
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+	padding: 0.625rem 0;
+}
+
+ul.custom_widget li :hover {
+	background-color: #ddf0f1;
+}
+
+ul.custom_widget {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.dashicons {
+	color: #408f95;
+	font-size: 1.5rem;
+}
+
+p#block-1c3e6409-d29e-4efc-bbe8-f43b450af9f5,
+p.block-editor-default-block-appender__content {
+	background-color: #fff;
+	color: #444;
+}
+
+textarea#acf-field_669713a287c24,
+textarea#acf-field_669718180f1f4 {
+	border: solid 0.0625rem #2c3338;
+	border-radius: 0.25rem;
+	box-sizing: border-box;
+	font-size: 0.875rem;
+	line-height: 1.4;
+	margin: 0;
+	padding: 0.5rem;
+	width: 100%;
+}
+
+ul.acf-radio-list li label,
+ul.acf-checkbox-list li label {
+	display: flex !important;
+}
+
+ul.acf-radio-list li label,
+ul.acf-checkbox-list li label {
+	align-items: center;
+}
+
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-10\%e4\%bb\%a3\%e4\%bb\%a5\%e4\%b8\%8b,
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-20\%e4\%bb\%a3,
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-30\%e4\%bb\%a3,
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-40\%e4\%bb\%a3,
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-50\%e4\%bb\%a3,
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-60\%e4\%bb\%a3\%e4\%bb\%a5\%e4\%b8\%8a,
+input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e7\%94\%b7\%e6\%80\%a7,
+input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e5\%a5\%b3\%e6\%80\%a7,
+input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e3\%82\%ab\%e3\%83\%83\%e3\%83\%97\%e3\%83\%ab {
+	border: solid 0.0625rem #0d2936;
+	display: block;
+}
+
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-10\%e4\%bb\%a3\%e4\%bb\%a5\%e4\%b8\%8b::before,
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-20\%e4\%bb\%a3::before,
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-30\%e4\%bb\%a3::before,
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-40\%e4\%bb\%a3::before,
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-50\%e4\%bb\%a3::before,
+input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-60\%e4\%bb\%a3\%e4\%bb\%a5\%e4\%b8\%8a::before,
+input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e7\%94\%b7\%e6\%80\%a7::before,
+input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e5\%a5\%b3\%e6\%80\%a7::before,
+input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e3\%82\%ab\%e3\%83\%83\%e3\%83\%97\%e3\%83\%ab::before {
+	background-color: #408f95;
 }
 
 form.wpcf7-form.invalid,

@@ -31,3 +31,8 @@ input.wpcf7-form-control.wpcf7-submit:before {
     display: inline-block;
     z-index: -1;
 }
+
+//チェックボックス管理画面での表示修正
+input[type=checkbox]:checked::before {
+    margin: 0;
+}
