@@ -193,6 +193,34 @@ location = 'https://barina-blog-str.conohawing.com/codeups/thanks';
 EOD;
 }
 
+
+/*****************
+ *ログイン画面編集*
+ *****************/
+
+function login_logo() {
+  echo '<style type="text/css">
+    #login h1 a {
+      background: url('.get_template_directory_uri().'/assets/images/common/logo.png) no-repeat top center;//ログイン画面のロゴ変更
+      background-size:contain;
+      width: 300px; //ログインの幅
+      height: 70px; //ログインの高さ
+    }
+    body{
+      background: url('.get_template_directory_uri().'/assets/images/common/sitemap-privacy-FV.png) no-repeat center center;//ログイン画面の背景変更
+      background-size:contain;
+    }
+    .login #backtoblog a,
+    .login #nav a,
+    .dashicons-translation:before
+    {
+        text-decoration: none;
+        color: #fff;
+    }
+  </style>';
+}
+add_action('login_head', 'login_logo');
+
 /*************
  *管理画面編集*
  *************/
