@@ -197,7 +197,6 @@ EOD;
 /*****************
  *ログイン画面編集*
  *****************/
-
 function login_logo() {
   echo '<style type="text/css">
     #login h1 a {
@@ -220,6 +219,7 @@ function login_logo() {
   </style>';
 }
 add_action('login_head', 'login_logo');
+
 
 /*************
  *管理画面編集*
@@ -245,11 +245,6 @@ echo '<ul class="custom_widget">
             <li><a href="post.php?post=32&action=edit"><div class="dashicons dashicons-edit"></div><p>利用規約</p></a></li>
             </ul>';
 }
-// ダッシュボードにスタイルシートを読み込む
-function custom_admin_enqueue(){
-     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/assets/css/style.css' );
-}
-add_action( 'admin_enqueue_scripts', 'custom_admin_enqueue' );
 
 // サムネイル列を追加
 function add_post_thumbnail_column($columns) {
@@ -279,5 +274,12 @@ echo '<style type="text/css">
 </style>';
 }
 add_action('admin_head', 'adjust_thumbnail_column_width');
+
+// ダッシュボードにスタイルシートを読み込む
+function custom_admin_enqueue(){
+     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/assets/css/style.css' );
+}
+add_action( 'admin_enqueue_scripts', 'custom_admin_enqueue' );
+
 
 ?>

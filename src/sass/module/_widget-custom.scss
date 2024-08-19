@@ -49,27 +49,11 @@ ul.acf-checkbox-list li label {
     align-items: center;
 }
 
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-10\%e4\%bb\%a3\%e4\%bb\%a5\%e4\%b8\%8b,
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-20\%e4\%bb\%a3,
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-30\%e4\%bb\%a3,
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-40\%e4\%bb\%a3,
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-50\%e4\%bb\%a3,
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-60\%e4\%bb\%a3\%e4\%bb\%a5\%e4\%b8\%8a,
-input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e7\%94\%b7\%e6\%80\%a7,
-input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e5\%a5\%b3\%e6\%80\%a7,
-input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e3\%82\%ab\%e3\%83\%83\%e3\%83\%97\%e3\%83\%ab {
-    border: solid rem(1) $black;
+ul.acf-radio-list li input[type=radio] {
+    border: solid rem(1) #8c8f94;
     display: block;
 }
 
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-10\%e4\%bb\%a3\%e4\%bb\%a5\%e4\%b8\%8b::before,
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-20\%e4\%bb\%a3::before,
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-30\%e4\%bb\%a3::before,
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-40\%e4\%bb\%a3::before,
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-50\%e4\%bb\%a3::before,
-input#acf-field_66b9ff88f5ad5-field_66b9ffa6f5ad6-60\%e4\%bb\%a3\%e4\%bb\%a5\%e4\%b8\%8a::before,
-input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e7\%94\%b7\%e6\%80\%a7::before,
-input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e5\%a5\%b3\%e6\%80\%a7::before,
-input#acf-field_66b9ff88f5ad5-field_66b9ffeef5ad7-\%e3\%82\%ab\%e3\%83\%83\%e3\%83\%97\%e3\%83\%ab::before {
-    background-color: $green;
+ul.acf-radio-list li input[type=radio]::before {
+    border: solid rem(1) #8c8f94;
 }
