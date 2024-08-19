@@ -264,8 +264,7 @@ function display_post_thumbnail_column($column, $post_id) {
         if (has_post_thumbnail($post_id)) {
             echo get_the_post_thumbnail($post_id, array(150, 150));
         } else {
-            echo '<img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
-alt="no-image" />';
+            echo 'サムネイル画像が指定されていません。';
 }
 }
 }
