@@ -10,4 +10,5 @@
     </div>
 </section>
 </div>
-</main><?php get_footer(); ?>
+</main>
+<?php get_footer(); ?>

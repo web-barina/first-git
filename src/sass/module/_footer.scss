@@ -15,6 +15,7 @@
 .footer__logo {
   width: rem(120);
   height: auto;
+  cursor: pointer;
 
   @include mq("md") {
     width: rem(200);
@@ -35,6 +36,7 @@
     margin: 0 auto;
     flex-direction: row;
     align-items: flex-end;
+    justify-content: center;
   }
 }
 
@@ -58,6 +60,7 @@
 .footer__sns-logo {
   width: rem(19.5);
   height: auto;
+  cursor: pointer;
 
   @include mq("md") {
     width: rem(24);
@@ -90,6 +93,6 @@
 
 //スクロールトップ
 .footer__js-scroll-top__img {
-  max-width: 109%;
-  width: 109%;
+  max-width: 100%;
+  width: 100%;
 }

@@ -1,0 +1,94 @@
+@use "global" as *;
+
+
+.repertory__list {
+    background-color: $yellow;
+    padding: rem(17) rem(50) rem(17) rem(17);
+    position: relative;
+    cursor: pointer;
+
+    @include mq("md") {
+        padding: rem(26) rem(80) rem(26) rem(40);
+    }
+}
+
+.repertory__list h2 {
+    font-size: rem(16);
+    font-weight: $normal;
+    color: $black;
+
+    @include mq("md") {
+        font-size: rem(20);
+    }
+}
+
+.repertory__list::before {
+    position: absolute;
+    content: "";
+    display: block;
+    background-color: $black;
+    width: rem(28);
+    height: rem(1);
+    top: 50%;
+    right: rem(17);
+
+    @include mq("md") {
+        width: rem(32);
+        right: rem(40);
+    }
+}
+
+.repertory__list::after {
+    position: absolute;
+    content: "";
+    display: block;
+    background-color: $black;
+    width: rem(28);
+    height: rem(1);
+    top: 50%;
+    right: rem(17);
+    transform: rotate(-180deg);
+    transition: transform .3s ease-in-out, top .3s ease-in-out;
+
+    @include mq("md") {
+        width: rem(32);
+        right: rem(40);
+    }
+}
+
+.repertory__list.open::after {
+    transform: rotate(0deg);
+}
+
+
+.repertory__note {
+    display: none;
+    padding: rem(22) 0;
+    border: solid rem(1) $yellow;
+    margin-top: 0;
+
+    @include mq("md") {
+        padding: rem(39) 0;
+        margin-top: rem(14);
+    }
+
+}
+
+.repertory__note p {
+    margin: 0 rem(16);
+    line-height: 1.45;
+    color: $white;
+
+    @include mq("md") {
+        margin: 0 rem(40);
+    }
+}
+
+.repertory__no-content {
+    margin-top: rem(50);
+    text-align: center;
+
+    @include mq("md") {
+        margin-top: 0;
+    }
+}

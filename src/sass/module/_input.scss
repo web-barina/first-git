@@ -7,7 +7,7 @@ input.wpcf7-form-control.wpcf7-submit {
     width: rem(202);
     padding: rem(16) 0;
     background-color: transparent;
-    color: $white;
+    color: $black;
     font-family: $title-font-family;
     font-size: rem(14);
     line-height: 1.5714;
@@ -16,13 +16,13 @@ input.wpcf7-form-control.wpcf7-submit {
 }
 
 input.wpcf7-form-control.wpcf7-submit:hover {
-    color: $green;
+    color: $yellow;
 }
 
 //ボタン二重線
 input.wpcf7-form-control.wpcf7-submit:before {
     position: absolute;
-    border: rem(1) solid $green;
+    border: rem(1) solid $yellow;
     top: rem(4);
     left: rem(10);
     right: rem(-4);

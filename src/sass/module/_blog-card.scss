@@ -6,7 +6,7 @@
   padding-right: rem(16);
   padding-bottom: rem(24);
   box-shadow: rem(2) rem(2) rem(10) rgba($color: #000000, $alpha: 0.25);
-  background-color: $white;
+  background-color: rgba($color: $white, $alpha: 0.8);
   width: 100%;
   opacity: 1;
   cursor: pointer;
@@ -51,22 +51,24 @@
   overflow-wrap: anywhere;
   font-size: rem(16);
   line-height: 1.5;
-  border-bottom: solid rem(1) $green;
+  border-bottom: solid rem(1) $black;
   font-weight: $bold;
   flex-shrink: 0;
   padding-bottom: rem(3);
-
+  color: $black;
 }
 
 .blog-card__text {
   margin-top: 0;
   padding-top: rem(16);
+  color: $black;
 }
 
 .blog-card__time {
   font-size: rem(12);
   font-family: $second-font-family;
   line-height: 1.5;
+  color: $black;
 }
 
 .blog-card__pager-wrapper {

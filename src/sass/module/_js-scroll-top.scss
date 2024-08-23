@@ -7,7 +7,7 @@
   align-items: center;
   background-color: transparent;
   width: rem(48);
-  height: rem(48);
+  height: rem(96);
   transition: all 0.3s;
 }
 
@@ -18,14 +18,14 @@
 /*リンクを右下に固定*/
 #js-scroll-top {
   position: fixed;
-  right: rem(15);
+  right: rem(20);
   z-index: 2;
   /*はじめは非表示*/
   opacity: 0;
   transform: translateY(rem(100));
 
   @include mq("md") {
-    right: rem(20);
+    right: rem(40);
   }
 }
 
@@ -66,6 +66,6 @@
 @include mq("md") {
   #js-scroll-top a {
     width: rem(80);
-    height: rem(80);
+    height: rem(150);
   }
 }

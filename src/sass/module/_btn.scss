@@ -6,8 +6,8 @@
   display: inline-block;
   width: rem(202);
   padding: rem(16) 0;
-  background-color: $green;
-  color: $white;
+  background-color: $yellow;
+  color: $black;
   font-family: $title-font-family;
   font-size: rem(14);
   line-height: 1.5714;
@@ -16,13 +16,13 @@
 }
 
 .btn:hover {
-  color: $green;
+  color: $yellow;
 }
 
 //ボタン二重線
 .btn::before {
   position: absolute;
-  border: rem(1) solid $green;
+  border: rem(1) solid $yellow;
   top: rem(4);
   left: rem(10);
   right: rem(-4);
@@ -41,19 +41,19 @@
   margin-left: rem(8);
   vertical-align: middle;
   line-height: 1;
-  background: $white;
+  background: $black;
   z-index: inherit;
 }
 
 .btn span:hover {
-  color: $green;
+  color: $yellow;
 }
 
 .btn span::after {
   content: "";
   position: absolute;
   width: rem(10);
-  border: rem(1.8) solid $white;
+  border: rem(1.8) solid $black;
   border-left: 0;
   border-bottom: 0;
   transform: rotate(40deg);
@@ -67,9 +67,9 @@
 //アニメーション
 .btn::after {
   position: absolute;
-  background-color: $white;
-  border: rem(1) solid $green;
-  color: $green;
+  background-color: $black;
+  border: rem(1) solid $yellow;
+  color: $yellow;
   content: "";
   display: inline-block;
   height: 100%;
@@ -87,17 +87,17 @@
 }
 
 .btn:hover span {
-  background-color: $green;
+  background-color: $yellow;
 }
 
 .btn:hover span::after {
-  border: rem(1.3) solid $green;
+  border: rem(1.3) solid $yellow;
 }
 
 //404ページのボタン
 .btn--white {
   background-color: $white;
-  color: $green;
+  color: $yellow;
 }
 
 .btn--white:hover {
@@ -111,7 +111,7 @@
 
 //ボタン矢印
 .btn--white span {
-  background: $green;
+  background: $yellow;
 }
 
 .btn--white span:hover {
@@ -119,12 +119,12 @@
 }
 
 .btn--white span::after {
-  border: rem(1.8) solid $green;
+  border: rem(1.8) solid $yellow;
 }
 
 //アニメーション
 .btn--white::after {
-  background-color: $green;
+  background-color: $yellow;
   border: rem(1) solid $white;
   color: $white;
 }

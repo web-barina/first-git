@@ -1,0 +1,32 @@
+@use "global" as *;
+
+.biography-wrapper {
+    margin-top: rem(26);
+    position: relative;
+
+    @include mq("md") {
+        margin-top: rem(150);
+    }
+}
+
+.biography-wrapper::after {
+    position: absolute;
+    content: "";
+    display: block;
+    background-image: url(../images/common/piano-top-deco.png);
+    top: rem(-40);
+    left: calc(50% - min(45.7vw, 10.8rem));
+    max-width: rem(100);
+    width: 100%;
+    height: rem(100);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+
+    @include mq("md") {
+        top: rem(-90);
+        left: calc(50% - min(43vw, 38.7rem));
+        max-width: rem(200);
+        height: rem(200);
+    }
+}

@@ -1,8 +1,8 @@
 <?php
 function custom_enqueue_styles() {
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap', false);
-    wp_enqueue_style('google-fonts-gotu', 'https://fonts.googleapis.com/css2?family=Gotu&display=swap', false);
-    wp_enqueue_style('google-fonts-noto-sans-jp', 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap', false);
+    wp_enqueue_style('google-fonts-source', 'https://fonts.googleapis.com/css2?family=Gotu&display=swap', false);
+    wp_enqueue_style('google-fonts-noto-sans-jp', 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap', false);
 }
 add_action('wp_enqueue_scripts', 'custom_enqueue_styles');
 
@@ -200,13 +200,13 @@ EOD;
 function login_logo() {
   echo '<style type="text/css">
     #login h1 a {
-      background: url('.get_template_directory_uri().'/assets/images/common/logo.png) no-repeat top center;//ログイン画面のロゴ変更
-      background-size:contain;
+      background: url('.get_template_directory_uri().'/assets/images/common/obarina-logo.png) no-repeat top center;//ログイン画面のロゴ変更
+      background-size:cover;
       width: 300px; //ログインの幅
       height: 70px; //ログインの高さ
     }
     body{
-      background: url('.get_template_directory_uri().'/assets/images/common/sitemap-privacy-FV.png) no-repeat center center;//ログイン画面の背景変更
+      background: url('.get_template_directory_uri().'/assets/images/common/piano-contact.jpg) no-repeat center center;//ログイン画面の背景変更
       background-size:contain;
     }
     .login #backtoblog a,
@@ -236,13 +236,8 @@ echo '<ul class="custom_widget">
             <li><a href="post-new.php"><div class="dashicons dashicons-edit"></div><p>新しくブログを書く</p></a></li>
             <li><a href="edit.php"><div class="dashicons dashicons-list-view"></div><p>過去のブログ一覧</p></a></li>
             <li><a href="post.php?post=47&action=edit"><div class="dashicons dashicons-format-image"></div><p>トップ上部の画像編集</p></a></li>
-            <li><a href="edit.php?post_type=campaign"><div class="dashicons dashicons-megaphone"></div><p>キャンペーン</p></a></li>
-            <li><a href="post.php?post=12&action=edit"><div class="dashicons dashicons-format-image"></div><p>私たちについてのギャラリー</p></a></li>
-            <li><a href="edit.php?post_type=voice"><div class="dashicons dashicons-format-chat"></div><p>お客様の声</p></a></li>
-            <li><a href="post.php?post=17&action=edit"><div class="dashicons dashicons-money-alt"></div><p>料金一覧</p></a></li>
-            <li><a href="post.php?post=19&action=edit"><div class="dashicons dashicons-format-status"></div><p>よくある質問</p></a></li>
+            <li><a href="post.php?post=12&action=edit"><div class="dashicons dashicons-format-image"></div><p>ギャラリー</p></a></li>
             <li><a href="post.php?post=30&action=edit"><div class="dashicons dashicons-edit"></div><p>プライバシーポリシー</p></a></li>
-            <li><a href="post.php?post=32&action=edit"><div class="dashicons dashicons-edit"></div><p>利用規約</p></a></li>
             </ul>';
 }
 
@@ -277,9 +272,7 @@ add_action('admin_head', 'adjust_thumbnail_column_width');
 
 // ダッシュボードにスタイルシートを読み込む
 function custom_admin_enqueue(){
-     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/assets/css/style.css' );
+     wp_enqueue_style( 'custom_admin_enqueue', get_stylesheet_directory_uri(). '/assets/css/widget-custom.css' );
 }
 add_action( 'admin_enqueue_scripts', 'custom_admin_enqueue' );
-
-
 ?>

@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.top-performance-wrapper {
+    margin-top: rem(70);
+    padding: rem(80) 0 rem(77);
+
+    @include mq("md") {
+        margin-top: rem(100);
+        padding: rem(100) 0 rem(77);
+    }
+}

@@ -4,13 +4,14 @@
 .archive-year {
     position: relative;
     margin-top: rem(3);
+    cursor: pointer;
 }
 
 .archive-year::after {
     position: absolute;
     content: "";
     display: block;
-    background-image: url(../images/common/sidebar-archive-arrow.png);
+    background-image: url(../images/common/16beat-icon.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -22,5 +23,5 @@
 }
 
 .archive-year.open::after {
-    transform: rotate(90deg);
+    transform: rotate(45deg);
 }

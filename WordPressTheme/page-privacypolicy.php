@@ -5,11 +5,7 @@
     <?php if (have_posts()) : ?>
     <div class="privacy__inner inner">
         <?php while (have_posts()) : the_post(); ?>
-        <div class="privacy__title">
-            <h2>
-                <?php the_title() ?>
-            </h2>
-        </div>
+        <h2 class="privacy__title title">Privacy Policy</h2>
         <div class="privacy__text">
             <?php the_content() ?>
         </div>

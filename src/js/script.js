@@ -281,7 +281,7 @@ jQuery(function ($) {
 
   /***********************
    *ローディング2回目非表示*
-   ***********************/
+   *********************
   $(document).ready(function () {
     // Cookieの値を取得
     var loadingAnime = $.cookie("accessdate"); //キーが入っていれば年月日を取得
@@ -300,5 +300,5 @@ jQuery(function ($) {
     } else {
       $(".js-loading").css("display", "none");
     }
-  });
+  });**/
 });

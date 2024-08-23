@@ -1,15 +1,19 @@
 @use "global" as *;
 
 .no-page {
-  background-color: $green;
+  background-color: rgba($color: $black, $alpha: 0.8);
   color: $white;
   position: relative;
+}
+
+.no-page__inner.inner {
+  max-width: rem(600);
 }
 
 .no-page::after {
   position: absolute;
   content: "";
-  background-image: url(../images/common/404img.png);
+  background-image: url(../images/common/piano-top-deco.png);
   top: rem(-9);
   left: calc(50% - min(46vw, 11rem));
   max-width: rem(345);
@@ -60,17 +64,22 @@
 .no-page__texts {
   margin-top: rem(3);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @include mq("md") {
     margin-top: rem(39);
+    flex-direction: row;
   }
 }
 
-.no-page__btn-wrapper {
-  margin-top: rem(42);
-  text-align: center;
 
-  @include mq("md") {
-    margin-top: rem(81);
-  }
+.no-page__img {
+  width: 40%;
+}
+
+.no-page__btn-wrapper {
+  margin-top: rem(40);
+  text-align: center;
 }

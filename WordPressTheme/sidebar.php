@@ -2,7 +2,7 @@
     <div class="sidebar-layout__inner">
         <aside class="sidebar-layout__main sidebar">
             <section class="sidebar__popular">
-                <h2 class="sidebar__title">人気記事</h2>
+                <h2 class="sidebar__title">Popular</h2>
                 <?php
                     // 閲覧数を基準にして人気記事を取得する
                     $popular_args = array(
@@ -39,121 +39,21 @@
                     wp_reset_postdata();
                 ?>
             </section>
-            <section class="sidebar__review">
-                <h2 class="sidebar__title">口コミ</h2>
-                <?php
-                    // 最新の「お客様の声」を1つだけ取得するWP_Query
-                    $args = array(
-                    'post_type' => 'voice',
-                    'posts_per_page' => 1,
-                    );
-                    $latest_voice = new WP_Query($args);
-                    if ($latest_voice->have_posts()) :
-                    while ($latest_voice->have_posts()) : $latest_voice->the_post(); 
-                ?>
-                <div class="sidebar__review-card review">
-                    <figure class="review__img">
-                        <?php if (has_post_thumbnail()) : ?>
-                        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-                        <?php else : ?>
-                        <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
-                            alt="no-image" />
-                        <?php endif; ?>
-                    </figure>
-                    <p class="review__info">
-                        <?php $customer_info = get_field('customer_info');
-                                        if ($customer_info) {
-                                            $customer_age = $customer_info['customer_age'];
-                                            if ($customer_age) {
-                                                echo esc_html($customer_age);
-                                            }
-                                        } 
-                                    ?>
-                        <?php $customer_info = get_field('customer_info');
-                                        if ($customer_info) {
-                                            $customer_kinds = $customer_info['customer_kinds'];
-                                            if ($customer_kinds) {
-                                                echo esc_html($customer_kinds);
-                                            }
-                                        } 
-                                    ?>
-                    </p>
-                    <h3 class="review__title"><?php the_title() ?></h3>
-                </div>
-                <?php endwhile;
-                    wp_reset_postdata(); 
-                    endif;
-                ?>
-                <div class="sidebar__btn-wrapper">
-                    <a href="<?php echo get_post_type_archive_link('voice'); ?>" class="btn">View more
-                        <span></span>
-                    </a>
-                </div>
-            </section>
-            <section class="sidebar__campaign">
-                <h2 class="sidebar__title">キャンペーン</h2>
-                <?php
-                    // 最新の「キャンペーン」を2つ取得するWP_Query
-                    $campaign_args = array(
-                    'post_type' => 'campaign',
-                    'posts_per_page' => 2,
-                    );
-
-                    $latest_campaigns = new WP_Query($campaign_args);
-                ?>
-                <ul class="sidebar__campaign-cards campaign-cards">
+            <section class="sidebar__category">
+                <h2 class="sidebar__title">Category</h2>
+                <ul class="sidebar__category-items">
                     <?php
-                        if ($latest_campaigns->have_posts()) :
-                        while ($latest_campaigns->have_posts()) : $latest_campaigns->the_post();
+                        $categories = get_categories();
+                        foreach ($categories as $category) {
+                            echo '<li><a href="' . get_category_link($category->term_id) . '">';
+                            echo $category->name;
+                            echo '</a></li>';
+                        }
                     ?>
-                    <li class="campaign-cards__item campaign-card">
-                        <figure class="campaign-card__img">
-                            <?php if (has_post_thumbnail()) : ?>
-                            <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-                            <?php else : ?>
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
-                                alt="no-image" />
-                            <?php endif; ?>
-                        </figure>
-                        <div class="campaign-card__body campaign-card__body--side">
-                            <div class="campaign-card__title-wrapper">
-                                <h3 class="campaign-card__title campaign-card__title--side">
-                                    <?php the_title() ?>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="campaign-card__contents">
-                            <p class="campaign-card__text campaign-card__text--side">
-                                <?php the_field('campaign_text'); ?></p>
-                            <div class="campaign-card__price-wrapper campaign-card__price-wrapper--side">
-                                <?php
-                                    $campaign_price = get_field('campaign_price');
-                                ?>
-                                <?php if (!empty($campaign_price['campaign_pre-price'])) : ?>
-                                <p class="campaign-card__pre-price campaign-card__pre-price--side">
-                                    &yen;<?php echo esc_html($campaign_price['campaign_pre-price']); ?>
-                                </p>
-                                <?php endif; ?>
-                                <p class="campaign-card__after-price campaign-card__after-price--side">
-                                    &yen;<?php echo esc_html($campaign_price['campaign_after-price']); ?>
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                    <?php endwhile;?>
                 </ul>
-                <?php else : ?>
-                <p class="campaign-card__no-message">ただいま準備中です。もう少しお待ちください。</p>
-                <?php wp_reset_postdata();?>
-                <?php endif;?>
-                <div class="sidebar__btn-wrapper">
-                    <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="btn">View more
-                        <span></span>
-                    </a>
-                </div>
             </section>
             <section class="sidebar__archive">
-                <h2 class="sidebar__title">アーカイブ</h2>
+                <h2 class="sidebar__title">Archive</h2>
                 <div class="sidebar__archive-content">
                     <?php
                         // 年と月を取得

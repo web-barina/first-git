@@ -8,7 +8,7 @@
 }
 
 .archive-month::before {
-    background: $green;
+    background: $yellow;
     content: '';
     width: 100%;
     height: rem(2);
@@ -26,7 +26,7 @@
     transform: scale(1, 1);
 }
 
-//アーカイブ三角
+//アーカイブアイコン
 .archive-month {
     position: relative;
     margin-top: rem(3);
@@ -36,7 +36,7 @@
     position: absolute;
     content: "";
     display: block;
-    background-image: url(../images/common/sidebar-archive-arrow.png);
+    background-image: url(../images/common/16beat-icon.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
