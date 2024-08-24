@@ -10,24 +10,9 @@
 .sidebar__title {
   position: relative;
   border-left: solid rem(8) $yellow;
-  padding: rem(13) 0 rem(13) rem(75);
-  line-height: 1;
+  padding: rem(8) 0 rem(8) rem(13);
   font-size: rem(24);
   font-weight: normal;
-}
-
-.sidebar__title::before {
-  position: absolute;
-  content: "";
-  display: block;
-  background-image: url(../images/common/note-deco.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: rem(50);
-  height: rem(50);
-  top: rem(0);
-  left: rem(16);
 }
 
 .sidebar__btn-wrapper {

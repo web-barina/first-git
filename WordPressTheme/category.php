@@ -6,7 +6,7 @@
         <div class="blog-layout__inner inner">
             <div class="blog-layout__2column">
                 <article class="blog-layout__main blog">
-                    <h1 class="section-titles__english"><?php single_cat_title(); ?></h1>
+                    <h1 class="blog__title title"><?php single_cat_title(); ?></h1>
                     <?php if (have_posts()) : ?>
                     <ul class="blog__cards blog-cards blog-cards--blog-page">
                         <?php while (have_posts()) : the_post(); ?>

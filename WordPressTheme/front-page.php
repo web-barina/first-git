@@ -2,49 +2,34 @@
 <main>
     <!--first-view-->
     <div class="topFVswiper swiper" id="js-topFVswiper">
-        <div class="topFVswiper__wrapper swiper-wrapper">
-            <figure class="topFVswiper__slide swiper-slide">
-                <?php
-                    // ACFのフィールドからURLを取得
-                    $top_image_url1 = get_field('top_image1');
-
-                    // wp_oembed_get()で埋め込みコンテンツを生成
-                    if ( $top_image_url1 ) {
-                        echo wp_oembed_get( $top_image_url1 );
-                    } else {
-                        echo '<img src="' . $top_image2_url . '" alt="">';
-                    }
-                ?>
-                <picture class="topFVswiper__slide swiper-slide">
-                    <?php
-                        if ($top_img && !empty($top_img['top_image2'])) {
-                            $top_image2_url = esc_url($top_img['top_image2']); 
-                            echo '<img src="' . $top_image2_url . '" alt="">'; 
-                        }
-                    ?>
-                </picture>
-                <picture class="topFVswiper__slide swiper-slide">
-                    <?php
-                        if ($top_img && !empty($top_img['top_image3'])) {
-                            $top_image3_url = esc_url($top_img['top_image3']); 
-                            echo '<img src="' . $top_image3_url . '" alt="">'; 
-                        }
-                    ?>
-                </picture>
-                <figure class="topFVswiper__slide swiper-slide">
-                    <?php
-                    // ACFのフィールドからURLを取得
-                    $top_image_url4 = get_field('top_image4');
-
-                    // wp_oembed_get()で埋め込みコンテンツを生成
-                    if ( $top_image_url4 ) {
-                        echo wp_oembed_get( $top_image_url4 );
-                    } else {
-                        echo '<img src="' . $top_image3_url . '" alt="">';
-                    }
-                ?>
-                </figure>
+        <?php
+            // ACFのフィールドデータを取得
+            $top_image1 = get_field('top_image1');
+            $top_image2 = get_field('top_image2');
+            $top_image3 = get_field('top_image3');
+            $top_image4 = get_field('top_image4');
+        ?>
+        <?php if ($top_image1): ?>
+        <div class="topFVswiper__slide swiper-slide">
+            <?php echo $top_image1;?>
         </div>
+        <?php endif; ?>
+        <?php if ($top_image2): ?>
+        <div class="topFVswiper__slide swiper-slide">
+            <img src="<?php echo esc_url($top_image2['url']); ?>" alt="<?php echo esc_attr($top_image2['alt']); ?>" />
+        </div>
+        <?php endif; ?>
+        <?php if ($top_image3): ?>
+        <div class="topFVswiper__slide swiper-slide">
+            <?php echo $top_image3;?>
+        </div>
+        <?php endif; ?>
+        <?php if ($top_image4): ?>
+        <div class="topFVswiper__slide swiper-slide">
+            <img src="<?php echo esc_url($top_image4['url']); ?>" alt="<?php echo esc_attr($top_image4['alt']); ?>" />
+        </div>
+    </div>
+    <?php endif; ?>
     </div>
     <div class="topFVswiper__texts">
         <h2 class="topFVswiper__main-text">ObaRina</h2>
@@ -54,13 +39,9 @@
     <section class="top-biography top-biography-wrapper">
         <div class="top-biography__inner inner">
             <div class="top-biography__img-wrapper">
-                <div class="top-biography__img-left">
+                <div class="top-biography__img">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/profile1.jpg"
                         alt="大場李奈のプロフィール写真" />
-                </div>
-                <div class="top-biography__img-right">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/piano-contact.jpg"
-                        alt="スポットライトに当たるグランドピアノの写真" />
                 </div>
             </div>
             <div class="top-biography__texts">

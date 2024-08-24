@@ -50,7 +50,6 @@
 .blog-card__title {
   overflow-wrap: anywhere;
   font-size: rem(16);
-  line-height: 1.5;
   border-bottom: solid rem(1) $black;
   font-weight: $bold;
   flex-shrink: 0;
@@ -67,7 +66,6 @@
 .blog-card__time {
   font-size: rem(12);
   font-family: $second-font-family;
-  line-height: 1.5;
   color: $black;
 }
 
@@ -81,7 +79,5 @@
 
   @include mq("md") {
     margin-top: rem(100);
-    background-color: $white;
-    padding: rem(16);
   }
 }

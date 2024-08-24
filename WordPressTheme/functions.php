@@ -125,26 +125,6 @@ function custom_query_vars($vars) {
 }
 add_filter('query_vars', 'custom_query_vars');
 
-/*************
- *キャンペーン*
- *************/
-function filter_campaigns_by_custom_field($query) {
-    if (!is_admin() && $query->is_main_query() && is_post_type_archive('campaign')) {
-        $query->set('posts_per_page', 4);// 投稿4件表示
-    }
-}
-add_action('pre_get_posts', 'filter_campaigns_by_custom_field');
-
-/***********
- *お客様の声*
- ***********/
-function filter_voice_posts_by_category($query) {
-    if (!is_admin() && $query->is_main_query() && (is_post_type_archive('voice'))) {
-        $query->set('posts_per_page', 6); // 投稿6件表示
-    }
-}
-add_action('pre_get_posts', 'filter_voice_posts_by_category');
-
 
 /**************
  *お問い合わせ*

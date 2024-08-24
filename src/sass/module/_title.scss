@@ -4,12 +4,14 @@
   font-family: $title-font-family;
   position: relative;
   padding: 0 rem(16) rem(16);
-  -webkit-box-shadow: 0 rem(2) rem(14) rgba(0, 0, 0, .1);
-  box-shadow: 0 rem(2) rem(14) rgba(0, 0, 0, .1);
   letter-spacing: 0.1em;
   width: fit-content;
   text-align: center;
-  font-size: rem(32);
+  font-size: rem(24);
+
+  @include mq("md") {
+    font-size: rem(32);
+  }
 }
 
 .title span {

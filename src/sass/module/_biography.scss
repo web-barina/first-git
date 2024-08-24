@@ -80,13 +80,11 @@
 
 .biography__main-text {
   font-size: rem(40);
-  line-height: 1;
   font-family: $title-font-family;
   color: $yellow;
 
   @include mq("md") {
     font-size: rem(80);
-    line-height: 1.2;
     color: $white;
   }
 }
@@ -100,13 +98,9 @@
   }
 }
 
-.biography__text p {
-  line-height: 1.8;
-}
 
 .biography__name {
   font-size: rem(20);
-  line-height: 1.2;
   padding-bottom: rem(4);
   border-bottom: solid rem(1) $yellow;
 }
