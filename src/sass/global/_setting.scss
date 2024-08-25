@@ -13,13 +13,12 @@ $padding-sp: 15px;
 // フォント設定
 ////////////////////
 
-$base-font-family: "Noto Sans JP", sans-serif;
-$second-font-family: "Source Serif 4", system-ui;
-$title-font-family: "Source Serif 4", system-ui;
+$base-font: "Source Serif 4", system-ui, "Noto Sans JP", sans-serif;
+$main-font: "Source Serif 4", system-ui;
 // ※検証ツールでしっかり反映されているか確認する
 
 body {
-  font-family: $base-font-family;
+  font-family: $base-font;
   color: #F7F7F7;
   background-color: #1E2232;
 }
@@ -36,6 +35,6 @@ $bold: 700;
 //色指定（共通性のあるものは出来る限り指定すると良い）
 $black: #1E2232;
 $white: #F7F7F7;
-$yellow: #FFE573;
+$yellow: #ECBF09;
 $red: #c94800;
 $light-yellow: #9EAD52;

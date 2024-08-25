@@ -1,14 +1,32 @@
 "use strict";
 
 gsap.to(".js-loading-left", {
-  duration: 2.5, // アニメーションの持続時間
-  xPercent: -100, // 左カーテンを左に移動
-  ease: "power2.inOut", // イージング効果
+  duration: 2.5,
+  xPercent: -100,
+  ease: "power2.inOut",
 });
 
 gsap.to(".js-loading-right", {
-  duration: 2.5, // アニメーションの持続時間
-  xPercent: 100, // 右カーテンを右に移動
-  ease: "power2.inOut", // イージング効果
-  delay: 0.2, // 左カーテンより少し遅らせて開く
+  duration: 2.5,
+  xPercent: 100,
+  ease: "power2.inOut",
+  delay: 0.2,
 });
+//header
+if (window.innerWidth >= 768) {
+  gsap.fromTo(
+    ".header",
+    { x: "-100%" },
+    {
+      x: "0%",
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".header",
+        start: "top top+=100%",
+        end: "+=100",
+        toggleActions: "play none none reverse",
+      },
+    }
+  );
+}

@@ -1,11 +1,11 @@
 @use "global" as *;
 
 //お問い合わせセクションインナー
-.contact__inner {
+.contact__inner.inner {
   max-width: rem(540);
 
   @include mq("md") {
-    max-width: rem(1080);
+    max-width: rem(1200);
   }
 }
 
@@ -27,74 +27,8 @@
   }
 }
 
-//お問い合わせ左側周り
-.contact__info-wrapper {
-  margin-top: rem(16);
-
-  @include mq("md") {
-    margin-top: rem(0);
-  }
-}
-
-//お問い合わせ左側住所と地図まとまり
-.contact__info {
-  display: flex;
-  flex-direction: column;
-  text-shadow: 0 rem(4) rem(4) rgba($color: #000, $alpha: 0.25);
-  padding-top: rem(16);
-  border-top: solid rem(1) $yellow;
-  max-width: rem(295);
-  width: 100%;
-  margin: 0 auto;
-
-  @include mq("md") {
-    border-top: solid rem(1) $yellow;
-    flex-direction: row;
-    text-shadow: none;
-    padding-top: rem(24);
-    max-width: rem(440);
-    width: 100%;
-  }
-}
-
-//お問い合わせ左側住所
-.contact__address {
-  width: 100%;
-  text-align: center;
-
-  @include mq("md") {
-    text-align: left;
-  }
-}
-
-.contact__address p {
-  margin-top: rem(4);
-  white-space: nowrap;
-}
-
-.contact__address p:first-child {
-  margin-top: rem(0);
-}
-
-//お問い合わせ住所の周り
-.contact__address-wrapper {
-  width: 100%;
-
-  @include mq("md") {
-    padding-right: rem(80);
-    width: 100%;
-    border-right: solid rem(1) $yellow;
-  }
-}
-
-//お問い合わせ、電話
-.contact__tel {
-  display: inline-block;
-  margin-top: rem(5);
-}
-
-//お問い合わせ地図
-.contact__map {
+//お問い合わせ画像
+.contact__img {
   position: relative;
   width: 100%;
   aspect-ratio: 295/160;
@@ -110,7 +44,7 @@
   }
 }
 
-.contact__map>iframe {
+.contact__img>img {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -162,8 +96,8 @@
 }
 
 //お問い合わせ、セクションタイトル
-.contact__titles-english {
-  font-family: $title-font-family;
+.contact__titles {
+  font-family: $main-font;
   font-size: rem(80);
   color: $white;
   text-shadow: 0 rem(4) rem(4) rgba($color: #f7f7f7, $alpha: 0.5);
@@ -173,19 +107,6 @@
   }
 }
 
-.contact__titles-english::first-letter {
+.contact__titles::first-letter {
   color: $yellow;
-}
-
-.contact__titles-japanese {
-  font-size: rem(12);
-  font-weight: $regular;
-  color: $yellow;
-  margin-top: rem(-3);
-  text-shadow: 0 rem(4) rem(4) rgba($color: #000, $alpha: 0.25);
-
-  @include mq("md") {
-    text-shadow: none;
-    margin-top: rem(0);
-  }
 }

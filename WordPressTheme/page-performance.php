@@ -43,6 +43,13 @@
                 </div>
             </div>
         </div>
+        <div class="youtube_btn-wrapper">
+            <a href="https://www.youtube.com/@user-mt9xm9gp9r" target="_blank" class="top-performance__btn btn">Go to
+                Youtube
+                Channel
+                <span></span>
+            </a>
+        </div>
     </div>
 </section>
 <?php get_footer(); ?>

@@ -3,37 +3,41 @@
     <!--first-view-->
     <div class="topFVswiper swiper" id="js-topFVswiper">
         <?php
-            // ACFのフィールドデータを取得
-            $top_image1 = get_field('top_image1');
-            $top_image2 = get_field('top_image2');
-            $top_image3 = get_field('top_image3');
-            $top_image4 = get_field('top_image4');
-        ?>
-        <?php if ($top_image1): ?>
-        <div class="topFVswiper__slide swiper-slide">
-            <?php echo $top_image1;?>
+        // ACFのフィールドデータを取得
+        $top_image1 = get_field('top_image1'); // YouTubeのURLが入っていることを想定
+        $top_image2 = get_field('top_image2');
+        $top_image3 = get_field('top_image3'); // YouTubeのURLが入っていることを想定
+        $top_image4 = get_field('top_image4');
+    ?>
+        <div class="topFVswiper__wrapper swiper-wrapper">
+            <?php if ($top_image1): ?>
+            <div class="topFVswiper__slide swiper-slide">
+                <video>
+                    <source src="<?php echo esc_url($top_image1); ?>" type="video/mp4">
+                </video>
+            </div>
+            <?php endif; ?>
+            <?php if ($top_image2): ?>
+            <div class="topFVswiper__slide swiper-slide">
+                <img src="<?php echo esc_url($top_image2); ?>" alt="Top Image 2">
+            </div>
+            <?php endif; ?>
+            <?php if ($top_image3): ?>
+            <div class="topFVswiper__slide swiper-slide">
+                <video>
+                    <source src="<?php echo esc_url($top_image3); ?>" type="video/mp4">
+                </video>
+            </div>
+            <?php endif; ?>
+            <?php if ($top_image4): ?>
+            <div class="topFVswiper__slide swiper-slide">
+                <img src="<?php echo esc_url($top_image4); ?>" alt="Top Image 4">
+            </div>
+            <?php endif; ?>
         </div>
-        <?php endif; ?>
-        <?php if ($top_image2): ?>
-        <div class="topFVswiper__slide swiper-slide">
-            <img src="<?php echo esc_url($top_image2['url']); ?>" alt="<?php echo esc_attr($top_image2['alt']); ?>" />
-        </div>
-        <?php endif; ?>
-        <?php if ($top_image3): ?>
-        <div class="topFVswiper__slide swiper-slide">
-            <?php echo $top_image3;?>
-        </div>
-        <?php endif; ?>
-        <?php if ($top_image4): ?>
-        <div class="topFVswiper__slide swiper-slide">
-            <img src="<?php echo esc_url($top_image4['url']); ?>" alt="<?php echo esc_attr($top_image4['alt']); ?>" />
-        </div>
-    </div>
-    <?php endif; ?>
     </div>
     <div class="topFVswiper__texts">
-        <h2 class="topFVswiper__main-text">ObaRina</h2>
-        <p class="topFVswiper__sub-text">Pianist Site</p>
+        <h2 class="topFVswiper__main-text">Nothing ventured,<br>nothing gained</h2>
     </div>
     <!--About us-->
     <section class="top-biography top-biography-wrapper">

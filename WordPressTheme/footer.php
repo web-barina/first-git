@@ -3,25 +3,12 @@
 <section class="contact contact-wrapper contact-wrapper--layout">
     <div class="contact__inner inner">
         <div class="contact__content-inner">
-            <div class="contact__address-wrapper">
-                <div class="contact__info-wrapper">
-                    <div class="contact__logo logo"><img
-                            src="<?php echo get_theme_file_uri(); ?>/assets/images/common/obarina-logo.png"
-                            alt="ObaRina" />
-                    </div>
-                </div>
-                <div class="contact__info">
-                    <div class="contact__map"><img
-                            src="<?php echo get_theme_file_uri(); ?>/assets/images/common/piano-contact.jpg" alt="">
-                    </div>
-                </div>
+            <div class="contact__img"><img
+                    src="<?php echo get_theme_file_uri(); ?>/assets/images/common/piano-contact.jpg" alt="">
             </div>
             <div class="contact__content">
-                <div class="contact__titles">
-                    <p class="contact__titles-english">Contact</p>
-                    <h2 class="contact__titles-japanese">お問い合わせ</h2>
-                </div>
-                <p class="contact__text">お問い合わせはコチラ</p>
+                <p class="contact__titles">Contact</p>
+                <p class="contact__text">演奏・伴奏のご依頼など<br>お気軽にお問い合わせください。</p>
                 <div class="contact__btn-wrapper">
                     <a href="<?php echo esc_url(home_url('contact')); ?>" class="btn">Contact me
                         <span></span>

@@ -12,7 +12,10 @@
   left: 0;
 
   @include mq("md") {
-    height: rem(90);
+    height: 100%;
+    width: fit-content;
+    left: 0;
+    transition: left 0.5s ease;
   }
 }
 
@@ -29,7 +32,8 @@
   @include mq("md") {
     width: 100%;
     margin: 0 auto;
-    padding: 0 rem(40);
+    flex-direction: column;
+    padding: 0 rem(20);
     height: inherit;
   }
 }
@@ -40,6 +44,7 @@
   height: auto;
 
   @include mq("md") {
+    margin-top: rem(60);
     width: rem(133);
     height: auto;
   }
@@ -52,7 +57,7 @@
     line-height: 1.5;
     color: $white;
     margin-top: rem(4);
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -62,7 +67,7 @@
     font-size: rem(18);
     line-height: 1;
     color: $white;
-    font-family: $title-font-family;
+    font-family: $main-font;
     text-align: center;
   }
 }
@@ -87,49 +92,36 @@
 
   .header__pc-nav ul {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: rem(40);
     height: inherit;
   }
 
   .header__pc-nav li {
     display: inline-block;
-    height: inherit;
+    height: rem(50);
   }
 
   .header__pc-nav li a {
-    /*線の基点とするためrelativeを指定*/
-    position: relative;
     height: inherit;
     display: inline-block;
     align-content: center;
   }
 
-  .header__pc-nav li.current a,
-  .header__pc-nav li a:hover {
-    color: $white;
+  .header__items {
+    margin-top: rem(60);
   }
 
-  .header__pc-nav li a::after {
-    content: "";
-    position: absolute;
-    bottom: rem(27);
-    left: 0;
-    width: 100%;
-    height: rem(1);
-    background: $white;
-    transition: all 0.3s;
-    transform: scale(0, 1);
-    transform-origin: center top;
-    /*上部中央基点*/
-  }
-
-  /*現在地とhoverの設定*/
-  .header__pc-nav li.current a::after,
-  .header__pc-nav li a:hover::after {
-    transform: scale(1, 1);
+  .header__item:hover {
+    background-color: rgba($color: $white, $alpha: 0.25);
+    transition: ease .5s;
+    border-radius: 50%;
+    width: fit-content;
+    box-shadow: 0 0 rem(10) rem(10) rgba($color: $white, $alpha: 0.25);
   }
 }
+
+
 
 .header__site-map-wrapper {
   width: 100%;

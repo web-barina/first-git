@@ -5,7 +5,7 @@
     margin-top: rem(52);
 
     @include mq("md") {
-        margin-top: rem(150);
+        margin-top: rem(100);
     }
 }
 
@@ -24,7 +24,6 @@
     z-index: -1;
 
     @include mq("md") {
-        top: rem(-90);
         left: calc(50% - min(43vw, 38.7rem));
         max-width: rem(200);
         height: rem(200);
@@ -39,5 +38,13 @@
     @include mq("md") {
         flex-direction: row;
         gap: calc(100% - (65% + 27%));
+    }
+}
+
+.blog-layout__inner.inner {
+    max-width: rem(540);
+
+    @include mq("md") {
+        max-width: rem(1200);
     }
 }

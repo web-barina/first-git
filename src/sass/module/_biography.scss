@@ -1,12 +1,12 @@
 @use "global" as *;
 
 //インナー
-.biography__inner {
+.biography__inner.inner {
   max-width: rem(500);
   width: 100%;
 
   @include mq("md") {
-    max-width: rem(1130);
+    max-width: rem(1200);
     width: 100%;
   }
 }
@@ -80,7 +80,7 @@
 
 .biography__main-text {
   font-size: rem(40);
-  font-family: $title-font-family;
+  font-family: $main-font;
   color: $yellow;
 
   @include mq("md") {

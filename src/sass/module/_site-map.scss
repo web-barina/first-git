@@ -16,6 +16,7 @@
     flex-direction: row;
     justify-content: center;
     column-gap: rem(120);
+    cursor: pointer;
   }
 }
 
@@ -30,6 +31,9 @@
   @include mq("md") {
     display: flex;
     flex-direction: row;
+    gap: rem(36);
+    text-align: center;
+    flex-wrap: wrap;
   }
 }
 
@@ -41,7 +45,8 @@
   line-height: 1.125;
   font-weight: $bold;
   list-style: none;
-
+  font-size: rem(24);
+  font-family: $main-font;
 }
 
 //リストマークつかないところ
@@ -49,4 +54,5 @@
   margin-left: rem(22);
   margin-top: rem(8);
   line-height: 1.125;
+  font-size: rem(12);
 }

@@ -32,10 +32,10 @@
   color: $white;
   font-weight: $normal;
   font-size: rem(40);
-  font-family: $second-font-family;
+  font-family: $main-font;
 
   @include mq("md") {
-    top: rem(325);
+    top: rem(270);
     color: $white;
     line-height: 1.25;
     font-size: rem(80);

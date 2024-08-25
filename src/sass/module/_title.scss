@@ -1,9 +1,9 @@
 @use "global" as *;
 
 .title {
-  font-family: $title-font-family;
+  font-family: $main-font;
   position: relative;
-  padding: 0 rem(16) rem(16);
+  padding: 0 rem(16);
   letter-spacing: 0.1em;
   width: fit-content;
   text-align: center;

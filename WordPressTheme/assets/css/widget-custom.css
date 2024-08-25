@@ -5,7 +5,11 @@ ul.custom_widget a {
   padding: 10px 0;
 }
 
-.wp-die-message p {
+.wp-die-message,
+p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 1em 0;
   color: #1e2232;
 }
 ul.custom_widget li :hover {

@@ -6,7 +6,7 @@
   padding-right: rem(16);
   padding-bottom: rem(24);
   box-shadow: rem(2) rem(2) rem(10) rgba($color: #000000, $alpha: 0.25);
-  background-color: rgba($color: $white, $alpha: 0.8);
+  background-color: #CCCCD1;
   width: 100%;
   opacity: 1;
   cursor: pointer;
@@ -65,7 +65,7 @@
 
 .blog-card__time {
   font-size: rem(12);
-  font-family: $second-font-family;
+  font-family: $main-font;
   color: $black;
 }
 

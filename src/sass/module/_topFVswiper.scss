@@ -40,46 +40,26 @@
 .topFVswiper__texts {
   z-index: 10;
   position: absolute;
-  top: 49%;
-  left: 50%;
+  bottom: 10%;
+  left: 5%;
   color: $white;
   text-align: center;
   transform: translate(-50%, -50%);
-}
 
-@include mq("md") {
-  .topFVswiper__texts {
-    top: 49%;
-    left: 50%;
+  @include mq("md") {
+    left: 35%;
   }
 }
 
 //topFV 大きいタイトル
 .topFVswiper__main-text {
-  font-family: $title-font-family;
+  font-family: $main-font;
   font-size: rem(40);
-  letter-spacing: 0.5em;
-  left: 1.2;
+  letter-spacing: 0.3em;
   font-weight: 700;
-  text-indent: 0.5em;
+  text-align: left;
 
   @include mq("md") {
-    font-size: rem(80);
     line-height: 1.125;
-    letter-spacing: 0.53em;
-    text-indent: 0.53em;
-  }
-}
-
-//topFV 小さいタイトル
-.topFVswiper__sub-text {
-  font-family: $title-font-family;
-  font-size: rem(20);
-  line-height: 1;
-  margin-top: rem(0);
-  color: $white;
-
-  @include mq("md") {
-    margin-top: rem(10);
   }
 }
