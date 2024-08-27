@@ -1,7 +1,4 @@
-<?php
-function custom_enqueue_styles() {
-    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap', false);
-    wp_enqueue_style('google-fonts-source', 'https://fonts.googleapis.com/css2?family=Gotu&display=swap', false);
+<?php function custom_enqueue_styles() {
     wp_enqueue_style('google-fonts-noto-sans-jp', 'https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap', false);
 }
 add_action('wp_enqueue_scripts', 'custom_enqueue_styles');
@@ -12,9 +9,6 @@ function enqueue_custom_scripts() {
 
     // Enqueue custom CSS
     wp_enqueue_style('custom-style', get_theme_file_uri('/assets/css/style.css'));
-
-    // Enqueue jQuery
-    wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), null, true);
 
     // Enqueue Swiper JS
     wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), null, true);
@@ -31,31 +25,14 @@ function enqueue_custom_scripts() {
     // Enqueue custom GSAP script
     wp_enqueue_script('custom-gsap', get_theme_file_uri('/assets/js/gsap.js'), array('gsap-core', 'gsap-scrolltrigger'), null, true);
 
+    // Enqueue jQuery Cookie Plugin
+    wp_enqueue_script('jquery-cookie', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js', array('jquery'), '1.4.1', true);
+
     // Enqueue custom script
-    wp_enqueue_script('custom-script', get_theme_file_uri('/assets/js/script.js'), array('jquery', 'swiper-js', 'jquery-inview', 'gsap-core', 'gsap-scrolltrigger'), null, true);
-
-    // jQueryを読み込む（WordPressにバンドルされているもの）
-    wp_enqueue_script('jquery');
-
-    // jQuery Cookie Pluginを読み込む
-    wp_enqueue_script(
-        'jquery-cookie',
-        'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js',
-        array('jquery'), // 依存関係を設定
-        '1.4.1',
-        true // フッターにスクリプトを配置
-    );
-
-    // カスタムスクリプトを読み込む
-    wp_enqueue_script(
-        'custom-js',
-        get_template_directory_uri() . '/js/custom-script.js',
-        array('jquery', 'jquery-cookie'),
-        '1.0',
-        true // フッターにスクリプトを配置
-    );
+    wp_enqueue_script('custom-js', get_template_directory_uri() . '/js/custom-script.js', array('jquery', 'jquery-cookie'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
 
 /*******
  *ブログ*
