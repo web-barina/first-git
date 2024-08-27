@@ -8,14 +8,12 @@
   }
 }
 
-//ダイビング情報ボタン
 .top-performance__btn-wrapper {
   text-align: center;
   padding-bottom: rem(5);
   margin-top: rem(40);
 }
 
-//ダイビング情報コンテンツ
 .top-performance__content {
   margin: rem(28) auto 0;
   width: 100%;
@@ -31,32 +29,18 @@
   }
 }
 
-//ダイビング情報タイトル・テキスト周り
 @include mq("md") {
   .top-performance__texts {
     align-content: center;
   }
 }
 
-//ダイビング情報テキスト
 .top-performance__text {
   margin-top: rem(8);
   color: $white;
 }
 
-//ダイビング情報タイトル
-.top-performance__title {
-  font-size: rem(20);
-  line-height: 1.2;
-  padding-bottom: rem(4);
-  border-bottom: solid rem(1) $yellow;
 
-  @include mq("md") {
-    font-size: rem(24);
-  }
-}
-
-//ダイビング情報写真
 .top-performance__img {
   position: relative;
   aspect-ratio: 345/227;

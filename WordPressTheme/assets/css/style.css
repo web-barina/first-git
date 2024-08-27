@@ -1351,24 +1351,19 @@ input[type=checkbox]:checked:before {
 	position: fixed;
 	text-align: center;
 	top: 0;
+	transform: scale(0.9);
+	transition: opacity 0.5s ease, transform 0.5s ease;
 	visibility: hidden;
 	width: 100%;
 	z-index: 1000;
 }
 
-/*モーダル本体の擬似要素の指定*/
-
-.modal:before {
-	content: "";
-	display: inline-block;
-	height: 100%;
-	vertical-align: middle;
-}
-
 /*モーダル本体に「active」クラス付与した時のスタイル*/
 
 .modal.active {
+	display: flex;
 	opacity: 1;
+	transform: scale(1);
 	visibility: visible;
 }
 
@@ -1376,18 +1371,15 @@ input[type=checkbox]:checked:before {
 
 .modal__body {
 	align-items: center;
-	display: inline-block;
 	display: flex;
 	height: 100vh;
 	justify-content: center;
-	overscroll-behavior: contain;
 	position: relative;
-	vertical-align: middle;
 	width: 100%;
 }
 
 .modal__content {
-	max-width: 21.875rem;
+	max-width: 33.75rem;
 	position: relative;
 	width: 100%;
 }
@@ -1395,24 +1387,8 @@ input[type=checkbox]:checked:before {
 .modal__content > img {
 	-o-object-fit: cover;
 	height: 100%;
-	left: 50%;
 	object-fit: cover;
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%, -50%);
 	width: 100%;
-}
-
-/* モーダルの隠しスタイル */
-
-.modal[style*="display: none;"] {
-	display: none;
-}
-
-/* モーダルがアクティブなときのスタイル */
-
-.modal.active {
-	display: flex;
 }
 
 .no-page {
@@ -2124,13 +2100,6 @@ select {
 .top-performance__text {
 	color: #F7F7F7;
 	margin-top: 0.5rem;
-}
-
-.top-performance__title {
-	border-bottom: solid 0.0625rem #ECBF09;
-	font-size: 1.25rem;
-	line-height: 1.2;
-	padding-bottom: 0.25rem;
 }
 
 .top-performance__img {
@@ -3013,8 +2982,7 @@ input[type=checkbox] {
 }
 
 .modal__content {
-	max-width: 50rem;
-	width: 100%;
+	max-width: 43.75rem;
 }
 
 .no-page__inner.inner {
@@ -3252,10 +3220,6 @@ select {
 
 .top-performance__texts {
 	align-content: center;
-}
-
-.top-performance__title {
-	font-size: 1.5rem;
 }
 
 .top-performance__img {

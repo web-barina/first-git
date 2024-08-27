@@ -72,7 +72,7 @@
                         <a href="<?php echo esc_url(home_url('biography')); ?>">
                             <div class="site-map__titles">
                                 <p class="site-map__main-title">Biography</p>
-                                <p class="site-map__sub-title">生い立ち</p>
+                                <p class="site-map__sub-title">経歴</p>
                             </div>
                         </a>
                     </li>

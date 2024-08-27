@@ -33,42 +33,41 @@
 </section>
 <?php
 // SCFで設定された繰り返しフィールドを取得
-$gallery_photos = SCF::get('gallery_photos',get_the_ID());
- if(get_post_meta($post->ID, 'gallery_img', true)): 
+$gallery_photos = SCF::get('gallery_photos', get_the_ID());
 ?>
+
 <section class="gallery gallery-wrapper">
     <div class="gallery__inner inner">
         <h2 class="gallery__title title">Gallery</h2>
         <div class="gallery__photos-wrapper photos">
             <?php
+            if (!empty($gallery_photos)) :
                 foreach ($gallery_photos as $index => $photo) :
                     $image_id = $photo['gallery_img']; // 画像フィールドのスラッグを指定
                     $image_url = wp_get_attachment_image_url($image_id, 'full');
                     $alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-                    
-                    // クラスの条件設定
-                    $class = ($index + 1 === 1 || $index + 1 === 6) ? 'modal__content--large' : 'modal__content';
             ?>
             <div class="photos__item photo" id="modal<?php echo $index + 1; ?>">
                 <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($alt_text); ?>">
             </div>
             <?php
                 endforeach;
+            endif;
             ?>
         </div>
         <!-- モーダル本体 -->
+        <?php if (!empty($gallery_photos)) : ?>
         <?php foreach ($gallery_photos as $index => $photo) : ?>
         <div class="gallery__modal modal" id="cont-modal<?php echo $index + 1; ?>" style="display: none;">
             <div class="modal__body">
-                <div
-                    class="<?php echo ($index + 1 === 1 || $index + 1 === 6) ? 'modal__content--large' : 'modal__content'; ?>">
+                <div class="modal__content">
                     <img src="<?php echo esc_url(wp_get_attachment_image_url($photo['gallery_img'], 'full')); ?>"
                         alt="<?php echo esc_attr(get_post_meta($photo['gallery_img'], '_wp_attachment_image_alt', true)); ?>">
                 </div>
             </div>
         </div>
         <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 </section>
-<?php endif; ?>
 <?php get_footer(); ?>

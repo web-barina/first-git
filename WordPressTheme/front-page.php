@@ -75,7 +75,7 @@
     <!--Performance-->
     <section class="top-performance top-performance-wrapper">
         <div class="top-performance__inner inner">
-            <h2 class="top-performance-title title">Performance</h2>
+            <h2 class="top-performance__title title">Performance</h2>
             <div class="top-performance__content">
                 <div class="top-performance__img js-color-box"><img
                         src="<?php echo get_theme_file_uri(); ?>/assets/images/common/performance.jpg"
