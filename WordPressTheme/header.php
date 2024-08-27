@@ -23,13 +23,13 @@
         echo 'class="' . esc_attr(implode(' ', $classes)) . '"';
         body_class($classes);
     ?>>
-    <!--loading-->
+    <!--loading
     <?php
         if (is_front_page()) :
             ?>
     <div class="js-loading js-loading-left"></div>
     <div class="js-loading js-loading-right"></div>
-    <?php endif;?>
+    <?php endif;?>-->
     <!--header-->
     <header class="header">
         <!--SP-hamburger-header-->

@@ -3,35 +3,30 @@
 <section class="biography biography-wrapper">
     <div class="biography__inner inner">
         <div class="biography__img-wrapper">
-            <div class="biography__img-left">
+            <div class="biography__img">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/profile1.jpg" alt="大場李奈のプロフィール写真" />
             </div>
-            <div class="biography__img-right">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/piano-contact.jpg"
-                    alt="ホールのスポットライトに照らされているグランドピアノ" />
-            </div>
         </div>
-        <div class="biography__texts">
-            <p class="biography__main-text">ObaRina</p>
-            <div class="biography__text">
-                <p class="biography__name">大場 李奈（おおば りな）</p>
-                <p>長野県出身。<br>
-                    5歳からエレクトーンを始め、12歳でピアノを本格的に始める。<br>
-                    長野県立小諸高等学校音楽科 卒業。<br>
-                    東京音楽大学 卒業。<br>
-                    小中学校の音楽科講師を経てピアニスト活動を始める。
-                </p>
-                <p>
-                    2023年5月 黒姫童話館童話の森ホールにて<br>ソロリサイタルデビュー（長野県信濃町）。<br>
-                    現在、江崎皓介氏に師事。
-                </p>
-                <p>
-                    主な受賞歴
-                    キプロス国際音楽コンクール2023　第1位<br>
-                    第26回"万里の長城杯"国際音楽コンクール　第4位<br>
-                    第16回べーテン音楽コンクール　全国大会出場<br>
-                    第32回クラシック音楽コンクール　全国大会出場
-                </p>
+        <div class="biography__content">
+            <h2 class="biography__main-text">ObaRina</h2>
+            <div class="biography__texts">
+                <h3 class="biography__name">大場 李奈（おおば りな）</h3>
+                <div class="biography__text">
+                    <p>長野県出身。</p>
+                    <p>5歳からエレクトーンを始め、<wbr>12歳でピアノを本格的に始める。</p>
+                    <p>長野県立小諸高等学校音楽科 卒業。</p>
+                    <p>東京音楽大学 卒業。</p>
+                    <p>小中学校の音楽科講師を経て<wbr>ピアニスト活動を始める。</p>
+                    <p>2023年5月 黒姫童話館童話の森ホールにて<wbr>ソロリサイタルデビュー（長野県信濃町）。</p>
+                    <p>現在、江崎皓介氏に師事。</p>
+                    <div class="biography__awards">
+                        <h3>主な受賞歴</h3>
+                        <p>キプロス国際音楽コンクール2023　第1位</p>
+                        <p>第26回"万里の長城杯"国際音楽コンクール　第4位</p>
+                        <p>第16回べーテン音楽コンクール　全国大会出場</p>
+                        <p>第32回クラシック音楽コンクール　全国大会出場</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

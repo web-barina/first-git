@@ -25,7 +25,7 @@
 
     @include mq("md") {
         top: rem(-18);
-        left: calc(50% - min(43vw, 38.7rem));
+        left: calc(50% - min(29vw, 22.7rem));
         max-width: rem(301);
         height: rem(138);
     }

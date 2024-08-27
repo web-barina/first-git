@@ -7,7 +7,11 @@
 }
 
 .no-page__inner.inner {
-  max-width: rem(600);
+  max-width: rem(540);
+
+  @include mq("md") {
+    max-width: rem(1200);
+  }
 }
 
 .no-page::after {
@@ -42,15 +46,13 @@
 .no-page__title {
   font-family: $main-font;
   text-align: center;
-  font-size: rem(80);
-  letter-spacing: 0.5em;
+  font-size: rem(60);
+  letter-spacing: 0.1em;
   font-weight: $normal;
   line-height: 1;
-  margin-left: rem(37);
 
   @include mq("md") {
-    font-size: rem(160);
-    margin-left: rem(78);
+    font-size: rem(100);
   }
 }
 
@@ -62,14 +64,13 @@
 }
 
 .no-page__texts {
-  margin-top: rem(3);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   @include mq("md") {
-    margin-top: rem(39);
     flex-direction: row;
   }
 }
@@ -80,6 +81,5 @@
 }
 
 .no-page__btn-wrapper {
-  margin-top: rem(40);
   text-align: center;
 }

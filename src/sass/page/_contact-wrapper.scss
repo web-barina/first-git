@@ -22,6 +22,7 @@
   height: rem(100);
   background-size: contain;
   background-repeat: no-repeat;
+  z-index: -1;
 
   @include mq("md") {
     top: rem(-40);

@@ -44,7 +44,6 @@
 
 
 .modal__content {
-    aspect-ratio: 580/369;
     max-width: rem(350);
     width: 100%;
     position: relative;
@@ -53,16 +52,6 @@
         max-width: rem(800);
         width: 100%;
     }
-}
-
-.modal__content--large {
-    aspect-ratio: 492/760;
-    max-width: rem(350);
-
-    @include mq("md") {
-        max-width: rem(600);
-    }
-
 }
 
 .modal__content>img {

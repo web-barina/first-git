@@ -40,14 +40,16 @@
 .topFVswiper__texts {
   z-index: 10;
   position: absolute;
+  word-break: keep-all;
+  overflow-wrap: break-word;
   bottom: 10%;
-  left: 5%;
+  margin-left: rem(16);
   color: $white;
   text-align: center;
-  transform: translate(-50%, -50%);
 
   @include mq("md") {
-    left: 35%;
+    margin-left: 0;
+    left: calc(50% - min(32.7vw, 27.8rem));
   }
 }
 

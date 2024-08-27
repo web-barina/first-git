@@ -3,11 +3,30 @@
 <section class="contact contact-wrapper contact-wrapper--layout">
     <div class="contact__inner inner">
         <div class="contact__content-inner">
-            <div class="contact__img"><img
-                    src="<?php echo get_theme_file_uri(); ?>/assets/images/common/piano-contact.jpg" alt="">
+            <div class="contact__info">
+                <div class="contact__img">
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/profile2.JPG" alt="大場李奈">
+                </div>
+                <div class="contact__sns">
+                    <div class="contact__logo"><img
+                            src="<?php echo get_theme_file_uri(); ?>/assets/images/common/obarina-logo.png"
+                            alt="ObaRina" /></div>
+                    <div class="contact__twitter">
+                        <a href="https://x.com/mini_barina_pf" target=”_blank”>
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/twitter-icon01.png"
+                                alt="twitter" />
+                        </a>
+                    </div>
+                    <div class="contact__instagram">
+                        <a href="https://www.instagram.com/barina_str3811/" target=”_blank”>
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram-icon01.png"
+                                alt="instagram" />
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="contact__content">
-                <p class="contact__titles">Contact</p>
+            <div class="contact__texts">
+                <p class="contact__title">Contact</p>
                 <p class="contact__text">演奏・伴奏のご依頼など<br>お気軽にお問い合わせください。</p>
                 <div class="contact__btn-wrapper">
                     <a href="<?php echo esc_url(home_url('contact')); ?>" class="btn">Contact me

@@ -244,6 +244,7 @@ a {
 	right: calc(50% - min(46.4vw, 10.8rem));
 	top: -0.625rem;
 	width: 100%;
+	z-index: -1;
 }
 
 .contact-wrapper--layout::after {
@@ -416,8 +417,9 @@ a {
 	flex-direction: row;
 }
 
-.biography__texts {
+.biography__content {
 	grid-row-gap: 0rem;
+	border: solid 0.0625rem #F7F7F7;
 	display: grid;
 	grid-template-columns: 1fr;
 	margin-top: 2.4375rem;
@@ -430,9 +432,21 @@ a {
 	font-size: 2.5rem;
 }
 
-.biography__text {
+.biography__texts {
 	font-weight: 300;
 	margin-top: 1rem;
+}
+
+.biography__text {
+	word-wrap: break-word;
+	margin-top: 1rem;
+	word-break: keep-all;
+}
+
+.biography__awards {
+	word-wrap: break-word;
+	margin-top: 1rem;
+	word-break: keep-all;
 }
 
 .biography__name {
@@ -441,35 +455,15 @@ a {
 	padding-bottom: 0.25rem;
 }
 
-.biography__img-left {
+.biography__img {
 	aspect-ratio: 128/194;
 	margin-bottom: 1.125rem;
 	position: relative;
-	width: 37.03%;
+	width: 100%;
 	z-index: 0;
 }
 
-.biography__img-left > img {
-	-o-object-fit: cover;
-	height: 100%;
-	left: 50%;
-	object-fit: cover;
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 100%;
-}
-
-.biography__img-right {
-	aspect-ratio: 281/186;
-	margin-left: -4rem;
-	margin-top: 1.625rem;
-	position: relative;
-	width: 83%;
-	z-index: -1;
-}
-
-.biography__img-right > img {
+.biography__img > img {
 	-o-object-fit: cover;
 	height: 100%;
 	left: 50%;
@@ -722,10 +716,11 @@ a {
 }
 
 .contact-form__item {
-	border-bottom: solid 1px #ECBF09;
 	display: flex;
 	flex-direction: column;
+	order: 2;
 	padding: 1.46875rem 0;
+	position: relative;
 }
 
 .contact-form__label {
@@ -743,16 +738,6 @@ a {
 	padding: 0.125rem 0;
 	text-align: center;
 	width: 3.8125rem;
-}
-
-.contact-form__item {
-	order: 2;
-	position: relative;
-}
-
-.contact-form__item--select {
-	display: flex;
-	flex-direction: column;
 }
 
 .contact-form__text {
@@ -795,54 +780,6 @@ a {
 
 .contact-form__label {
 	cursor: pointer;
-}
-
-.contact-form__contents {
-	border: solid 0.0625rem #ECBF09;
-	font-size: 0.75rem;
-	height: 2.5rem;
-	margin-top: 1rem;
-	position: relative;
-	width: 100%;
-}
-
-.contact-form__contents::after {
-	background-image: url(../images/common/contact-form-triangle.png);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	display: block;
-	height: 0.75rem;
-	position: absolute;
-	right: 1rem;
-	top: 0.8125rem;
-	width: 0.75rem;
-}
-
-.contact-form__select-wrapper {
-	position: relative;
-	width: 100%;
-}
-
-.contact-form__select-wrapper::after {
-	background-image: url(../images/common/contact-form-triangle.png);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	display: block;
-	height: 0.75rem;
-	position: absolute;
-	right: 1rem;
-	top: 1.8125rem;
-	width: 0.75rem;
-}
-
-.contact-form__select {
-	font-size: 0.75rem;
-	padding: 0.625rem 2rem 0.625rem 1rem;
-	width: 100%;
 }
 
 .contact-form__agreement {
@@ -958,13 +895,6 @@ input[type=checkbox]:checked:before {
 	border: solid 0.0625rem #c94800;
 }
 
-.contact-form__success-wrapper {
-	word-wrap: break-word;
-	margin-top: 3.25rem;
-	text-align: center;
-	word-break: keep-all;
-}
-
 .contact-form__success-title {
 	font-size: 1rem;
 	font-weight: 400;
@@ -972,106 +902,64 @@ input[type=checkbox]:checked:before {
 
 .contact-form__success {
 	text-wrap: nowrap;
-	margin-top: 2.375rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-form__success-text {
+	text-align: center;
 }
 
 .contact-form__submit {
-	align-items: center;
-	background-color: #ECBF09;
-	color: #1E2232;
+	-webkit-text-decoration: none;
+	-webkit-transition: ease-out 0.5s;
+	-moz-transition: ease-out 0.5s;
+	background: #1E2232;
+	border: 0.0625rem solid #F7F7F7;
+	color: #F7F7F7;
+	cursor: pointer;
 	display: inline-block;
-	display: flex;
 	font-family: "Source Serif 4", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-	font-size: 0.875rem;
-	line-height: 1.5714;
+	font-size: 1rem;
+	letter-spacing: 0.0625rem;
 	position: relative;
 	text-align: center;
-	width: 12.625rem;
-	z-index: 5;
+	text-decoration: none;
+	transition: ease-out 0.5s;
+}
+
+.contact-form__submit::after,
+.contact-form__submit::before {
+	content: "";
+	height: 0;
+	position: absolute;
+	transition: 0.5s;
+	width: 0;
+}
+
+.contact-form__submit::after {
+	border-left: 0.1875rem solid transparent;
+	border-top: 0.1875rem solid transparent;
+	left: -0.1875rem;
+	top: -0.1875rem;
+}
+
+.contact-form__submit::before {
+	border-bottom: 0.1875rem solid transparent;
+	border-right: 0.1875rem solid transparent;
+	bottom: -0.1875rem;
+	right: -0.1875rem;
 }
 
 .contact-form__submit:hover {
 	color: #ECBF09;
 }
 
-.contact-form__submit:before {
-	border: 0.0625rem solid #ECBF09;
-	bottom: -0.25rem;
-	content: "";
-	display: inline-block;
-	left: 0.625rem;
-	position: absolute;
-	right: -0.25rem;
-	top: 0.25rem;
-	z-index: -1;
-}
-
-.contact-form__submit span.arrow {
-	background-color: #1E2232;
-	height: 0.0625rem;
-	margin-right: 2.5rem;
-	position: relative;
-	width: 3.75rem;
-}
-
-.contact-form__submit span.arrow::before {
-	background: #1E2232;
-	display: inline-block;
-	height: 0.0625rem;
-	line-height: 1;
-	margin-left: 0.5rem;
-	position: absolute;
-	vertical-align: middle;
-	width: 2.5rem;
-	z-index: inherit;
-}
-
-.contact-form__submit span.arrow::after {
-	border: 0.1125rem solid #1E2232;
-	border-bottom: 0;
-	border-left: 0;
-	box-sizing: border-box;
-	content: "";
-	position: absolute;
-	right: 0;
-	top: 0;
-	transform: rotate(40deg);
-	transform-origin: top right;
-	width: 0.625rem;
-	z-index: inherit;
-}
-
-.contact-form__submit span.arrow:hover {
-	color: #ECBF09;
-}
-
-.contact-form__submit::after {
-	background-color: #1E2232;
-	border: 0.0625rem solid #ECBF09;
-	color: #ECBF09;
-	content: "";
-	display: inline-block;
-	height: 100%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	transform: scale(0, 1);
-	transform-origin: left top;
-	transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
-	width: 100%;
-	z-index: -1;
-}
-
-.contact-form__submit:hover::after {
-	transform: scale(1, 1);
-}
-
-.contact-form__submit:hover span {
-	background-color: #ECBF09;
-}
-
-.contact-form__submit:hover span::after {
-	border: 0.08125rem solid #ECBF09;
+.contact-form__submit:hover::after,
+.contact-form__submit:hover::before {
+	border-color: #ECBF09;
+	height: calc(65% + 0.1875rem);
+	width: calc(65% + 0.1875rem);
 }
 
 .contact__inner.inner {
@@ -1083,13 +971,32 @@ input[type=checkbox]:checked:before {
 	background-color: rgba(247, 247, 247, 0.15);
 	display: flex;
 	flex-direction: column;
-	padding-bottom: 2.5rem;
+	padding: 1.5rem;
 	text-align: center;
 }
 
+.contact__info {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.contact__sns {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+	justify-content: center;
+}
+
+.contact__twitter,
+.contact__instagram {
+	height: 2rem;
+	width: 2rem;
+}
+
 .contact__img {
-	aspect-ratio: 295/160;
-	background-color: #d9d9d9;
+	aspect-ratio: 4/3;
 	margin: 1rem auto 0 auto;
 	position: relative;
 	text-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
@@ -1107,8 +1014,8 @@ input[type=checkbox]:checked:before {
 	width: 100%;
 }
 
-.contact__content {
-	margin-top: 2.5rem;
+.contact__texts {
+	width: 100%;
 }
 
 .contact__text {
@@ -1118,20 +1025,13 @@ input[type=checkbox]:checked:before {
 	text-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 
-.contact__logo {
-	height: auto;
-	margin: 0 auto;
-	max-width: 10.875rem;
-	width: 100%;
-}
-
 .contact__btn-wrapper {
 	margin-top: 2.5rem;
 	padding-bottom: 0.3125rem;
 	text-align: center;
 }
 
-.contact__titles {
+.contact__title {
 	color: #F7F7F7;
 	font-family: "Source Serif 4", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
 	font-size: 5rem;
@@ -1318,40 +1218,6 @@ input[type=checkbox]:checked:before {
 	width: 100%;
 }
 
-input.wpcf7-form-control.wpcf7-submit {
-	background-color: transparent;
-	color: #1E2232;
-	display: inline-block;
-	font-family: "Source Serif 4", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-	font-size: 0.875rem;
-	line-height: 1.5714;
-	padding: 1rem 0;
-	position: relative;
-	text-align: center;
-	width: 12.625rem;
-	z-index: 5;
-}
-
-input.wpcf7-form-control.wpcf7-submit:hover {
-	color: #ECBF09;
-}
-
-input.wpcf7-form-control.wpcf7-submit:before {
-	border: 0.0625rem solid #ECBF09;
-	bottom: -0.25rem;
-	content: "";
-	display: inline-block;
-	left: 0.625rem;
-	position: absolute;
-	right: -0.25rem;
-	top: 0.25rem;
-	z-index: -1;
-}
-
-input[type=checkbox]:checked::before {
-	margin: 0;
-}
-
 .js-color-box {
 	position: relative;
 }
@@ -1521,15 +1387,9 @@ input[type=checkbox]:checked::before {
 }
 
 .modal__content {
-	aspect-ratio: 580/369;
 	max-width: 21.875rem;
 	position: relative;
 	width: 100%;
-}
-
-.modal__content--large {
-	aspect-ratio: 492/760;
-	max-width: 21.875rem;
 }
 
 .modal__content > img {
@@ -1562,7 +1422,7 @@ input[type=checkbox]:checked::before {
 }
 
 .no-page__inner.inner {
-	max-width: 37.5rem;
+	max-width: 33.75rem;
 }
 
 .no-page::after {
@@ -1585,11 +1445,10 @@ input[type=checkbox]:checked::before {
 
 .no-page__title {
 	font-family: "Source Serif 4", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-	font-size: 5rem;
+	font-size: 3.75rem;
 	font-weight: 400;
-	letter-spacing: 0.5em;
+	letter-spacing: 0.1em;
 	line-height: 1;
-	margin-left: 2.3125rem;
 	text-align: center;
 }
 
@@ -1603,7 +1462,7 @@ input[type=checkbox]:checked::before {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	margin-top: 0.1875rem;
+	justify-content: center;
 	text-align: center;
 }
 
@@ -1612,7 +1471,6 @@ input[type=checkbox]:checked::before {
 }
 
 .no-page__btn-wrapper {
-	margin-top: 2.5rem;
 	text-align: center;
 }
 
@@ -2167,10 +2025,6 @@ select {
 	margin-top: 1.75rem;
 }
 
-.top-biography__img-wrapper::after {
-	display: none;
-}
-
 .top-biography__btn-wrapper {
 	margin-top: 1.5625rem;
 	padding-bottom: 0.3125rem;
@@ -2182,7 +2036,7 @@ select {
 	flex-direction: row;
 }
 
-.top-biography__texts {
+.top-biography__content {
 	grid-row-gap: 0rem;
 	display: grid;
 	grid-template-columns: 1fr;
@@ -2206,8 +2060,16 @@ select {
 	padding-bottom: 0.1875rem;
 }
 
-.top-biography__text {
+.top-biography__texts {
 	font-weight: 300;
+	margin-top: 1rem;
+}
+
+.top-biography__texts::after {
+	display: none;
+}
+
+.top-biography__text {
 	margin-top: 1rem;
 }
 
@@ -2333,12 +2195,13 @@ select {
 }
 
 .topFVswiper__texts {
+	word-wrap: break-word;
 	bottom: 10%;
 	color: #F7F7F7;
-	left: 5%;
+	margin-left: 1rem;
 	position: absolute;
 	text-align: center;
-	transform: translate(-50%, -50%);
+	word-break: keep-all;
 	z-index: 10;
 }
 
@@ -2442,6 +2305,7 @@ form.wpcf7-form.init {
 input.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
 	background-color: #1E2232;
 	border: solid 0.0625rem #ECBF09;
+	color: #F7F7F7;
 	height: 2.5rem;
 	margin-top: 1rem;
 	opacity: 1;
@@ -2451,6 +2315,7 @@ input.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
 
 textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	border: solid 0.0625rem #ECBF09;
+	color: #F7F7F7;
 	height: 12.5rem;
 	margin-top: 1rem;
 	padding: 0.5rem;
@@ -2467,6 +2332,20 @@ span.wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required {
 	align-items: center;
 	display: flex;
 	margin: 0.125rem 0 0 0;
+}
+
+input.wpcf7-form-control.wpcf7-submit {
+	background-color: transparent;
+	color: #F7F7F7;
+	display: inline-block;
+	font-family: "Source Serif 4", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+	font-size: 0.875rem;
+	line-height: 1.5714;
+	padding: 1rem 0;
+	position: relative;
+	text-align: center;
+	width: 12.625rem;
+	z-index: 5;
 }
 
 span.wpcf7-form-control.wpcf7-checkbox {
@@ -2656,7 +2535,7 @@ html {
 
 .contact-form-wrapper::before {
 	height: 8.625rem;
-	left: calc(50% - min(43vw, 38.7rem));
+	left: calc(50% - min(29vw, 22.7rem));
 	max-width: 18.8125rem;
 	top: -1.125rem;
 }
@@ -2689,7 +2568,7 @@ html {
 }
 
 .gallery-wrapper {
-	margin-top: 7.1875rem;
+	margin-top: 10.625rem;
 	position: relative;
 }
 
@@ -2783,7 +2662,7 @@ html {
 	margin-top: 2.5rem;
 }
 
-.biography__texts {
+.biography__content {
 	background-color: rgba(30, 34, 50, 0.8);
 	color: #F7F7F7;
 	grid-template-columns: 21.25rem 1fr;
@@ -2800,19 +2679,14 @@ html {
 	font-size: 5rem;
 }
 
-.biography__text {
+.biography__texts {
 	margin-top: 0rem;
 }
 
-.biography__img-left {
+.biography__img {
 	aspect-ratio: 400/606;
 	margin-bottom: 3.4375rem;
-}
-
-.biography__img-right {
-	aspect-ratio: 880/581;
-	margin-left: -12.5rem;
-	margin-top: 5rem;
+	width: 37.03%;
 }
 
 .blog-article {
@@ -2872,13 +2746,15 @@ html {
 }
 
 .contact-form__inner.inner {
-	max-width: 75rem;
+	max-width: 56.25rem;
 	width: 100%;
 }
 
 .contact-form__item {
+	border-bottom: solid 1px #ECBF09;
 	flex-direction: row;
 	gap: 1%;
+	max-width: 60.9375rem;
 	padding: 2.4375rem 0;
 }
 
@@ -2886,47 +2762,19 @@ html {
 	width: 32%;
 }
 
-.contact-form__item--select {
-	flex-direction: row;
-}
-
 .contact-form__text {
 	margin-top: 0;
 	max-width: 30rem;
-	width: 106%;
+	width: 108.5%;
 }
 
 .contact-form__textarea {
 	margin-top: 0;
-	max-width: 30rem;
-	width: 109%;
+	width: 115.5%;
 }
 
 .contact-form__checks {
 	margin-top: 0;
-}
-
-.contact-form__contents {
-	height: 1.875rem;
-	margin-top: 0;
-	max-width: 30rem;
-	width: 300%;
-}
-
-.contact-form__contents::after {
-	top: 0.4375rem;
-}
-
-.contact-form__select-wrapper {
-	width: 67%;
-}
-
-.contact-form__select-wrapper::after {
-	top: 0.4375rem;
-}
-
-.contact-form__select {
-	padding: 0.3125rem 2rem 0.3125rem 1rem;
 }
 
 .contact-form__agreement {
@@ -2963,8 +2811,13 @@ input[type=checkbox] {
 	width: 120%;
 }
 
-.contact-form__success-wrapper {
-	margin-top: 9.375rem;
+.contact-form__success {
+	align-items: center;
+	flex-direction: row;
+}
+
+.contact-form__success-text {
+	text-align: left;
 }
 
 .contact__inner.inner {
@@ -2974,21 +2827,25 @@ input[type=checkbox] {
 .contact__content-inner {
 	box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.25);
 	flex-direction: row;
+	gap: 1.5rem;
 	max-width: 67.5rem;
-	padding: 5rem 7rem 4.875rem 3.125rem;
+	padding: 3.75rem 3.125rem;
 	width: 100%;
 }
 
-.contact__img {
-	aspect-ratio: 273/148;
-	margin-top: 0;
-	text-shadow: none;
-	width: 164%;
+.contact__info {
+	width: 50%;
 }
 
-.contact__content {
-	margin-left: 5rem;
-	margin-top: 0rem;
+.contact__img {
+	aspect-ratio: 3/2;
+	margin-top: 0;
+	text-shadow: none;
+	width: 100%;
+}
+
+.contact__texts {
+	width: 50%;
 }
 
 .contact__text {
@@ -2996,11 +2853,7 @@ input[type=checkbox] {
 	text-shadow: none;
 }
 
-.contact__logo {
-	max-width: 13.125rem;
-}
-
-.contact__titles {
+.contact__title {
 	text-shadow: none;
 }
 
@@ -3164,8 +3017,8 @@ input[type=checkbox] {
 	width: 100%;
 }
 
-.modal__content--large {
-	max-width: 37.5rem;
+.no-page__inner.inner {
+	max-width: 75rem;
 }
 
 .no-page::after {
@@ -3179,13 +3032,11 @@ input[type=checkbox] {
 }
 
 .no-page__title {
-	font-size: 10rem;
-	margin-left: 4.875rem;
+	font-size: 6.25rem;
 }
 
 .no-page__texts {
 	flex-direction: row;
-	margin-top: 2.4375rem;
 }
 
 .pager__number-wrapper,
@@ -3335,24 +3186,11 @@ select {
 	position: relative;
 }
 
-.top-biography__img-wrapper::after {
-	background-image: url("../images/common/piano-top-deco.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-	bottom: -25%;
-	content: "";
-	display: block;
-	height: 18.75rem;
-	position: absolute;
-	right: calc(50% - min(44.4vw, 39.8rem));
-	width: 18.75rem;
-}
-
 .top-biography__btn-wrapper {
 	margin-top: 2.5rem;
 }
 
-.top-biography__texts {
+.top-biography__content {
 	background-color: rgba(30, 34, 50, 0.8);
 	border: solid 0.0625rem #F7F7F7;
 	color: #F7F7F7;
@@ -3370,8 +3208,21 @@ select {
 	font-size: 5rem;
 }
 
-.top-biography__text {
+.top-biography__texts {
 	margin-top: 0rem;
+}
+
+.top-biography__texts::after {
+	background-image: url("../images/common/piano-top-deco.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: "";
+	display: block;
+	height: 18.75rem;
+	position: absolute;
+	right: calc(50% - min(35vw, 23.3rem));
+	top: -40%;
+	width: 18.75rem;
 }
 
 .top-biography__img {
@@ -3413,7 +3264,8 @@ select {
 }
 
 .topFVswiper__texts {
-	left: 35%;
+	left: calc(50% - min(32.7vw, 27.8rem));
+	margin-left: 0;
 }
 
 .topFVswiper__main-text {
@@ -3423,13 +3275,13 @@ select {
 input.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
 	margin-top: 0;
 	max-width: 30rem;
-	width: 102%;
+	width: 107.5%;
 }
 
 textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
 	margin-top: 0;
 	max-width: 30rem;
-	width: 111%;
+	width: 115.5%;
 }
 
 span.wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required {

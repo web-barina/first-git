@@ -2,44 +2,49 @@
 <main>
     <!--first-view-->
     <div class="topFVswiper swiper" id="js-topFVswiper">
-        <?php
-        // ACFのフィールドデータを取得
-        $top_image1 = get_field('top_image1'); // YouTubeのURLが入っていることを想定
-        $top_image2 = get_field('top_image2');
-        $top_image3 = get_field('top_image3'); // YouTubeのURLが入っていることを想定
-        $top_image4 = get_field('top_image4');
-    ?>
         <div class="topFVswiper__wrapper swiper-wrapper">
-            <?php if ($top_image1): ?>
-            <div class="topFVswiper__slide swiper-slide">
-                <video>
-                    <source src="<?php echo esc_url($top_image1); ?>" type="video/mp4">
-                </video>
-            </div>
-            <?php endif; ?>
-            <?php if ($top_image2): ?>
-            <div class="topFVswiper__slide swiper-slide">
-                <img src="<?php echo esc_url($top_image2); ?>" alt="Top Image 2">
-            </div>
-            <?php endif; ?>
-            <?php if ($top_image3): ?>
-            <div class="topFVswiper__slide swiper-slide">
-                <video>
-                    <source src="<?php echo esc_url($top_image3); ?>" type="video/mp4">
-                </video>
-            </div>
-            <?php endif; ?>
-            <?php if ($top_image4): ?>
-            <div class="topFVswiper__slide swiper-slide">
-                <img src="<?php echo esc_url($top_image4); ?>" alt="Top Image 4">
-            </div>
-            <?php endif; ?>
+            <picture class="topFVswiper__slide swiper-slide">
+                <?php
+                    $top_img = get_field('top_image');
+                    if ($top_img && !empty($top_img['top_image1']['url'])) {
+                        $top_image1_url = esc_url($top_img['top_image1']['url']);
+                        echo '<img src="' . $top_image1_url . '" alt="">';
+                    }
+                ?>
+            </picture>
+            <picture class="topFVswiper__slide swiper-slide">
+                <?php
+                    $top_img = get_field('top_image');
+                    if ($top_img && !empty($top_img['top_image2']['url'])) {
+                        $top_image2_url = esc_url($top_img['top_image2']['url']);
+                        echo '<img src="' . $top_image2_url . '" alt="">';
+                    }
+                ?>
+            </picture>
+            <picture class="topFVswiper__slide swiper-slide">
+                <?php
+                    $top_img = get_field('top_image');
+                    if ($top_img && !empty($top_img['top_image3']['url'])) {
+                        $top_image3_url = esc_url($top_img['top_image3']['url']);
+                        echo '<img src="' . $top_image3_url . '" alt="">';
+                    }
+                ?>
+            </picture>
+            <picture class="topFVswiper__slide swiper-slide">
+                <?php
+                    $top_img = get_field('top_image');
+                    if ($top_img && !empty($top_img['top_image4']['url'])) {
+                        $top_image4_url = esc_url($top_img['top_image4']['url']);
+                        echo '<img src="' . $top_image4_url . '" alt="">';
+                    }
+                ?>
+            </picture>
         </div>
     </div>
     <div class="topFVswiper__texts">
-        <h2 class="topFVswiper__main-text">Nothing ventured,<br>nothing gained</h2>
+        <h2 class="topFVswiper__main-text">No Challenge,<br>No Success.</h2>
     </div>
-    <!--About us-->
+    <!--Biography-->
     <section class="top-biography top-biography-wrapper">
         <div class="top-biography__inner inner">
             <div class="top-biography__img-wrapper">
@@ -48,13 +53,15 @@
                         alt="大場李奈のプロフィール写真" />
                 </div>
             </div>
-            <div class="top-biography__texts">
+            <div class="top-biography__content">
                 <p class="top-biography__main-text">ObaRina</p>
-                <div class="top-biography__text">
-                    <p class="top-biography__title">『気魄』のピアニスト</p>
-                    <p>一つ一つの音に情熱を込めて演奏する様は<br>まさに『気魄』。</p>
-                    <p>内なる情熱と音楽に対する真摯な姿勢が感じられ、<br>聴衆を瞬時に引き込む。</p>
-                    <p>コンクール・コンサートなど様々な挑戦を続ける姿を<br>このホームページで発信していきます。</p>
+                <div class="top-biography__texts">
+                    <h3 class="top-biography__title">『気魄』のピアニスト</h3>
+                    <div class="top-biography__text">
+                        <p>一つ一つの音に情熱を込めて演奏する様は<br>まさに『気魄』。</p>
+                        <p>内なる情熱と音楽に対する真摯な姿勢が感じられ、<br>聴衆を瞬時に引き込む。</p>
+                        <p>コンクール・コンサートなど様々な挑戦を続ける姿を<br>このホームページで発信していきます。</p>
+                    </div>
                     <div class="top-biography__btn-wrapper">
                         <a href="<?php echo esc_url(home_url("biography")); ?>" class="top-biography__btn btn">Go to
                             Biography
@@ -132,11 +139,12 @@
             <p class="blog-card__no-message">ただいま準備中です。少々お待ちください。</p>
             <?php wp_reset_postdata(); ?>
             <?php endif; ?>
+            <div class="top-blog__btn-wrapper">
+                <a href="<?php echo esc_url(home_url("blog")); ?>" class="top-blog__btn btn">View more
+                    <span></span>
+                </a>
+            </div>
         </div>
-        <div class="top-blog__btn-wrapper">
-            <a href="<?php echo esc_url(home_url("blog")); ?>" class="top-blog__btn btn">View more
-                <span></span>
-            </a>
-        </div>
+
     </section>
     <?php get_footer(); ?>

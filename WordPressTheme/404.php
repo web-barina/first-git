@@ -4,7 +4,7 @@
     <section class="no-page__main">
         <div class="no-page__inner inner">
             <div class="no-page__title-wrapper">
-                <h1 class="no-page__title">404</h1>
+                <h1 class="no-page__title">Sorry...</h1>
             </div>
             <div class="no-page__texts">
                 <figure class="no-page__img">
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="no-page__btn-wrapper">
-                <a href="<?php echo home_url(); ?>" class="btn btn--white">Page TOP
+                <a href="<?php echo home_url(); ?>" class="btn">Back to TOP
                     <span></span>
                 </a>
             </div>
