@@ -60,14 +60,14 @@
 
 //テキスト全体
 .biography__content {
-  margin-top: rem(39);
+  margin-top: rem(40);
   display: grid;
   grid-template-columns: 1fr;
   row-gap: rem(0);
   border: solid rem(1) $white;
+  padding: rem(16);
 
   @include mq("md") {
-    margin-top: rem(41);
     width: min(rem(840), 80%);
     position: absolute;
     grid-template-columns: rem(340) 1fr;
@@ -75,7 +75,6 @@
     top: 32%;
     right: calc(50% - min(48.4vw, 31rem));
     background-color: rgba($color: $black, $alpha: 0.8);
-    padding: rem(16);
   }
 }
 

@@ -144,7 +144,7 @@ function add_thanks_wcf7() {
 echo <<< EOD
 <script>
 document.addEventListener( 'wpcf7mailsent', function( event ) {
-location = 'https://barina-blog-str.conohawing.com/codeups/thanks';
+location = 'https://barina-blog-str.conohawing.com/piano/thanks';
 }, false );
 </script>
 EOD;

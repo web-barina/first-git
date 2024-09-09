@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="robots" content="noindex" />
     <?php wp_head(  ); ?>
 </head>
 <meta name="google-site-verification" content="v0UHgqf8g-tm9mRoYNFcIwV_WdTZLM2TkKXzaN31TGU" />
@@ -23,13 +22,13 @@
         echo 'class="' . esc_attr(implode(' ', $classes)) . '"';
         body_class($classes);
     ?>>
-    <!--loading
+    <!--loading-->
     <?php
         if (is_front_page()) :
             ?>
     <div class="js-loading js-loading-left"></div>
     <div class="js-loading js-loading-right"></div>
-    <?php endif;?>-->
+    <?php endif;?>
     <!--header-->
     <header class="header">
         <!--SP-hamburger-header-->
@@ -39,7 +38,11 @@
                         alt="ObaRina" /></a>
             </h1>
             <div class="header__content">
-                <div class="header__hamburger" id="js-hamburger"><span></span><span></span><span></span></div>
+                <div class="header__hamburger" id="js-hamburger">
+                    <span></span>
+                    <span>Menu</span>
+                    <span></span>
+                </div>
                 <!--PC-header-->
                 <nav class="header__pc-nav">
                     <ul class="header__items">

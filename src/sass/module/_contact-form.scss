@@ -32,6 +32,8 @@
 
   @include mq("md") {
     width: 32%;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -45,6 +47,7 @@
   margin-left: rem(8);
   font-weight: $normal;
   padding: rem(2) 0;
+  height: fit-content;
 }
 
 .contact-form__text {

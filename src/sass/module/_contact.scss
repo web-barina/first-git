@@ -59,12 +59,10 @@
   width: 100%;
   aspect-ratio: 4/3;
   margin: rem(16) auto 0 auto;
-  text-shadow: 0 rem(4) rem(4) rgba($color: #000, $alpha: 0.25);
 
   @include mq("md") {
     aspect-ratio: 3/2;
     margin-top: 0;
-    text-shadow: none;
     width: 100%;
   }
 }
@@ -91,18 +89,10 @@
 //お問い合わせ右側テキスト
 .contact__text {
   color: $yellow;
-  margin-top: rem(10);
   font-size: rem(14);
-  text-shadow: 0 rem(4) rem(4) rgba($color: #000, $alpha: 0.25);
-
-  @include mq("md") {
-    text-shadow: none;
-    margin-top: rem(8);
-  }
 }
 
 .contact__btn-wrapper {
-  margin-top: rem(40);
   text-align: center;
   padding-bottom: rem(5);
 }
@@ -110,12 +100,12 @@
 //お問い合わせ、セクションタイトル
 .contact__title {
   font-family: $main-font;
-  font-size: rem(80);
+  font-size: rem(60);
+  font-weight: $normal;
   color: $white;
-  text-shadow: 0 rem(4) rem(4) rgba($color: #f7f7f7, $alpha: 0.5);
 
   @include mq("md") {
-    text-shadow: none;
+    font-size: rem(80);
   }
 }
 

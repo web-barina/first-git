@@ -29,6 +29,10 @@
   }
 }
 
+.top-performance__youtube-title {
+  border-bottom: solid rem(1) $yellow;
+}
+
 @include mq("md") {
   .top-performance__texts {
     align-content: center;

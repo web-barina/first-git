@@ -21,3 +21,13 @@
   flex-direction: row;
   gap: rem(8);
 }
+
+.bread__inner.inner {
+  max-width: rem(540);
+  width: 100%;
+
+  @include mq("md") {
+    max-width: rem(1200);
+    width: 100%;
+  }
+}

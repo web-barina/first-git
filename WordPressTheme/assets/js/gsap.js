@@ -10,8 +10,22 @@ textWrapBlog.forEach(function (t) {
   t.innerHTML = t.textContent.replace(/\S/g, "<span class='top-blog-span'>$&</span>");
 });
 
-//タイムライン定義
-var tl = gsap.timeline();
+//ローディング画面
+// カーテンを左右に開くアニメーション
+gsap.timeline().to(".js-loading-left", {
+  x: "-100%",
+  duration: 3,
+  ease: "power2.out"
+}).to(".js-loading-right", {
+  x: "100%",
+  duration: 3,
+  ease: "power2.out",
+  onComplete: function onComplete() {
+    gsap.set(".js-loading", {
+      display: "none"
+    });
+  }
+}, "-=3.0");
 
 // TOP アニメーション
 gsap.fromTo(".topFVswiper__texts", {
@@ -19,14 +33,30 @@ gsap.fromTo(".topFVswiper__texts", {
   opacity: 0
 }, {
   x: 0,
-  duration: 1.5,
+  duration: 2,
+  delay: 1.6,
   opacity: 1
 });
-gsap.fromTo(".top-biography__content", {
-  x: "20%",
+
+// タイムラインに scrollTrigger を設定
+var tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".top-biography__img",
+    start: "top 80%"
+  }
+});
+tl.fromTo(".top-biography__img", {
+  x: "-20%",
   opacity: 0
 }, {
   x: 0,
+  duration: 1.5,
+  opacity: 1
+}).fromTo(".top-biography__content", {
+  y: "20%",
+  opacity: 0
+}, {
+  y: 0,
   duration: 1.5,
   opacity: 1
 });
@@ -42,10 +72,31 @@ gsap.fromTo(".top-performance-span", {
   stagger: 0.1,
   scrollTrigger: {
     trigger: ".top-performance__title",
-    start: "top center",
-    // トリガー要素のどこからアニメーションを開始するか
-    markers: true // デバッグ用のマーカーを表示（納品時には削除）
+    start: "top 80%"
   }
+});
+gsap.fromTo(".top-performance__content", {
+  opacity: 0,
+  y: "20%"
+}, {
+  opacity: 1,
+  y: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".top-performance__content",
+    start: "top 80%"
+  }
+});
+gsap.from(".blog-cards__item", {
+  scrollTrigger: {
+    trigger: ".blog__cards",
+    start: "top 80%"
+  },
+  y: 50,
+  opacity: 0,
+  duration: 1,
+  ease: "power2.out",
+  stagger: 0.5
 });
 
 // .top-blog__title の文字をフェードインさせるアニメーション
@@ -59,13 +110,21 @@ gsap.fromTo(".top-blog-span", {
   stagger: 0.1,
   scrollTrigger: {
     trigger: ".top-blog__title",
-    start: "top center",
-    // トリガー要素のどこからアニメーションを開始するか
-    markers: true // デバッグ用のマーカーを表示（納品時には削除）
+    start: "top 80%"
   }
 });
-
-"use strict";
+gsap.fromTo(".contact__inner", {
+  opacity: 0,
+  y: "20%"
+}, {
+  opacity: 1,
+  y: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".contact__inner",
+    start: "top 80%"
+  }
+});
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
@@ -109,28 +168,6 @@ jQuery(function ($) {
     autoplay: {
       delay: 3000,
       disableOnInteraction: false
-    }
-  });
-
-  /******************
-   * campaign-swiper*
-   ******************/
-  var topCampaign = new Swiper("#js-topCampaign", {
-    slidesPerView: "auto",
-    loop: true,
-    speed: 1000,
-    autoplay: {
-      delay: 3000
-    },
-    spaceBetween: 24,
-    breakpoints: {
-      768: {
-        spaceBetween: 40
-      }
-    },
-    navigation: {
-      nextEl: ".topCampaign__next",
-      prevEl: ".topCampaign__prev"
     }
   });
 
@@ -208,56 +245,6 @@ jQuery(function ($) {
     return false; //リンク自体の無効化
   });
 
-  /******************************************
-   *キャンペーン、他のリンクから遷移した時の動き*
-   ******************************************/
-
-  document.addEventListener("DOMContentLoaded", function () {
-    // 現在のURLを取得
-    var urlParams = new URLSearchParams(window.location.search);
-    var category = urlParams.get("category");
-    // すべてのタブ要素を取得
-    var tabs = document.querySelectorAll(".tabs__item");
-    // すべてのタブからアクティブクラスを削除
-    tabs.forEach(function (tab) {
-      tab.classList.remove("js-active");
-    });
-    // 該当するタブにアクティブクラスを追加
-    if (category) {
-      var activeTab = document.querySelector('.tabs__item[href*="category=' + category + '"]');
-      // 選択したタブ要素をコンソールに表示して確認
-      console.log("Active Tab:", activeTab);
-      if (activeTab) {
-        activeTab.classList.add("js-active");
-      }
-    } else {
-      // 'ALL' タブをデフォルトでアクティブにする
-      var allTab = document.querySelector('.tabs__item[href*="category=all"]');
-      // 'ALL' タブ要素をコンソールに表示して確認
-      console.log("All Tab:", allTab);
-      if (allTab) {
-        allTab.classList.add("js-active");
-      }
-    }
-  });
-
-  /******************
-   *FAQアコーディオン*
-   ******************/
-  $(function () {
-    $(".faq__question").on("click", function () {
-      var $answer = $(this).next();
-      $answer.slideToggle(300);
-      $(this).toggleClass("open", 300);
-    });
-
-    // 初期状態で開いた状態にする
-    $(".faq__answer").each(function () {
-      $(this).show();
-      $(this).prev().addClass("open");
-    });
-  });
-
   /******************
    *AboutUs モーダル*
    *****************/
@@ -276,60 +263,6 @@ jQuery(function ($) {
     });
   }));
 
-  /*****************
-   *infoタブメニュー*
-   *****************/
-
-  $(document).ready(function () {
-    var tabButton = $(".info__tab"),
-      tabContent = $(".info__content");
-    function activateTab(tabId) {
-      tabButton.removeClass("js-active");
-      tabContent.removeClass("js-active");
-
-      // タブボタンとタブコンテンツを一致させる
-      tabButton.each(function (index) {
-        if ($(this).attr("id") === tabId) {
-          $(this).addClass("js-active");
-          tabContent.eq(index).addClass("js-active");
-        }
-      });
-    }
-
-    // ページ読み込み時にURLのハッシュを確認してタブを表示
-    var hash = window.location.hash;
-    if (hash) {
-      var tabId = hash.substring(1); // '#'を取り除く
-      activateTab(tabId);
-    }
-    var newUrl = $(".site-map__sub-titles a").on("click", function () {
-      var targetHash = $(this).attr("href").split("#")[1];
-      activateTab(targetHash);
-    });
-    console.log(newUrl);
-
-    // タブクリック時の処理
-    tabButton.on("click", function () {
-      var tabId = $(this).attr("id");
-      activateTab(tabId);
-
-      // URLにハッシュを追加（ページ遷移なし）
-      var newUrl = window.location.pathname + window.location.search + "#" + tabId;
-      history.pushState(null, "", newUrl);
-    });
-
-    // サイトマップのリンククリック時の処理
-    $(".site-map__sub-titles a").on("click", function () {
-      var targetHash = $(this).attr("href").split("#")[1];
-      activateTab(targetHash);
-    });
-
-    // 初回ロード時のデフォルトタブ
-    if (!hash) {
-      activateTab("license-info"); // デフォルトタブ
-    }
-  });
-
   /********************
    *サイドバーアーカイブ*
    ********************/
@@ -339,25 +272,4 @@ jQuery(function ($) {
       $(this).toggleClass("open", 300);
     });
   });
-
-  /***********************
-   *ローディング2回目非表示*
-   *********************
-  $(document).ready(function () {
-    // Cookieの値を取得
-    var loadingAnime = $.cookie("accessdate"); //キーが入っていれば年月日を取得
-    var myD = new Date(); //日付データを取得
-    var myYear = String(myD.getFullYear()); //年
-    var myMonth = ("0" + (myD.getMonth() + 1)).slice(-2); //月（2桁に補完）
-    var myDate = ("0" + myD.getDate()).slice(-2); //日（2桁に補完）
-    var today = myYear + myMonth + myDate; // yyyyMMdd形式の日付
-     // Cookieデータとアクセスした日付を比較
-    if (loadingAnime !== today) {
-      $(".js-loading").css("display", "block");
-       // Cookieに今日の日付をセットし、1日の有効期限を設定
-      $.cookie("accessdate", today, { expires: 1, path: "/" });
-    } else {
-      $(".js-loading").css("display", "none");
-    }
-  });**/
 });

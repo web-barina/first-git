@@ -9,11 +9,12 @@
 
 .sidebar__title {
   position: relative;
-  border-left: solid rem(8) $yellow;
-  padding: rem(8) 0 rem(8) rem(13);
+  border-left: solid rem(4) $yellow;
+  padding: rem(4) 0 rem(4) rem(30);
   font-size: rem(24);
-  font-weight: normal;
+  font-weight: $bold;
 }
+
 
 .sidebar__btn-wrapper {
   margin-top: rem(43);
@@ -27,20 +28,40 @@
 
 .sidebar__category-items li a {
   font-size: rem(24);
+  position: relative;
 }
 
 .sidebar__category-items li {
   background: url(../images/common/16beat-icon.svg) no-repeat;
-  background-size: auto rem(18);
+  background-size: auto rem(20);
   background-position: 0px;
-  padding-left: rem(22);
+  padding-left: rem(30);
   cursor: pointer;
   margin-top: rem(16);
 }
 
+.sidebar__category-items li a::before {
+  background: $yellow;
+  content: '';
+  width: 100%;
+  height: rem(2);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: transform .3s;
+}
+
+.sidebar__category-items li a:hover::before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
 .sidebar__archive-content {
   margin-top: rem(24);
-  color: $yellow;
+  color: $white;
   font-size: rem(24);
   padding-left: rem(32);
   cursor: pointer;

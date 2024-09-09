@@ -1,11 +1,11 @@
 @use "global" as *;
 
 .contact-form-wrapper {
-    margin-top: rem(52);
+    margin-top: rem(40);
     position: relative;
 
     @include mq("md") {
-        margin-top: rem(96);
+        margin-top: rem(80);
     }
 }
 
@@ -15,7 +15,7 @@
     display: block;
     background-image: url(../images/common/piano-top-deco.png);
     top: rem(0);
-    left: calc(50% - min(45.7vw, 10.8rem));
+    left: calc(50% - min(49vw, 11.5rem));
     max-width: rem(118);
     width: 100%;
     height: rem(55);

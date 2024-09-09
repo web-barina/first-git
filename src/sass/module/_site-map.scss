@@ -37,11 +37,7 @@
   }
 }
 
-//リストマーク付きのところ
 .site-map__main-title {
-  background: url(../images/common/note-deco.svg) no-repeat 0 0;
-  background-size: auto rem(18);
-  padding-left: rem(22);
   line-height: 1.125;
   font-weight: $bold;
   list-style: none;
@@ -49,10 +45,20 @@
   font-family: $main-font;
 }
 
-//リストマークつかないところ
-.site-map__sub-title {
-  margin-left: rem(22);
-  margin-top: rem(8);
-  line-height: 1.125;
-  font-size: rem(12);
+.site-map__titles {
+  display: flex;
+  flex-direction: column;
+  background: url(../images/common/note-deco.svg) no-repeat 0 0;
+  background-size: auto 70%;
+  background-position: left center;
+  padding-left: rem(32);
+}
+
+.site-map__titles:hover {
+  background-color: rgba(247, 247, 247, 0.25);
+  border-radius: 50%;
+  box-shadow: 0 0 0.625rem 0.625rem rgba(247, 247, 247, 0.25);
+  transition: ease 0.5s;
+  width: fit-content;
+  z-index: -1;
 }

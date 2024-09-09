@@ -13,7 +13,7 @@ input.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
     border: solid rem(1) $yellow;
     height: rem(40);
     padding: 0 rem(16);
-    background-color: $black;
+    background-color: rgba($color: $yellow, $alpha: 0.15);
     opacity: 1;
     color: $white;
 
@@ -33,6 +33,7 @@ textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required {
     height: rem(200);
     padding: rem(8);
     color: $white;
+    background-color: rgba($color: $yellow, $alpha: 0.15);
 
     @include mq("md") {
         margin-top: 0;
@@ -93,28 +94,28 @@ span.wpcf7-list-item-label {
 
 /* Webkitブラウザ（Chrome, Safari, Opera）用 */
 input.wpcf7-form-control.wpcf7-text::placeholder {
-    color: $light-yellow;
+    color: $black;
 }
 
 /* Firefox用 */
 input.wpcf7-form-control.wpcf7-text::-moz-placeholder {
-    color: $light-yellow;
+    color: $black;
     opacity: 1;
 }
 
 /* Internet Explorer用 */
 input.wpcf7-form-control.wpcf7-text:-ms-input-placeholder {
-    color: $light-yellow;
+    color: $black;
 }
 
 /* Edge用 */
 input.wpcf7-form-control.wpcf7-text::-ms-input-placeholder {
-    color: $light-yellow;
+    color: $black;
 }
 
 /* Safari用 */
 input.wpcf7-form-control.wpcf7-text::placeholder {
-    color: $light-yellow;
+    color: $black;
 }
 
 //送信ボタンのスピナーを消す

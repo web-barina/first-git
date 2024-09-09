@@ -2,15 +2,15 @@
 
 //トップブログセクション余白
 .top-blog-wrapper {
-  padding-top: rem(80);
   background-image: none;
+  position: relative;
 
   @include mq("md") {
     width: 100%;
     margin-top: rem(80);
     padding-top: rem(100);
     background-image: url(../images/common/piano-contact.jpg);
-    background-size: 100% rem(600);
+    background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
