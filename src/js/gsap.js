@@ -37,11 +37,11 @@ gsap
 gsap.fromTo(
   ".topFVswiper__texts",
   {
-    x: "20%",
+    y: "20%",
     opacity: 0,
   },
   {
-    x: 0,
+    y: 0,
     duration: 2,
     delay: 1.6,
     opacity: 1,

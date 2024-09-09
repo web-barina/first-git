@@ -112,9 +112,10 @@
 
   .header__items {
     margin-top: rem(60);
+    cursor: pointer;
   }
 
-  .header__pc-nav li:hover {
+  .header__items li:hover {
     background-color: rgba($color: $white, $alpha: 0.25);
     transition: ease .5s;
     border-radius: 50%;
@@ -122,8 +123,6 @@
     box-shadow: 0 0 rem(10) rem(10) rgba($color: $white, $alpha: 0.25);
   }
 }
-
-
 
 .header__site-map-wrapper {
   width: 100%;

@@ -1,33 +1,10 @@
 @use "global" as *;
 
 .contact-form-wrapper {
-    margin-top: rem(40);
-    position: relative;
+    margin-top: rem(50);
 
     @include mq("md") {
-        margin-top: rem(80);
-    }
-}
-
-.contact-form-wrapper::before {
-    position: absolute;
-    content: "";
-    display: block;
-    background-image: url(../images/common/piano-top-deco.png);
-    top: rem(0);
-    left: calc(50% - min(49vw, 11.5rem));
-    max-width: rem(118);
-    width: 100%;
-    height: rem(55);
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: -1;
-
-    @include mq("md") {
-        top: rem(-18);
-        left: calc(50% - min(29vw, 22.7rem));
-        max-width: rem(301);
-        height: rem(138);
+        margin-top: rem(100);
     }
 }
 

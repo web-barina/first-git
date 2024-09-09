@@ -17,7 +17,7 @@
                                             alt="<?php the_title(); ?>">
                                         <?php else : ?>
                                         <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.png"
-                                            alt="no-image" />
+                                            alt="" />
                                         <?php endif; ?>
                                     </figure>
                                 </div>

@@ -7,7 +7,7 @@
                     $top_img = get_field('top_image');
                     if ($top_img && !empty($top_img['top_image1']['url'])) {
                         $top_image1_url = esc_url($top_img['top_image1']['url']);
-                        echo '<img src="' . $top_image1_url . '" alt="">';
+                        echo '<img src="' . $top_image1_url . '" alt="ピアニスト大場李奈のホームページへようこそ">';
                     }
                 ?>
         </picture>
@@ -16,7 +16,7 @@
                     $top_img = get_field('top_image');
                     if ($top_img && !empty($top_img['top_image2']['url'])) {
                         $top_image2_url = esc_url($top_img['top_image2']['url']);
-                        echo '<img src="' . $top_image2_url . '" alt="">';
+                        echo '<img src="' . $top_image2_url . '" alt="ピアニスト大場李奈のホームページへようこそ">';
                     }
                 ?>
         </picture>
@@ -25,7 +25,7 @@
                     $top_img = get_field('top_image');
                     if ($top_img && !empty($top_img['top_image3']['url'])) {
                         $top_image3_url = esc_url($top_img['top_image3']['url']);
-                        echo '<img src="' . $top_image3_url . '" alt="">';
+                        echo '<img src="' . $top_image3_url . '" alt="ピアニスト大場李奈のホームページへようこそ">';
                     }
                 ?>
         </picture>
@@ -34,7 +34,7 @@
                     $top_img = get_field('top_image');
                     if ($top_img && !empty($top_img['top_image4']['url'])) {
                         $top_image4_url = esc_url($top_img['top_image4']['url']);
-                        echo '<img src="' . $top_image4_url . '" alt="">';
+                        echo '<img src="' . $top_image4_url . '" alt="ピアニスト大場李奈のホームページへようこそ">';
                     }
                 ?>
         </picture>
@@ -77,7 +77,7 @@
         <div class="top-performance__content">
             <div class="top-performance__img js-color-box"><img
                     src="<?php echo get_theme_file_uri(); ?>/assets/images/common/performance.jpg"
-                    alt="コンサートホールのピアノを弾いている大場李奈" /></div>
+                    alt="YouTubeの演奏動画はこちら" /></div>
             <div class="top-performance__texts">
                 <h3 class="top-performance__youtube-title">YouTube</h3>
                 <div class="top-performance__text">

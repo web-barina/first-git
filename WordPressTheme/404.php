@@ -9,7 +9,7 @@
             <div class="no-page__texts">
                 <figure class="no-page__img">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/barina-cry.png" alt="
-                        大場李奈の似顔絵アイコン（泣いている表情）">
+                        ">
                 </figure>
                 <div class="no-page__message">
                     <p>申し訳ありません。

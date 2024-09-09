@@ -4,7 +4,7 @@
 .photo:nth-child(6n + 1) {
     grid-row: span 2;
     position: relative;
-    aspect-ratio: 345/446;
+    aspect-ratio: 1/1;
     cursor: pointer;
 
     @include mq(md) {
@@ -19,9 +19,9 @@
 .photo:nth-child(6n + 3),
 .photo:nth-child(6n + 4),
 .photo:nth-child(6n + 5) {
+    grid-row: span 2;
     position: relative;
-    grid-row: span 1;
-    aspect-ratio: 345/219;
+    aspect-ratio: 1/1;
     cursor: pointer;
 
     @include mq(md) {

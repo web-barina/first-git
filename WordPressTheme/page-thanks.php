@@ -4,7 +4,7 @@
         <h2 class="contact-form__success-title">お問い合わせ内容を送信完了しました。</h2>
         <div class="contact-form__success">
             <div class="contact-form__success-img">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/barina-laugh.png" alt="大場李奈のアイコン">
+                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/barina-laugh.png" alt="">
             </div>
             <div class="contact-form__success-text">
                 <p>このたびは、お問い合わせ頂き<wbr />誠にありがとうございます。</p>

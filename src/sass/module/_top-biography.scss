@@ -43,13 +43,13 @@
 
 //テキスト全体
 .top-biography__content {
-  margin-top: rem(39);
+  margin-top: rem(20);
   display: grid;
   grid-template-columns: 1fr;
   row-gap: rem(0);
 
   @include mq("md") {
-    margin-top: rem(41);
+    margin-top: rem(40);
     width: min(rem(840), 80%);
     position: absolute;
     grid-template-columns: 1fr 1fr;
@@ -120,10 +120,12 @@
   position: relative;
   aspect-ratio: 128 / 194;
   width: 100%;
+  height: rem(300);
   z-index: 0;
 
   @include mq("md") {
     width: 37.03%;
+    height: 100%;
     margin-bottom: rem(55);
     aspect-ratio: 400 / 606;
   }
@@ -137,4 +139,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   object-fit: cover;
+  object-position: top;
+
+  @include mq("md") {
+    height: 100%;
+  }
 }

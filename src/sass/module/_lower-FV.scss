@@ -3,7 +3,7 @@
 .lower-FV__img {
   position: relative;
   width: 100%;
-  height: rem(460);
+  height: rem(360);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -25,18 +25,18 @@
 .lower-FV__img h1 {
   position: absolute;
   text-wrap: nowrap;
-  top: rem(229);
+  top: rem(200);
   left: 50%;
-  text-align: center;
   transform: translate(-50%, -50%);
   color: $white;
   font-weight: $normal;
-  font-size: rem(40);
+  font-size: rem(60);
   font-family: $main-font;
 
   @include mq("md") {
     top: rem(270);
     color: $white;
+    left: calc(50% - min(16.6vw, 14.5rem));
     line-height: 1.25;
     font-size: rem(80);
   }

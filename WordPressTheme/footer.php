@@ -13,13 +13,13 @@
                             alt="ObaRina" /></div>
                     <div class="contact__twitter">
                         <a href="https://x.com/mini_barina_pf" target="_blank">
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/twitter-icon01.png"
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/x-twitter-logo.png"
                                 alt="X(旧Twitter)" />
                         </a>
                     </div>
                     <div class="contact__instagram">
                         <a href="https://www.instagram.com/barina_str3811/" target="_blank">
-                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram-icon01.png"
+                            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/Instagram-logo.png"
                                 alt="instagram" />
                         </a>
                     </div>
@@ -42,8 +42,9 @@
 <!--footer-->
 <footer class="footer footer-wrapper" id="footer">
     <div class="footer__js-scroll-top" id="js-scroll-top">
-        <a href="#">Up!<img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/conductor.svg"
-                alt="ページの上部へ戻る" /></a>
+        <a href="#"><span class="footer__js-scroll-top-text">Up!<span><img
+                        src="<?php echo get_theme_file_uri(); ?>/assets/images/common/conductor.svg"
+                        alt="ページの上部へ戻る" /></a>
     </div>
     <div class="footer__inner inner">
         <div class="footer__icons">
@@ -55,12 +56,12 @@
             <div class="footer__sns-logos">
                 <div class="footer__sns-logo">
                     <a href="https://x.com/mini_barina_pf" target="_blank"><img
-                            src="<?php echo get_theme_file_uri(); ?>/assets/images/common/twitter-icon01.png"
+                            src="<?php echo get_theme_file_uri(); ?>/assets/images/common/x-twitter-logo.png"
                             alt="X" /></a>
                 </div>
                 <div class="footer__sns-logo">
                     <a href="https://www.instagram.com/barina_str3811/" target="_blank"><img
-                            src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagram-icon01.png"
+                            src="<?php echo get_theme_file_uri(); ?>/assets/images/common/Instagram-logo.png"
                             alt="instagram" /></a>
                 </div>
             </div>
@@ -111,7 +112,7 @@
                 </ul>
             </nav>
         </div>
-        <div class="footer__copy">Copyright © 2024 ObaRina All Rights Reserved.</div>
+        <div class="footer__copy">© 2024 ObaRina All Rights Reserved.</div>
     </div>
     <?php wp_footer(); ?>
 </footer>

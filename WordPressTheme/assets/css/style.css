@@ -150,49 +150,17 @@ a {
 }
 
 .biography-wrapper {
-	margin-top: 1.625rem;
+	margin-top: 3.125rem;
 	position: relative;
-}
-
-.biography-wrapper::after {
-	background-image: url(../images/common/piano-top-deco.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	display: block;
-	height: 6.25rem;
-	left: calc(50% - min(45.7vw, 10.8rem));
-	max-width: 6.25rem;
-	position: absolute;
-	top: -2.5rem;
-	width: 100%;
-	z-index: -1;
 }
 
 .blog-layout {
 	margin-top: 3.25rem;
-	position: relative;
-}
-
-.blog-layout::after {
-	background-image: url(../images/common/score-deco.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	display: block;
-	height: 6.25rem;
-	left: calc(50% - min(45.7vw, 10.8rem));
-	max-width: 6.25rem;
-	position: absolute;
-	top: -2.5rem;
-	width: 100%;
-	z-index: -1;
 }
 
 .blog-layout__2column {
 	display: flex;
 	flex-direction: column;
-	position: relative;
 }
 
 .blog-layout__inner.inner {
@@ -200,23 +168,7 @@ a {
 }
 
 .contact-form-wrapper {
-	margin-top: 2.5rem;
-	position: relative;
-}
-
-.contact-form-wrapper::before {
-	background-image: url(../images/common/piano-top-deco.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	display: block;
-	height: 3.4375rem;
-	left: calc(50% - min(49vw, 11.5rem));
-	max-width: 7.375rem;
-	position: absolute;
-	top: 0rem;
-	width: 100%;
-	z-index: -1;
+	margin-top: 3.125rem;
 }
 
 .contact-form-wrapper--success {
@@ -349,7 +301,7 @@ a {
 	height: 1.25rem;
 	left: -1.875rem;
 	position: absolute;
-	top: 0.9375rem;
+	top: 0.4375rem;
 	transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
 	width: 1.25rem;
 }
@@ -375,7 +327,7 @@ a {
 	height: 1.25rem;
 	left: -1.875rem;
 	position: absolute;
-	top: 0.9375rem;
+	top: 0.4375rem;
 	transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
 	width: 1.25rem;
 }
@@ -1090,6 +1042,10 @@ input[type=checkbox]:checked:before {
 	width: 100%;
 }
 
+span.footer__js-scroll-top-text {
+	text-align: center;
+}
+
 .gallery__photos-wrapper {
 	margin-top: 2.5rem;
 }
@@ -1309,7 +1265,7 @@ input[type=checkbox]:checked:before {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 28.75rem;
+	height: 22.5rem;
 	position: relative;
 	position: relative;
 	width: 100%;
@@ -1329,12 +1285,11 @@ input[type=checkbox]:checked:before {
 	text-wrap: nowrap;
 	color: #F7F7F7;
 	font-family: "Source Serif 4", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
-	font-size: 2.5rem;
+	font-size: 3.75rem;
 	font-weight: 400;
 	left: 50%;
 	position: absolute;
-	text-align: center;
-	top: 14.3125rem;
+	top: 12.5rem;
 	transform: translate(-50%, -50%);
 }
 
@@ -1641,23 +1596,7 @@ a.previouspostslink {
 }
 
 .performance {
-	margin-top: 3.1875rem;
-	position: relative;
-}
-
-.performance::after {
-	background-image: url(../images/common/piano-top-deco.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	content: "";
-	display: block;
-	height: 6.25rem;
-	left: calc(50% - min(45.7vw, 10.8rem));
-	max-width: 6.25rem;
-	position: absolute;
-	top: -2.5rem;
-	width: 100%;
-	z-index: -1;
+	margin-top: 3.125rem;
 }
 
 .performance__inner.inner {
@@ -1667,7 +1606,7 @@ a.previouspostslink {
 
 .photo:nth-child(6n),
 .photo:nth-child(6n+1) {
-	aspect-ratio: 345/446;
+	aspect-ratio: 1/1;
 	cursor: pointer;
 	grid-row: span 2;
 	position: relative;
@@ -1677,9 +1616,9 @@ a.previouspostslink {
 .photo:nth-child(6n+3),
 .photo:nth-child(6n+4),
 .photo:nth-child(6n+5) {
-	aspect-ratio: 345/219;
+	aspect-ratio: 1/1;
 	cursor: pointer;
-	grid-row: span 1;
+	grid-row: span 2;
 	position: relative;
 }
 
@@ -1699,6 +1638,7 @@ a.previouspostslink {
 	display: grid;
 	gap: 0.5rem;
 	grid-auto-rows: 1fr;
+	grid-template-columns: repeat(2, 1fr);
 }
 
 .popular-card {
@@ -1912,7 +1852,7 @@ select {
 }
 
 .sidebar__category-items li a {
-	font-size: 1.5rem;
+	font-size: 1rem;
 	position: relative;
 }
 
@@ -1947,7 +1887,7 @@ select {
 .sidebar__archive-content {
 	color: #F7F7F7;
 	cursor: pointer;
-	font-size: 1.5rem;
+	font-size: 1rem;
 	margin-top: 1.5rem;
 	padding-left: 2rem;
 }
@@ -1982,10 +1922,10 @@ select {
 .site-map__titles {
 	background: url(../images/common/note-deco.svg) no-repeat 0 0;
 	background-position: left center;
-	background-size: auto 70%;
+	background-size: auto 35%;
 	display: flex;
 	flex-direction: column;
-	padding-left: 2rem;
+	padding: 1rem 1rem 1rem 2rem;
 }
 
 .site-map__titles:hover {
@@ -2059,7 +1999,7 @@ select {
 	grid-row-gap: 0rem;
 	display: grid;
 	grid-template-columns: 1fr;
-	margin-top: 2.4375rem;
+	margin-top: 1.25rem;
 	row-gap: 0rem;
 }
 
@@ -2094,6 +2034,7 @@ select {
 
 .top-biography__img {
 	aspect-ratio: 128/194;
+	height: 18.75rem;
 	margin-bottom: 1.125rem;
 	position: relative;
 	width: 100%;
@@ -2102,9 +2043,11 @@ select {
 
 .top-biography__img > img {
 	-o-object-fit: cover;
+	-o-object-position: top;
 	height: 100%;
 	left: 50%;
 	object-fit: cover;
+	object-position: top;
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
@@ -2521,24 +2464,11 @@ html {
 }
 
 .biography-wrapper {
-	margin-top: 9.375rem;
-}
-
-.biography-wrapper::after {
-	height: 12.5rem;
-	left: calc(50% - min(36vw, 24rem));
-	max-width: 12.5rem;
-	top: -5.625rem;
+	margin-top: 6.25rem;
 }
 
 .blog-layout {
 	margin-top: 6.25rem;
-}
-
-.blog-layout::after {
-	height: 12.5rem;
-	left: calc(50% - min(43vw, 38.7rem));
-	max-width: 12.5rem;
 }
 
 .blog-layout__2column {
@@ -2551,14 +2481,7 @@ html {
 }
 
 .contact-form-wrapper {
-	margin-top: 5rem;
-}
-
-.contact-form-wrapper::before {
-	height: 8.625rem;
-	left: calc(50% - min(29vw, 22.7rem));
-	max-width: 18.8125rem;
-	top: -1.125rem;
+	margin-top: 6.25rem;
 }
 
 .contact-form-wrapper--success {
@@ -2577,7 +2500,7 @@ html {
 	height: 18.75rem;
 	max-width: 18.75rem;
 	right: calc(50% - min(46.4vw, 42rem));
-	top: -6rem;
+	top: -6.25rem;
 }
 
 .footer-wrapper {
@@ -2982,10 +2905,11 @@ input[type=checkbox] {
 }
 
 .header__items {
+	cursor: pointer;
 	margin-top: 3.75rem;
 }
 
-.header__pc-nav li:hover {
+.header__items li:hover {
 	background-color: rgba(247, 247, 247, 0.25);
 	border-radius: 50%;
 	box-shadow: 0 0 0.625rem 0.625rem rgba(247, 247, 247, 0.25);
@@ -3024,6 +2948,7 @@ input[type=checkbox] {
 .lower-FV__img h1 {
 	color: #F7F7F7;
 	font-size: 5rem;
+	left: calc(50% - min(16.6vw, 14.5rem));
 	line-height: 1.25;
 	top: 16.875rem;
 }
@@ -3065,14 +2990,7 @@ input[type=checkbox] {
 }
 
 .performance {
-	margin-top: 9.375rem;
-}
-
-.performance::after {
-	height: 12.5rem;
-	left: calc(50% - min(43vw, 38.7rem));
-	max-width: 12.5rem;
-	top: -5.625rem;
+	margin-top: 6.25rem;
 }
 
 .performance__inner.inner {
@@ -3183,7 +3101,7 @@ select {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	gap: 2.25rem;
+	gap: 1.5rem;
 	text-align: center;
 }
 
@@ -3210,7 +3128,7 @@ select {
 	border: solid 0.0625rem #F7F7F7;
 	color: #F7F7F7;
 	grid-template-columns: 1fr 1fr;
-	margin-top: 2.5625rem;
+	margin-top: 2.5rem;
 	padding: 1rem;
 	position: absolute;
 	right: calc(50% - min(48.4vw, 31rem));
@@ -3242,8 +3160,13 @@ select {
 
 .top-biography__img {
 	aspect-ratio: 400/606;
+	height: 100%;
 	margin-bottom: 3.4375rem;
 	width: 37.03%;
+}
+
+.top-biography__img > img {
+	height: 100%;
 }
 
 .top-blog__inner {
