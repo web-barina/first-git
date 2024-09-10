@@ -116,18 +116,20 @@
   border-bottom: solid rem(1) $yellow;
 }
 
-//Biography背景画像左側
+//Biography背景画像
 .biography__img {
   margin-bottom: rem(18);
-  position: relative; //写真比率管理用
+  position: relative;
   aspect-ratio: 128 / 194;
   width: 100%;
+  height: rem(420);
   z-index: 0;
 
   @include mq("md") {
     margin-bottom: rem(55);
     aspect-ratio: 400 / 606;
     width: 37.03%;
+    height: 100%;
   }
 }
 
@@ -139,4 +141,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   object-fit: cover;
+  object-position: top;
+
+  @include mq("md") {
+    height: 100%;
+  }
 }

@@ -183,6 +183,7 @@ a {
 .contact-wrapper {
 	margin: 3.9375rem auto 0 auto;
 	position: relative;
+	z-index: 1;
 }
 
 .contact-wrapper::after {
@@ -197,7 +198,7 @@ a {
 	right: calc(50% - min(46.4vw, 10.8rem));
 	top: -2.875rem;
 	width: 100%;
-	z-index: -1;
+	z-index: 10;
 }
 
 .footer-wrapper {
@@ -403,6 +404,7 @@ a {
 
 .biography__img {
 	aspect-ratio: 128/194;
+	height: 26.25rem;
 	margin-bottom: 1.125rem;
 	position: relative;
 	width: 100%;
@@ -411,9 +413,11 @@ a {
 
 .biography__img > img {
 	-o-object-fit: cover;
+	-o-object-position: top;
 	height: 100%;
 	left: 50%;
 	object-fit: cover;
+	object-position: top;
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -50%);
@@ -921,7 +925,6 @@ input[type=checkbox]:checked:before {
 
 .contact__content-inner {
 	align-items: center;
-	background-color: rgba(247, 247, 247, 0.15);
 	display: flex;
 	flex-direction: column;
 	padding: 1.5rem;
@@ -944,8 +947,14 @@ input[type=checkbox]:checked:before {
 
 .contact__twitter,
 .contact__instagram {
-	height: 2rem;
-	width: 2rem;
+	height: 1rem;
+	transition-duration: 0.5s;
+	width: 1rem;
+}
+
+.contact__twitter:hover,
+.contact__instagram:hover {
+	transform: scale(1.5);
 }
 
 .contact__img {
@@ -987,7 +996,7 @@ input[type=checkbox]:checked:before {
 	font-weight: 400;
 }
 
-.contact__titles::first-letter {
+.contact__title::first-letter {
 	color: #ECBF09;
 }
 
@@ -1023,7 +1032,12 @@ input[type=checkbox]:checked:before {
 .footer__sns-logo {
 	cursor: pointer;
 	height: auto;
+	transition-duration: 0.5s;
 	width: 1.21875rem;
+}
+
+.footer__sns-logo:hover {
+	transform: scale(1.5);
 }
 
 .footer__copy {
@@ -1051,7 +1065,7 @@ span.footer__js-scroll-top-text {
 }
 
 .header {
-	background-color: rgba(30, 34, 50, 0.68);
+	background-color: #1E2232;
 	height: 5rem;
 	left: 0;
 	overscroll-behavior-y: contain;
@@ -1920,22 +1934,19 @@ select {
 }
 
 .site-map__titles {
-	background: url(../images/common/note-deco.svg) no-repeat 0 0;
-	background-position: left center;
-	background-size: auto 35%;
 	display: flex;
 	flex-direction: column;
-	padding: 1rem 1rem 1rem 2rem;
 }
 
 .site-map__titles:hover {
 	background-color: rgba(247, 247, 247, 0.25);
+	background-size: 90%;
 	border-radius: 50%;
 	box-shadow: 0 0 0.625rem 0.625rem rgba(247, 247, 247, 0.25);
 	transition: ease 0.5s;
 	width: -moz-fit-content;
 	width: fit-content;
-	z-index: -1;
+	z-index: 1;
 }
 
 .title {
@@ -2034,7 +2045,7 @@ select {
 
 .top-biography__img {
 	aspect-ratio: 128/194;
-	height: 18.75rem;
+	height: 26.25rem;
 	margin-bottom: 1.125rem;
 	position: relative;
 	width: 100%;
@@ -2623,8 +2634,13 @@ html {
 
 .biography__img {
 	aspect-ratio: 400/606;
+	height: 100%;
 	margin-bottom: 3.4375rem;
 	width: 37.03%;
+}
+
+.biography__img > img {
+	height: 100%;
 }
 
 .blog-article {
@@ -2770,7 +2786,6 @@ input[type=checkbox] {
 }
 
 .contact__content-inner {
-	box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.25);
 	flex-direction: row;
 	gap: 1.5rem;
 	max-width: 67.5rem;
@@ -3101,7 +3116,7 @@ select {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	gap: 1.5rem;
+	gap: 2rem;
 	text-align: center;
 }
 

@@ -5,7 +5,7 @@
   position: fixed;
   width: 100%;
   height: rem(80);
-  background-color: rgba($color: $black, $alpha: 0.68);
+  background-color: $black;
   z-index: 500;
   overscroll-behavior-y: contain;
   top: 0;

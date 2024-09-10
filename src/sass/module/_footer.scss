@@ -22,6 +22,7 @@
   }
 }
 
+
 //フッターロゴ・SNSロゴ周り
 .footer__icons {
   display: flex;
@@ -61,10 +62,15 @@
   width: rem(19.5);
   height: auto;
   cursor: pointer;
+  transition-duration: .5s;
 
   @include mq("md") {
     width: rem(24);
   }
+}
+
+.footer__sns-logo:hover {
+  transform: scale(1.5);
 }
 
 //コピーライト
