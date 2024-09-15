@@ -126,7 +126,7 @@
                             class="blog-card__time"><?php the_time('Y.m.d') ?></time>
                         <h2 class="blog-card__title"><?php the_title() ?></h2>
                         <p class="blog-card__text">
-                            <?php echo wp_trim_words(get_the_content(), 60, '…'); ?>
+                            <?php echo wp_trim_words(get_the_content(), 60, '…続きを読む'); ?>
                         </p>
                     </div>
                 </a>

@@ -33,9 +33,7 @@
     <header class="header">
         <!--SP-hamburger-header-->
         <div class="header__inner">
-            <h1 class="header__logo"><a href="<?php echo esc_url(home_url()); ?>"><img
-                        src="<?php echo get_theme_file_uri(); ?>/assets/images/common/obarina-logo.png"
-                        alt="ObaRina" /></a>
+            <h1 class="header__logo"><a href="<?php echo esc_url(home_url()); ?>">ObaRina</a>
             </h1>
             <div class="header__content">
                 <div class="header__hamburger" id="js-hamburger">
@@ -67,6 +65,14 @@
                                 <div class="header__titles">
                                     <p class="header__titles-english">Blog</p>
                                     <p class="header__titles-japanese">ブログ</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="header__item">
+                            <a href="<?php echo esc_url(home_url('repertory')); ?>">
+                                <div class="header__titles">
+                                    <p class="header__titles-english">Repertory</p>
+                                    <p class="header__titles-japanese">レパートリー</p>
                                 </div>
                             </a>
                         </li>
@@ -121,6 +127,14 @@
                                 </a>
                             </li>
                             <li class="site-map__item">
+                                <a href="<?php echo esc_url(home_url('repertory')); ?>">
+                                    <div class="site-map__titles">
+                                        <p class="site-map__main-title">Repertory</p>
+                                        <p class="site-map__sub-title">レパートリー</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="site-map__item">
                                 <a href="<?php echo esc_url(home_url('contact')); ?>">
                                     <div class="site-map__titles">
                                         <p class="site-map__main-title">Contact</p>
@@ -149,10 +163,16 @@
             <h1>Biography</h1>
         </div>
     </section>
-    <?php elseif (is_home('blog') || is_single() || is_date() || is_category()) : ?>
+    <?php elseif (is_home('blog') || is_single() || is_search() || is_date() || is_category()) : ?>
     <section class="lower-FV">
         <div class="lower-FV__img lower-FV__img--blog">
             <h1>Blog</h1>
+        </div>
+    </section>
+    <?php elseif (is_archive('repertory')) : ?>
+    <section class="lower-FV">
+        <div class="lower-FV__img lower-FV__img--repertory">
+            <h1>Repertory</h1>
         </div>
     </section>
     <?php elseif (is_page('contact') || is_page('thanks') ) : ?>

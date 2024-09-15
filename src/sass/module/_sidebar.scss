@@ -15,16 +15,10 @@
   font-weight: $bold;
 }
 
-
 .sidebar__btn-wrapper {
-  margin-top: rem(43);
+  margin-top: rem(40);
   text-align: center;
-
-  @include mq("md") {
-    margin-top: rem(41);
-  }
 }
-
 
 .sidebar__category-items li a {
   font-size: rem(16);
@@ -65,4 +59,8 @@
   font-size: rem(16);
   padding-left: rem(32);
   cursor: pointer;
+}
+
+.sidebar__search-wrapper {
+  margin-top: rem(24);
 }

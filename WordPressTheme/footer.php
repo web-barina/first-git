@@ -8,9 +8,7 @@
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/profile2.JPG" alt="大場李奈">
                 </div>
                 <div class="contact__sns">
-                    <div class="contact__logo"><img
-                            src="<?php echo get_theme_file_uri(); ?>/assets/images/common/obarina-logo.png"
-                            alt="ObaRina" /></div>
+                    <div class="contact__logo">ObaRina</div>
                     <div class="contact__twitter">
                         <a href="https://x.com/mini_barina_pf" target="_blank">
                             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/x-twitter-logo.png"
@@ -49,9 +47,7 @@
     <div class="footer__inner inner">
         <div class="footer__icons">
             <div class="footer__logo">
-                <a href="<?php echo home_url(); ?>"><img
-                        src="<?php echo get_theme_file_uri(); ?>/assets/images/common/obarina-logo.png"
-                        alt="ObaRina" /></a>
+                ObaRina
             </div>
             <div class="footer__sns-logos">
                 <div class="footer__sns-logo">
@@ -90,6 +86,14 @@
                             <div class="site-map__titles">
                                 <span class="site-map__main-title">Blog</span>
                                 <span class="site-map__sub-title">ブログ</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="site-map__item">
+                        <a href="<?php echo esc_url(home_url('repertory')); ?>">
+                            <div class="site-map__titles">
+                                <span class="site-map__main-title">Repertory</span>
+                                <span class="site-map__sub-title">レパートリー</span>
                             </div>
                         </a>
                     </li>

@@ -35,7 +35,8 @@
                         <?php endwhile; ?>
                     </ul>
                     <?php else : ?>
-                    <p class="blog-card__no-message">ただいま準備中です。少々お待ちください。</p>
+                    <p class="blog-card__no-message">検索結果が見つかりませんでした。<br>
+                        キーワードを変えて検索してみてください。</p>
                     <?php endif; ?>
                     <div class="blog-card__pager-wrapper">
                         <div class="blog-card__pager pager">

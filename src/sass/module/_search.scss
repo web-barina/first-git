@@ -1,0 +1,15 @@
+@use "global" as *;
+
+input.search-field {
+    background-color: $white;
+}
+
+input.search-submit {
+    background-color: $white;
+    margin-top: rem(24);
+    transition: .3s;
+}
+
+input.search-submit:hover {
+    background-color: $yellow;
+}

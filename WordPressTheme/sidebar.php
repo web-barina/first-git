@@ -90,6 +90,12 @@
                     <?php endforeach; ?>
                 </div>
             </section>
+            <section class="sidebar__search">
+                <h2 class="sidebar__title">Search</h2>
+                <div class="sidebar__search-wrapper">
+                    <?php get_search_form(); ?>
+                </div>
+            </section>
         </aside>
     </div>
 </div>
