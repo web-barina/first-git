@@ -2425,40 +2425,40 @@ span.wpcf7-list-item-label {
 /* Webkitブラウザ（Chrome, Safari, Opera）用 */
 
 input.wpcf7-form-control.wpcf7-text::-moz-placeholder {
-	color: #1E2232;
+	color: #F7F7F7;
 }
 
 input.wpcf7-form-control.wpcf7-text::placeholder {
-	color: #1E2232;
+	color: #F7F7F7;
 }
 
 /* Firefox用 */
 
 input.wpcf7-form-control.wpcf7-text::-moz-placeholder {
-	color: #1E2232;
+	color: #F7F7F7;
 	opacity: 1;
 }
 
 /* Internet Explorer用 */
 
 input.wpcf7-form-control.wpcf7-text:-ms-input-placeholder {
-	color: #1E2232;
+	color: #F7F7F7;
 }
 
 /* Edge用 */
 
 input.wpcf7-form-control.wpcf7-text::-ms-input-placeholder {
-	color: #1E2232;
+	color: #F7F7F7;
 }
 
 /* Safari用 */
 
 input.wpcf7-form-control.wpcf7-text::-moz-placeholder {
-	color: #1E2232;
+	color: #F7F7F7;
 }
 
 input.wpcf7-form-control.wpcf7-text::placeholder {
-	color: #1E2232;
+	color: #F7F7F7;
 }
 
 .wpcf7-spinner {
@@ -2799,7 +2799,6 @@ html {
 }
 
 .contact-form__item {
-	border-bottom: solid 1px #ECBF09;
 	flex-direction: row;
 	gap: 1%;
 	max-width: 60.9375rem;
@@ -2829,7 +2828,6 @@ html {
 
 .contact-form__agreement {
 	gap: 0.9375rem;
-	margin-top: 5rem;
 }
 
 .contact-form__agreement label {

@@ -94,28 +94,28 @@ span.wpcf7-list-item-label {
 
 /* Webkitブラウザ（Chrome, Safari, Opera）用 */
 input.wpcf7-form-control.wpcf7-text::placeholder {
-    color: $black;
+    color: $white;
 }
 
 /* Firefox用 */
 input.wpcf7-form-control.wpcf7-text::-moz-placeholder {
-    color: $black;
+    color: $white;
     opacity: 1;
 }
 
 /* Internet Explorer用 */
 input.wpcf7-form-control.wpcf7-text:-ms-input-placeholder {
-    color: $black;
+    color: $white;
 }
 
 /* Edge用 */
 input.wpcf7-form-control.wpcf7-text::-ms-input-placeholder {
-    color: $black;
+    color: $white;
 }
 
 /* Safari用 */
 input.wpcf7-form-control.wpcf7-text::placeholder {
-    color: $black;
+    color: $white;
 }
 
 //送信ボタンのスピナーを消す

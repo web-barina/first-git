@@ -18,7 +18,6 @@
   order: 2;
 
   @include mq("md") {
-    border-bottom: solid 1px $yellow;
     flex-direction: row;
     padding: rem(39) 0;
     gap: calc(100% - (68% + 31%));
@@ -113,7 +112,6 @@
   justify-content: center;
 
   @include mq("md") {
-    margin-top: rem(80);
     gap: rem(15);
   }
 }
