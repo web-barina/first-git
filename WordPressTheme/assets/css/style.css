@@ -462,7 +462,7 @@ a {
 }
 
 .blog-article__content li::before {
-	background-image: url(../images/common/blog-article-icon.png);
+	background-image: url(../images/common/16beat-icon.svg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -2044,7 +2044,7 @@ select {
 	letter-spacing: 0.1em;
 	padding: 0 1rem;
 	position: relative;
-	text-align: center;
+	text-align: left;
 	width: -moz-fit-content;
 	width: fit-content;
 }
@@ -2069,7 +2069,6 @@ select {
 
 .title--youtube {
 	letter-spacing: 0;
-	text-align: left;
 	width: 100%;
 }
 
@@ -2747,10 +2746,6 @@ html {
 
 .blog-article__thumbnail,
 .blog-article__content figure {
-	margin-top: 2.5rem;
-}
-
-.blog-article__content p {
 	margin-top: 2.5rem;
 }
 

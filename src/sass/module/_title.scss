@@ -6,7 +6,7 @@
   padding: 0 rem(16);
   letter-spacing: 0.1em;
   width: fit-content;
-  text-align: center;
+  text-align: left;
   font-size: rem(24);
 
   @include mq("md") {
@@ -34,7 +34,6 @@
 }
 
 .title--youtube {
-  text-align: left;
   letter-spacing: 0;
   width: 100%;
 }

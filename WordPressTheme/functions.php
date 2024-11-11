@@ -205,6 +205,7 @@ echo '<ul class="custom_widget">
             <li><a href="edit.php"><div class="dashicons dashicons-list-view"></div><p>過去のブログ一覧</p></a></li>
             <li><a href="post.php?post=47&action=edit"><div class="dashicons dashicons-format-image"></div><p>トップ上部の画像編集</p></a></li>
             <li><a href="post.php?post=12&action=edit"><div class="dashicons dashicons-format-image"></div><p>ギャラリー</p></a></li>
+            <li><a href="edit.php?post_type=repertory"><div class="dashicons dashicons-edit"></div><p>レパートリーの更新</p></a></li>
             <li><a href="post.php?post=30&action=edit"><div class="dashicons dashicons-edit"></div><p>プライバシーポリシー</p></a></li>
             </ul>';
 }

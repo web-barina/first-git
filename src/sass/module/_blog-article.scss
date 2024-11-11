@@ -43,10 +43,6 @@
 .blog-article__content p {
     margin-top: rem(24);
     color: $white;
-
-    @include mq("md") {
-        margin-top: rem(40);
-    }
 }
 
 .blog-article__content ul {
@@ -67,7 +63,7 @@
     position: absolute;
     content: "";
     display: block;
-    background-image: url(../images/common/blog-article-icon.png);
+    background-image: url(../images/common/16beat-icon.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
