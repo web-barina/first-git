@@ -13,12 +13,10 @@
 
 //Biography画像全体
 .biography__img-wrapper {
-  margin-top: rem(28);
   display: flex;
   flex-direction: row;
 
   @include mq("md") {
-    margin-top: rem(40);
     position: relative;
   }
 }
@@ -90,12 +88,7 @@
 }
 
 .biography__texts {
-  margin-top: rem(16);
   font-weight: $regular;
-
-  @include mq("md") {
-    margin-top: rem(0);
-  }
 }
 
 .biography__text {

@@ -345,7 +345,6 @@ a {
 .biography__img-wrapper {
 	display: flex;
 	flex-direction: row;
-	margin-top: 1.75rem;
 }
 
 .biography__img-wrapper::after {
@@ -381,7 +380,6 @@ a {
 
 .biography__texts {
 	font-weight: 300;
-	margin-top: 1rem;
 }
 
 .biography__text {
@@ -2607,7 +2605,7 @@ html {
 }
 
 .gallery-wrapper {
-	margin-top: 10.625rem;
+	margin-top: 15rem;
 	position: relative;
 }
 
@@ -2680,7 +2678,6 @@ html {
 }
 
 .biography__img-wrapper {
-	margin-top: 2.5rem;
 	position: relative;
 }
 
@@ -2714,10 +2711,6 @@ html {
 .biography__main-text {
 	color: #F7F7F7;
 	font-size: 5rem;
-}
-
-.biography__texts {
-	margin-top: 0rem;
 }
 
 .biography__img {
@@ -2917,10 +2910,6 @@ input[type=checkbox] {
 
 .footer__site-map-wrapper {
 	margin-top: 1.5rem;
-}
-
-.gallery__photos-wrapper {
-	margin-top: 5rem;
 }
 
 .header {
